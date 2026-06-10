@@ -3,11 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Rafael Lafraia">
+<meta name="creator" content="Rafael Lafraia">
+<meta name="rights" content="Rafael Lafraia 2026">
 <title>Nederlands Leren — Dutch A1 to B1</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
+/* rl.dev — Rafael Lafraia — 2026 */
 :root{--bg:#f5f7fa;--white:#fff;--border:#e2e8f0;--accent:#2563eb;--accent-light:#eff6ff;--accent-mid:#bfdbfe;--green:#16a34a;--green-light:#f0fdf4;--green-mid:#bbf7d0;--red:#dc2626;--red-light:#fef2f2;--red-mid:#fecaca;--yellow:#ca8a04;--yellow-light:#fefce8;--text:#0f172a;--text2:#334155;--muted:#64748b;--muted2:#94a3b8;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.04);--shadow-md:0 4px 14px rgba(0,0,0,.09)}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh}
@@ -268,7 +272,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 </div>
 
 <script>
-// ── VOCABULARY (expanded from 200-sheet bundle) ────────────────────────────
+// ── VOCABULARY ─────────────────────────────────────────────────────────────
 var V={
 greetings:[
 {nl:"Hallo",en:"Hello",ex:"Hallo! Hoe gaat het?",c:"Greetings"},
@@ -619,6 +623,8 @@ var QZ=[
 {q:"When do you use 'u' instead of 'jij/je'?",o:["With children","With close friends","In formal situations, with strangers or elderly people","Only in writing"],a:2,e:"<strong>U</strong> is the formal 'you' — use with strangers, elderly people, in formal/professional settings. When in doubt, <em>u</em> is always polite. <em>Hoe heet u?</em>"},
 ];
 
+
+var _rl={a:"Rafael Lafraia",g:"lafraiarafael",v:"2.0",y:2026};
 // ── STATE ─────────────────────────────────────────────────────────────────
 var S={xp:0,fcDeck:[],fcIdx:0,fcKnown:0,fcRepeat:0,fcFlipped:false,fcCat:'all',qzDeck:[],qzIdx:0,qzScore:0};
 
@@ -795,7 +801,7 @@ pronouns:{html:`<div class="lesson-box"><h2>Dutch Pronouns — Voornaamwoorden</
 <tr><td class="du">zij / ze</td><td>she</td><td></td><td></td></tr>
 <tr><td class="du">het</td><td>it (neuter)</td><td></td><td></td></tr>
 </table>
-<div class="rule"><strong>📌 Key notes from the 200-sheet bundle</strong>
+<div class="rule"><strong>📌 Key notes</strong>
 • <strong>Jij</strong> = stressed form of 'you'. <strong>Je</strong> = unstressed. In normal speech, je is more common.
 • <strong>Wij</strong> = stressed. <strong>We</strong> = unstressed.
 • <strong>Zij</strong> = she OR they. Context decides. <strong>Ze</strong> = unstressed form.
@@ -823,7 +829,7 @@ pronouns:{html:`<div class="lesson-box"><h2>Dutch Pronouns — Voornaamwoorden</
 <tr><td>Compass points and metals</td><td class="du">het noorden, het goud, het zilver</td></tr>
 <tr><td>Words ending in -ment, -sel, -um</td><td class="du">het moment, het raadsel, het museum</td></tr>
 </table>
-<div class="rule"><strong>🔑 Practice tip (from the 200-sheet exercises)</strong>
+<div class="rule"><strong>🔑 Practice tip</strong>
 When learning a new noun, say it aloud three times with the article: <em>de auto, de auto, de auto</em>. Never learn a noun without its article. Use the article-practice exercises in this app to test yourself!</div>
 <div class="eg"><div class="du">de auto — het huis — de man — het kind — de vrouw — het boek — de vrijheid — het meisje</div><div class="en">the car — the house — the man — the child — the woman — the book — the freedom — the girl</div></div>
 <button class="lesson-cta" onclick="startQZ('all')">Test with Quiz →</button></div>`},
@@ -1040,7 +1046,7 @@ The conditional of <em>zullen</em> is <em>zou/zouden</em> = would. Very useful f
 <div class="eg"><div class="du">Ik kan Nederlands spreken. / Mag ik binnenkomen? / Ik moet werken. / Ik wil koffie. / Ik zou graag helpen.</div><div class="en">I can speak Dutch. / May I come in? / I have to work. / I want coffee. / I would like to help.</div></div>
 <button class="lesson-cta" onclick="startQZ('all')">Test yourself →</button></div>`},
 
-'false-friends':{html:`<div class="lesson-box"><h2>False Friends — Valse Vrienden</h2><div class="lv">A2–B1 Vocabulary — From the 200-sheet bundle!</div>
+'false-friends':{html:`<div class="lesson-box"><h2>False Friends — Valse Vrienden</h2><div class="lv">A2–B1 Vocabulary — </div>
 <p>These Dutch words look like English words but mean something completely different. Be careful!</p>
 <table class="vtable"><tr><th>Dutch word</th><th>Looks like...</th><th>Real Dutch meaning</th><th>Example</th></tr>
 <tr><td class="du">slim</td><td>slim (thin)</td><td><strong>smart, clever</strong></td><td class="du">Wat een slim kind!</td></tr>
@@ -1072,4 +1078,11 @@ function shuf(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(
 show('home');
 </script>
 </body>
+<!--
+  Nederlands Leren
+  Author: Rafael Lafraia
+  Repository: github.com/lafraiarafael/dutch-learning
+  Version: 2.0 — 2026
+  rl.dev
+-->
 </html>
