@@ -12,7 +12,7 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 /* rl.dev — Rafael Lafraia — 2026 */
-:root{--bg:#f5f7fa;--white:#fff;--border:#e2e8f0;--accent:#2563eb;--accent-light:#eff6ff;--accent-mid:#bfdbfe;--green:#16a34a;--green-light:#f0fdf4;--green-mid:#bbf7d0;--red:#dc2626;--red-light:#fef2f2;--red-mid:#fecaca;--yellow:#ca8a04;--yellow-light:#fefce8;--text:#0f172a;--text2:#334155;--muted:#64748b;--muted2:#94a3b8;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.04);--shadow-md:0 4px 14px rgba(0,0,0,.09)}
+:root{--bg:#f5f7fa;--white:#fff;--border:#e2e8f0;--accent:#2563eb;--accent-light:#eff6ff;--accent-mid:#bfdbfe;--green:#16a34a;--green-light:#f0fdf4;--green-mid:#bbf7d0;--red:#dc2626;--red-light:#fef2f2;--red-mid:#fecaca;--yellow:#ca8a04;--yellow-light:#fefce8;--purple:#7c3aed;--purple-light:#f3e8ff;--purple-mid:#ddd6fe;--text:#0f172a;--text2:#334155;--muted:#64748b;--muted2:#94a3b8;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.04);--shadow-md:0 4px 14px rgba(0,0,0,.09)}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh}
 .app{display:flex;min-height:100vh}
@@ -31,6 +31,9 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 .xp-bar{height:5px;background:var(--border);border-radius:3px;overflow:hidden}
 .xp-fill{height:100%;background:linear-gradient(90deg,var(--accent),#818cf8);border-radius:3px;transition:width .4s}
 .page{display:none}.page.on{display:block}
+/* LEVEL BADGES */
+.lvl-pip{display:inline-block;font-size:10px;font-weight:700;padding:1px 7px;border-radius:99px;vertical-align:middle;margin-left:6px;letter-spacing:.3px}
+.pip-a1{background:#dcfce7;color:#15803d}.pip-a2{background:#dbeafe;color:#1d4ed8}.pip-b1{background:#f3e8ff;color:#7c3aed}
 /* HOME */
 .hero{background:linear-gradient(135deg,#1e3a8a,#2563eb 55%,#0ea5e9);border-radius:16px;padding:28px;margin-bottom:22px;color:#fff;position:relative;overflow:hidden}
 .hero::after{content:'🇳🇱';position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:64px;opacity:.25;pointer-events:none}
@@ -41,6 +44,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 .lvl-badge{display:inline-block;font-size:10px;font-weight:600;padding:2px 9px;border-radius:99px;margin-bottom:8px}
 .lva1 .lvl-badge{background:#dcfce7;color:#15803d}.lva2 .lvl-badge{background:#dbeafe;color:#1d4ed8}.lvb1 .lvl-badge{background:#f3e8ff;color:#7c3aed}
 .lvl-card h3{font-size:14px;font-weight:600;margin-bottom:3px}.lvl-card p{font-size:12px;color:var(--muted);line-height:1.5}
+.lvl-words{font-size:11px;color:var(--muted2);margin-top:6px;font-family:'DM Mono',monospace}
 .lv-bar{height:3px;background:var(--border);border-radius:2px;margin-top:10px;overflow:hidden}
 .lva1 .lv-bar-fill{background:#22c55e}.lva2 .lv-bar-fill{background:#3b82f6}.lvb1 .lv-bar-fill{background:#a855f7}
 .lv-bar-fill{height:100%;border-radius:2px;transition:width .4s;width:0}
@@ -58,6 +62,14 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 .topic-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;cursor:pointer;transition:all .15s;box-shadow:var(--shadow);display:flex;align-items:center;gap:10px}
 .topic-card:hover{border-color:var(--accent);box-shadow:var(--shadow-md)}
 .topic-card .tc{font-size:20px;min-width:26px;text-align:center}.topic-card h4{font-size:13px;font-weight:500;margin-bottom:2px}.topic-card p{font-size:12px;color:var(--muted)}
+/* LEVEL FILTER */
+.level-filter{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap}
+.lf-btn{font-size:12px;padding:5px 13px;border-radius:99px;border:1px solid var(--border);background:var(--white);color:var(--muted);cursor:pointer;transition:all .15s;font-family:'DM Sans',sans-serif}
+.lf-btn:hover{border-color:var(--accent);color:var(--accent)}
+.lf-btn.on-a1{background:#dcfce7;border-color:#86efac;color:#15803d;font-weight:500}
+.lf-btn.on-a2{background:#dbeafe;border-color:#93c5fd;color:#1d4ed8;font-weight:500}
+.lf-btn.on-b1{background:#f3e8ff;border-color:#c4b5fd;color:#7c3aed;font-weight:500}
+.lf-btn.on-all{background:var(--accent-light);border-color:var(--accent-mid);color:var(--accent);font-weight:500}
 /* PAGE HEADER */
 .page-header{display:flex;align-items:center;gap:10px;margin-bottom:20px}
 .back-btn{padding:7px 13px;border-radius:8px;border:1px solid var(--border);background:var(--white);color:var(--text2);font-size:13px;cursor:pointer;box-shadow:var(--shadow);font-family:'DM Sans',sans-serif}
@@ -65,15 +77,19 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 .ph-title{font-size:18px;font-weight:600}.ph-sub{font-size:12px;color:var(--muted)}
 /* FLASHCARD */
 .fc-wrap{perspective:1000px;margin-bottom:18px;cursor:pointer;user-select:none}
-.fc-card{width:100%;min-height:200px;border-radius:16px;position:relative;transform-style:preserve-3d;transition:transform .45s ease;box-shadow:var(--shadow-md)}
+.fc-card{width:100%;min-height:210px;border-radius:16px;position:relative;transform-style:preserve-3d;transition:transform .45s ease;box-shadow:var(--shadow-md)}
 .fc-card.flipped{transform:rotateY(180deg)}
 .fc-front,.fc-back{position:absolute;inset:0;border-radius:16px;padding:28px;display:flex;flex-direction:column;align-items:center;justify-content:center;backface-visibility:hidden;-webkit-backface-visibility:hidden}
 .fc-front{background:linear-gradient(135deg,#1e3a8a,#2563eb);color:#fff}
+.fc-front.lvl-a1{background:linear-gradient(135deg,#14532d,#16a34a)}
+.fc-front.lvl-a2{background:linear-gradient(135deg,#1e3a8a,#2563eb)}
+.fc-front.lvl-b1{background:linear-gradient(135deg,#4c1d95,#7c3aed)}
 .fc-back{background:var(--white);border:2px solid var(--accent);transform:rotateY(180deg)}
 .fc-lang{font-size:10px;font-weight:600;opacity:.65;text-transform:uppercase;letter-spacing:1px;margin-bottom:7px}
 .fc-word{font-size:30px;font-weight:600;text-align:center;margin-bottom:5px}
 .fc-art{font-size:13px;opacity:.7;font-style:italic}.fc-tap{font-size:11px;opacity:.45;margin-top:10px}
 .fc-back .fc-word{color:var(--text)}.fc-back .fc-ex{font-size:13px;color:var(--text2);margin-top:8px;font-style:italic;line-height:1.5;text-align:center}.fc-back .fc-cat{font-size:11px;color:var(--muted);margin-top:5px}
+.fc-lvl-tag{font-size:10px;font-weight:700;padding:2px 8px;border-radius:99px;margin-bottom:10px;letter-spacing:.4px}
 .fc-btns{display:flex;gap:8px;justify-content:center;margin-bottom:18px}
 .fc-btn{padding:10px 24px;border-radius:9px;font-size:13px;font-weight:500;cursor:pointer;border:none;font-family:'DM Sans',sans-serif;transition:all .15s}
 .fc-btn.again{background:var(--red-light);color:var(--red);border:1px solid var(--red-mid)}.fc-btn.again:hover{background:var(--red-mid)}
@@ -83,19 +99,19 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 .fc-dot{width:7px;height:7px;border-radius:50%;background:var(--border);transition:background .2s}
 .fc-dot.seen{background:var(--accent-mid)}.fc-dot.known{background:var(--green)}.fc-dot.repeat{background:var(--red-mid)}
 /* QUIZ */
-.qz-meta{font-size:11px;color:var(--muted);margin-bottom:7px;font-family:'DM Mono',monospace;display:flex;gap:10px;align-items:center}
+.qz-meta{font-size:11px;color:var(--muted);margin-bottom:7px;font-family:'DM Mono',monospace;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 .qz-pbar{height:3px;background:var(--border);border-radius:2px;margin-bottom:18px;overflow:hidden}
 .qz-pfill{height:100%;background:var(--accent);border-radius:2px;transition:width .3s}
 .qz-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
 .qz-q{font-size:16px;font-weight:500;line-height:1.6;margin-bottom:18px}
 .qz-opts{display:flex;flex-direction:column;gap:7px}
-.qz-opt{border:1.5px solid var(--border);border-radius:9px;padding:11px 14px;cursor:pointer;font-size:13px;color:var(--text);background:var(--white);text-align:left;display:flex;align-items:center;gap:10px;transition:all .15s;width:100%;font-family:'DM Sans',sans-serif}
+.qz-opt{border:1.5px solid var(--border);border-radius:9px;padding:11px 14px;cursor:pointer;font-size:13px;color:var(--text);background:var(--white);text-align:left;display:flex;align-items:flex-start;gap:10px;transition:all .15s;width:100%;font-family:'DM Sans',sans-serif;line-height:1.5}
 .qz-opt:hover:not(:disabled){border-color:var(--accent);background:var(--accent-light)}
 .qz-opt.correct{background:var(--green-light);border-color:var(--green);color:#14532d}
 .qz-opt.wrong{background:var(--red-light);border-color:var(--red);color:#7f1d1d}
 .qz-opt.reveal{background:var(--green-light);border-color:var(--green);color:#14532d;opacity:.5}
 .qz-opt:disabled{cursor:default}
-.qz-ol{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;min-width:18px;opacity:.5}
+.qz-ol{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;min-width:18px;opacity:.5;flex-shrink:0;padding-top:1px}
 .qz-expl{display:none;margin-top:12px;padding:12px 14px;background:#eff6ff;border-radius:9px;border-left:3px solid var(--accent);font-size:13px;color:var(--text2);line-height:1.6}
 .qz-expl.on{display:block}.qz-expl strong{color:var(--accent)}
 .qz-acts{display:flex;gap:8px;margin-top:12px}
@@ -113,10 +129,12 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 .vtable tr:last-child td{border-bottom:none}.vtable .du{font-weight:500;color:var(--text)}
 .rule{background:var(--yellow-light);border:1px solid #fde68a;border-radius:9px;padding:12px 14px;margin:12px 0;font-size:13px;color:#78350f;line-height:1.6}
 .rule strong{display:block;margin-bottom:3px;font-size:13px;color:#92400e}
+.rule-b1{background:var(--purple-light);border:1px solid var(--purple-mid);color:#4c1d95}
+.rule-b1 strong{color:#5b21b6}
 .eg{background:#eff6ff;border-radius:9px;padding:12px 14px;margin:9px 0}
 .eg .du{font-size:14px;font-weight:500;color:var(--accent);margin-bottom:3px}
 .eg .en{font-size:12px;color:var(--muted);font-style:italic}
-.lesson-cta{padding:10px 22px;border-radius:9px;border:none;background:var(--accent);color:#fff;font-size:13px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;margin-top:6px}
+.lesson-cta{padding:10px 22px;border-radius:9px;border:none;background:var(--accent);color:#fff;font-size:13px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;margin-top:6px;margin-right:6px}
 .lesson-cta:hover{background:#1d4ed8}
 /* RESULT */
 .result-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:36px;text-align:center;box-shadow:var(--shadow-md)}
@@ -139,77 +157,104 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 <body>
 <div class="app">
 <nav class="sidebar">
-  <div class="brand"><span class="brand-flag">🇳🇱</span><div><div class="brand-name">Nederlands Leren</div><div class="brand-sub">Dutch A1 → B1 · 200+ sheets</div></div></div>
-  <div class="nav-sec">Menu</div>
+  <div class="brand"><span class="brand-flag">🇳🇱</span><div><div class="brand-name">Nederlands Leren</div><div class="brand-sub">Dutch A1 · A2 · B1 (CEFR)</div></div></div>
+  <div class="nav-sec">Main</div>
   <button class="nav-item on" id="nav-home" onclick="show('home')"><span class="ni">🏠</span>Home</button>
   <button class="nav-item" id="nav-lessons" onclick="show('lessons')"><span class="ni">📚</span>Lessons</button>
-  <button class="nav-item" id="nav-flashcards" onclick="startFC('all')"><span class="ni">🃏</span>Flashcards</button>
+  <button class="nav-item" id="nav-flashcards" onclick="startFC('all','all')"><span class="ni">🃏</span>Flashcards</button>
   <button class="nav-item" id="nav-quiz" onclick="startQZ('all')"><span class="ni">✏️</span>Quiz</button>
-  <div class="nav-sec">Vocabulary</div>
-  <button class="nav-item" onclick="startFC('greetings')"><span class="ni">👋</span>Greetings &amp; Phrases<span class="nb">24</span></button>
-  <button class="nav-item" onclick="startFC('numbers')"><span class="ni">🔢</span>Numbers &amp; Time<span class="nb">26</span></button>
-  <button class="nav-item" onclick="startFC('family')"><span class="ni">👨‍👩‍👧</span>Family &amp; Relations<span class="nb">22</span></button>
-  <button class="nav-item" onclick="startFC('food')"><span class="ni">🍎</span>Food &amp; Drinks<span class="nb">28</span></button>
-  <button class="nav-item" onclick="startFC('verbs')"><span class="ni">⚡</span>Top 25 Verbs<span class="nb">25</span></button>
-  <button class="nav-item" onclick="startFC('body')"><span class="ni">🧍</span>Body &amp; Health<span class="nb">24</span></button>
-  <button class="nav-item" onclick="startFC('city')"><span class="ni">🏙️</span>City &amp; Travel<span class="nb">22</span></button>
-  <button class="nav-item" onclick="startFC('clothes')"><span class="ni">👕</span>Clothes &amp; Accessories<span class="nb">20</span></button>
-  <button class="nav-item" onclick="startFC('nature')"><span class="ni">🌿</span>Nature &amp; Weather<span class="nb">22</span></button>
-  <button class="nav-item" onclick="startFC('work')"><span class="ni">💼</span>Work &amp; Professions<span class="nb">20</span></button>
-  <button class="nav-item" onclick="startFC('house')"><span class="ni">🏠</span>House &amp; Objects<span class="nb">22</span></button>
-  <button class="nav-item" onclick="startFC('colors')"><span class="ni">🎨</span>Colors &amp; Shapes<span class="nb">18</span></button>
+  <div class="nav-sec">A1 — Beginner</div>
+  <button class="nav-item" onclick="startFC('greetings','A1')"><span class="ni">👋</span>Greetings &amp; Survival<span class="nb">A1</span></button>
+  <button class="nav-item" onclick="startFC('numbers','A1')"><span class="ni">🔢</span>Numbers &amp; Time<span class="nb">A1</span></button>
+  <button class="nav-item" onclick="startFC('family','A1')"><span class="ni">👨‍👩‍👧</span>Family<span class="nb">A1</span></button>
+  <button class="nav-item" onclick="startFC('colors','A1')"><span class="ni">🎨</span>Colours &amp; Basics<span class="nb">A1</span></button>
+  <div class="nav-sec">A2 — Elementary</div>
+  <button class="nav-item" onclick="startFC('food','A2')"><span class="ni">🍎</span>Food &amp; Drinks<span class="nb">A2</span></button>
+  <button class="nav-item" onclick="startFC('city','A2')"><span class="ni">🏙️</span>City &amp; Directions<span class="nb">A2</span></button>
+  <button class="nav-item" onclick="startFC('body','A2')"><span class="ni">🧍</span>Body &amp; Health<span class="nb">A2</span></button>
+  <button class="nav-item" onclick="startFC('house','A2')"><span class="ni">🏠</span>House &amp; Daily Life<span class="nb">A2</span></button>
+  <div class="nav-sec">B1 — Intermediate</div>
+  <button class="nav-item" onclick="startFC('verbs','B1')"><span class="ni">⚡</span>Verbs — All Tenses<span class="nb">B1</span></button>
+  <button class="nav-item" onclick="startFC('work','B1')"><span class="ni">💼</span>Work &amp; Education<span class="nb">B1</span></button>
+  <button class="nav-item" onclick="startFC('abstract','B1')"><span class="ni">💭</span>Opinions &amp; Abstract<span class="nb">B1</span></button>
+  <button class="nav-item" onclick="startFC('nature','B1')"><span class="ni">🌿</span>Nature &amp; Society<span class="nb">B1</span></button>
   <div class="sidebar-footer">
     <div class="xp-row"><span>XP</span><span id="xp-val">0 / 100</span></div>
     <div class="xp-bar"><div class="xp-fill" id="xp-fill" style="width:0%"></div></div>
   </div>
 </nav>
-
 <div class="mob-nav">
   <div class="mn-item on" onclick="show('home')"><span class="mni">🏠</span>Home</div>
   <div class="mn-item" onclick="show('lessons')"><span class="mni">📚</span>Lessons</div>
-  <div class="mn-item" onclick="startFC('all')"><span class="mni">🃏</span>Cards</div>
+  <div class="mn-item" onclick="startFC('all','all')"><span class="mni">🃏</span>Cards</div>
   <div class="mn-item" onclick="startQZ('all')"><span class="mni">✏️</span>Quiz</div>
 </div>
-
 <main class="main">
 
 <!-- HOME -->
 <div class="page on" id="page-home">
-  <div class="hero"><h1>Welkom! Let's learn Dutch 🇳🇱</h1><p>Based on 200+ grammar sheets, conjugation charts and vocabulary lists. From first words to confident conversations.</p></div>
+  <div class="hero"><h1>Welkom! Learn Dutch — step by step 🇳🇱</h1><p>Aligned with the official CEFR scale used in the Netherlands. A1 survival phrases, A2 daily life, B1 independent communication — from 500 to 5,000 words.</p></div>
   <div class="level-grid">
-    <div class="lvl-card lva1" onclick="show('lessons')"><span class="lvl-badge">A1 Beginner</span><h3>Starting Out</h3><p>Greetings, numbers, family, articles, basic phrases</p><div class="lv-bar"><div class="lv-bar-fill" style="width:0%"></div></div></div>
-    <div class="lvl-card lva2" onclick="show('lessons')"><span class="lvl-badge">A2 Elementary</span><h3>Building Up</h3><p>Daily life, food, shopping, past tense, separable verbs</p><div class="lv-bar"><div class="lv-bar-fill" style="width:0%"></div></div></div>
-    <div class="lvl-card lvb1" onclick="show('lessons')"><span class="lvl-badge">B1 Intermediate</span><h3>Going Further</h3><p>Conditional, work, opinions, complex sentences</p><div class="lv-bar"><div class="lv-bar-fill" style="width:0%"></div></div></div>
+    <div class="lvl-card lva1" onclick="startQZ('A1')">
+      <span class="lvl-badge">A1 Beginner</span>
+      <h3>Survival Dutch</h3>
+      <p>Introduce yourself. Greetings, numbers, family, colours, simple present tense.</p>
+      <div class="lvl-words">~500–1,000 words · 60–100 hrs</div>
+      <div class="lv-bar"><div class="lv-bar-fill" style="width:0%"></div></div>
+    </div>
+    <div class="lvl-card lva2" onclick="startQZ('A2')">
+      <span class="lvl-badge">A2 Elementary</span>
+      <h3>Daily Life</h3>
+      <p>Routines, shopping, health visits, past tense, basic conjunctions.</p>
+      <div class="lvl-words">~1,000–2,000 words · 60–100 hrs</div>
+      <div class="lv-bar"><div class="lv-bar-fill" style="width:0%"></div></div>
+    </div>
+    <div class="lvl-card lvb1" onclick="startQZ('B1')">
+      <span class="lvl-badge">B1 Intermediate</span>
+      <h3>Independent User</h3>
+      <p>All tenses, subordinate clauses, opinions, abstract topics, formal Dutch.</p>
+      <div class="lvl-words">~2,000–5,000 words · 150–200 hrs</div>
+      <div class="lv-bar"><div class="lv-bar-fill" style="width:0%"></div></div>
+    </div>
   </div>
   <div class="sec-title">Quick Practice</div>
   <div class="quick-grid">
-    <div class="quick-card" onclick="startFC('all')"><span class="qi">🃏</span><div><h4>All Flashcards</h4><p>Shuffle through 270+ vocabulary cards</p></div></div>
-    <div class="quick-card" onclick="startQZ('all')"><span class="qi">✏️</span><div><h4>Random Quiz</h4><p>20 mixed grammar and vocabulary questions</p></div></div>
-    <div class="quick-card" onclick="showLesson('de-het')"><span class="qi">📖</span><div><h4>De vs Het</h4><p>The hardest Dutch rule, fully explained</p></div></div>
-    <div class="quick-card" onclick="showLesson('tenses')"><span class="qi">⏱️</span><div><h4>All 6 Tenses</h4><p>Present, past, future, conditional and more</p></div></div>
-    <div class="quick-card" onclick="startFC('verbs')"><span class="qi">⚡</span><div><h4>Top 25 Verbs</h4><p>The most-used Dutch verbs fully conjugated</p></div></div>
-    <div class="quick-card" onclick="showLesson('false-friends')"><span class="qi">⚠️</span><div><h4>False Friends</h4><p>10 Dutch words that trick English speakers</p></div></div>
+    <div class="quick-card" onclick="startFC('all','all')"><span class="qi">🃏</span><div><h4>All Flashcards</h4><p>Shuffle through all levels and categories</p></div></div>
+    <div class="quick-card" onclick="startQZ('all')"><span class="qi">✏️</span><div><h4>Mixed Quiz</h4><p>20 questions across A1, A2 and B1</p></div></div>
+    <div class="quick-card" onclick="showLesson('de-het')"><span class="qi">📖</span><div><h4>De vs Het</h4><p>Rules, patterns and practice</p></div></div>
+    <div class="quick-card" onclick="showLesson('false-friends')"><span class="qi">⚠️</span><div><h4>False Friends</h4><p>Dutch words that trick English speakers</p></div></div>
+    <div class="quick-card" onclick="startQZ('A1')"><span class="qi">🟢</span><div><h4>A1 Quiz only</h4><p>Greetings, numbers, family, basic phrases</p></div></div>
+    <div class="quick-card" onclick="startQZ('B1')"><span class="qi">🟣</span><div><h4>B1 Challenge</h4><p>Tenses, word order, abstract vocabulary</p></div></div>
   </div>
 </div>
 
 <!-- LESSONS -->
 <div class="page" id="page-lessons">
-  <div class="page-header"><div><div class="ph-title">📚 Lessons</div><div class="ph-sub">Grammar rules, verb patterns and vocabulary guides</div></div></div>
-  <div class="topic-grid">
-    <div class="topic-card" onclick="showLesson('intro')"><span class="tc">👋</span><div><h4>Introductions</h4><p>Hoe heet jij? Waar kom jij vandaan?</p></div></div>
-    <div class="topic-card" onclick="showLesson('pronouns')"><span class="tc">🙋</span><div><h4>Pronouns</h4><p>Ik, jij, hij, zij, wij, jullie, zij, u</p></div></div>
-    <div class="topic-card" onclick="showLesson('de-het')"><span class="tc">🔤</span><div><h4>De &amp; Het (Articles)</h4><p>Which article goes with which noun?</p></div></div>
-    <div class="topic-card" onclick="showLesson('present')"><span class="tc">⚡</span><div><h4>Present Tense</h4><p>Stem rules, -t endings, inversion rule</p></div></div>
-    <div class="topic-card" onclick="showLesson('past')"><span class="tc">⏪</span><div><h4>Past Tense</h4><p>Simple past (imperfectum) — strong &amp; weak</p></div></div>
-    <div class="topic-card" onclick="showLesson('perfect')"><span class="tc">✅</span><div><h4>Present Perfect</h4><p>Hebben/zijn + voltooid deelwoord</p></div></div>
-    <div class="topic-card" onclick="showLesson('tenses')"><span class="tc">⏱️</span><div><h4>All 6 Tenses</h4><p>Complete overview with conjugation patterns</p></div></div>
-    <div class="topic-card" onclick="showLesson('separable')"><span class="tc">✂️</span><div><h4>Separable Verbs</h4><p>Opstaan, aankomen — all prefixes &amp; rules</p></div></div>
-    <div class="topic-card" onclick="showLesson('word-order')"><span class="tc">📐</span><div><h4>Word Order (V2)</h4><p>V2 rule, inversion, subordinate clauses</p></div></div>
-    <div class="topic-card" onclick="showLesson('numbers')"><span class="tc">🔢</span><div><h4>Numbers &amp; Time</h4><p>1–1000, telling time, half drie = 2:30!</p></div></div>
-    <div class="topic-card" onclick="showLesson('diminutives')"><span class="tc">🐭</span><div><h4>Diminutives (-je)</h4><p>Huisje, kopje — making things small &amp; cute</p></div></div>
-    <div class="topic-card" onclick="showLesson('prepositions')"><span class="tc">📍</span><div><h4>Prepositions</h4><p>In, op, aan, naar, van, voor, achter…</p></div></div>
-    <div class="topic-card" onclick="showLesson('modals')"><span class="tc">🎛️</span><div><h4>Modal Verbs</h4><p>Kunnen, mogen, moeten, willen, zullen</p></div></div>
-    <div class="topic-card" onclick="showLesson('false-friends')"><span class="tc">⚠️</span><div><h4>False Friends</h4><p>10 Dutch words that trick English speakers</p></div></div>
+  <div class="page-header"><div><div class="ph-title">📚 Lessons</div><div class="ph-sub">Grammar and vocabulary — sorted by CEFR level</div></div></div>
+  <div class="nav-sec" style="padding-left:0;margin-bottom:8px">A1 — Beginner</div>
+  <div class="topic-grid" style="margin-bottom:16px">
+    <div class="topic-card" onclick="showLesson('intro')"><span class="tc">👋</span><div><h4>Introductions <span class="lvl-pip pip-a1">A1</span></h4><p>Hoe heet jij? Waar woon jij?</p></div></div>
+    <div class="topic-card" onclick="showLesson('pronouns')"><span class="tc">🙋</span><div><h4>Pronouns <span class="lvl-pip pip-a1">A1</span></h4><p>Ik, jij, hij, zij — formal vs informal</p></div></div>
+    <div class="topic-card" onclick="showLesson('present')"><span class="tc">⚡</span><div><h4>Present Tense <span class="lvl-pip pip-a1">A1</span></h4><p>Stem rules, irregular verbs, -t endings</p></div></div>
+    <div class="topic-card" onclick="showLesson('numbers')"><span class="tc">🔢</span><div><h4>Numbers &amp; Time <span class="lvl-pip pip-a1">A1</span></h4><p>1–1000, half drie = 2:30!</p></div></div>
+    <div class="topic-card" onclick="showLesson('de-het')"><span class="tc">🔤</span><div><h4>De &amp; Het — Articles <span class="lvl-pip pip-a1">A1</span></h4><p>The hardest beginner rule</p></div></div>
+    <div class="topic-card" onclick="showLesson('diminutives')"><span class="tc">🐭</span><div><h4>Diminutives (-je) <span class="lvl-pip pip-a1">A1</span></h4><p>Kopje, huisje — always het</p></div></div>
+  </div>
+  <div class="nav-sec" style="padding-left:0;margin-bottom:8px">A2 — Elementary</div>
+  <div class="topic-grid" style="margin-bottom:16px">
+    <div class="topic-card" onclick="showLesson('past')"><span class="tc">⏪</span><div><h4>Simple Past (OVT) <span class="lvl-pip pip-a2">A2</span></h4><p>'t Kofschip, strong verbs</p></div></div>
+    <div class="topic-card" onclick="showLesson('perfect')"><span class="tc">✅</span><div><h4>Present Perfect (VTT) <span class="lvl-pip pip-a2">A2</span></h4><p>Hebben/zijn + deelwoord</p></div></div>
+    <div class="topic-card" onclick="showLesson('separable')"><span class="tc">✂️</span><div><h4>Separable Verbs <span class="lvl-pip pip-a2">A2</span></h4><p>Opstaan, aankomen — all tenses</p></div></div>
+    <div class="topic-card" onclick="showLesson('prepositions')"><span class="tc">📍</span><div><h4>Prepositions <span class="lvl-pip pip-a2">A2</span></h4><p>In, op, aan, naar, van, bij…</p></div></div>
+    <div class="topic-card" onclick="showLesson('modals')"><span class="tc">🎛️</span><div><h4>Modal Verbs <span class="lvl-pip pip-a2">A2</span></h4><p>Kunnen, mogen, moeten, willen</p></div></div>
+    <div class="topic-card" onclick="showLesson('conjunctions')"><span class="tc">🔗</span><div><h4>Conjunctions <span class="lvl-pip pip-a2">A2</span></h4><p>Maar, omdat, want, dus, hoewel</p></div></div>
+  </div>
+  <div class="nav-sec" style="padding-left:0;margin-bottom:8px">B1 — Intermediate</div>
+  <div class="topic-grid" style="margin-bottom:16px">
+    <div class="topic-card" onclick="showLesson('word-order')"><span class="tc">📐</span><div><h4>Word Order (V2) <span class="lvl-pip pip-b1">B1</span></h4><p>Inversion, subordinate clauses, verb-final</p></div></div>
+    <div class="topic-card" onclick="showLesson('tenses')"><span class="tc">⏱️</span><div><h4>All 6 Tenses <span class="lvl-pip pip-b1">B1</span></h4><p>Complete overview — OTT to conditional</p></div></div>
+    <div class="topic-card" onclick="showLesson('relative')"><span class="tc">🔄</span><div><h4>Relative Clauses <span class="lvl-pip pip-b1">B1</span></h4><p>Die, dat, waar — linking sentences</p></div></div>
+    <div class="topic-card" onclick="showLesson('false-friends')"><span class="tc">⚠️</span><div><h4>False Friends <span class="lvl-pip pip-b1">B1</span></h4><p>Slim, eventueel, deceptie…</p></div></div>
   </div>
 </div>
 
@@ -217,8 +262,9 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 <div class="page" id="page-flashcards">
   <div class="page-header">
     <button class="back-btn" onclick="show('home')">← Back</button>
-    <div><div class="ph-title" id="fc-title">Flashcards</div><div class="ph-sub" id="fc-sub">Tap card to reveal translation</div></div>
+    <div><div class="ph-title" id="fc-title">Flashcards</div><div class="ph-sub" id="fc-sub">Tap to flip</div></div>
   </div>
+  <div class="level-filter" id="fc-filter"></div>
   <div class="stats-bar">
     <div class="sbox"><div class="sn" id="fc-total">0</div><div class="sl">Total</div></div>
     <div class="sbox"><div class="sn" id="fc-known" style="color:var(--green)">0</div><div class="sl">Known ✓</div></div>
@@ -228,8 +274,19 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
   <div id="fc-main">
     <div class="fc-wrap" onclick="fcFlip()" id="fc-wrap">
       <div class="fc-card" id="fc-card">
-        <div class="fc-front"><div class="fc-lang">Nederlands</div><div class="fc-word" id="fc-nl">—</div><div class="fc-art" id="fc-art"></div><div class="fc-tap">Tap to reveal →</div></div>
-        <div class="fc-back"><div class="fc-lang" style="color:var(--muted)">English</div><div class="fc-word" id="fc-en">—</div><div class="fc-ex" id="fc-ex"></div><div class="fc-cat" id="fc-cat2"></div></div>
+        <div class="fc-front" id="fc-front">
+          <div class="fc-lvl-tag" id="fc-lvl-tag"></div>
+          <div class="fc-lang">Nederlands</div>
+          <div class="fc-word" id="fc-nl">—</div>
+          <div class="fc-art" id="fc-art"></div>
+          <div class="fc-tap">Tap to reveal →</div>
+        </div>
+        <div class="fc-back">
+          <div class="fc-lang" style="color:var(--muted)">English</div>
+          <div class="fc-word" id="fc-en">—</div>
+          <div class="fc-ex" id="fc-ex"></div>
+          <div class="fc-cat" id="fc-cat2"></div>
+        </div>
       </div>
     </div>
     <div class="fc-btns" id="fc-btns" style="display:none">
@@ -248,10 +305,14 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 <div class="page" id="page-quiz">
   <div class="page-header">
     <button class="back-btn" onclick="show('home')">← Back</button>
-    <div><div class="ph-title">✏️ Quiz</div><div class="ph-sub">Grammar and vocabulary — 20 random questions</div></div>
+    <div><div class="ph-title" id="quiz-page-title">Quiz</div><div class="ph-sub" id="quiz-page-sub">20 questions</div></div>
   </div>
   <div id="qz-area">
-    <div class="qz-meta"><span id="qz-num">Q 1 / 20</span><span>·</span><span style="margin-left:auto;color:var(--green)" id="qz-live">✓ 0</span></div>
+    <div class="qz-meta">
+      <span id="qz-num">Q 1 / 20</span><span>·</span>
+      <span id="qz-lvl-tag"></span>
+      <span style="margin-left:auto;color:var(--green)" id="qz-live">✓ 0</span>
+    </div>
     <div class="qz-pbar"><div class="qz-pfill" id="qz-fill" style="width:0%"></div></div>
     <div class="qz-card"><div class="qz-q" id="qz-q"></div><div class="qz-opts" id="qz-opts"></div><div class="qz-expl" id="qz-expl"></div><div class="qz-acts" id="qz-acts"></div></div>
   </div>
@@ -272,361 +333,223 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 </div>
 
 <script>
-// ── VOCABULARY ─────────────────────────────────────────────────────────────
+var _rl={a:"Rafael Lafraia",g:"lafraiarafael",v:"2.1",y:2026};
+
+// ── VOCABULARY — CEFR-ALIGNED ──────────────────────────────────────────────
+// Level field: "A1" | "A2" | "B1"
 var V={
+// ── A1: Survival Dutch (~500–1000 words) ──────────────────────────────────
 greetings:[
-{nl:"Hallo",en:"Hello",ex:"Hallo! Hoe gaat het?",c:"Greetings"},
-{nl:"Goedemorgen",en:"Good morning",ex:"Goedemorgen! Heb je goed geslapen?",c:"Greetings"},
-{nl:"Goedemiddag",en:"Good afternoon",ex:"Goedemiddag, kan ik u helpen?",c:"Greetings"},
-{nl:"Goedenavond",en:"Good evening",ex:"Goedenavond! Welkom thuis.",c:"Greetings"},
-{nl:"Goedenacht",en:"Good night",ex:"Goedenacht! Slaap lekker.",c:"Greetings"},
-{nl:"Tot ziens",en:"Goodbye (see you again)",ex:"Tot ziens! Tot morgen.",c:"Greetings"},
-{nl:"Tot straks",en:"See you soon / later today",ex:"Tot straks! Om vijf uur.",c:"Greetings"},
-{nl:"Hoe gaat het?",en:"How are you?",ex:"Hoe gaat het met jou?",c:"Greetings"},
-{nl:"Goed, dank je",en:"Fine, thank you",ex:"Goed, dank je. En met jou?",c:"Greetings"},
-{nl:"Alsjeblieft",en:"Please / Here you go (informal)",ex:"Alsjeblieft, hier is uw koffie.",c:"Greetings"},
-{nl:"Alstublieft",en:"Please / Here you go (formal)",ex:"Alstublieft, meneer.",c:"Greetings"},
-{nl:"Dank je wel",en:"Thank you (informal)",ex:"Dank je wel voor de hulp!",c:"Greetings"},
-{nl:"Dank u wel",en:"Thank you (formal)",ex:"Dank u wel, mevrouw.",c:"Greetings"},
-{nl:"Geen probleem",en:"No problem",ex:"Geen probleem, dat doe ik graag.",c:"Greetings"},
-{nl:"Sorry / Pardon",en:"Sorry / Excuse me",ex:"Sorry, ik begrijp het niet.",c:"Greetings"},
-{nl:"Mag ik er even langs?",en:"Excuse me (to pass by)",ex:"Pardon, mag ik er even langs?",c:"Greetings"},
-{nl:"Het spijt me",en:"I'm sorry (apology)",ex:"Het spijt me! Dat was mijn fout.",c:"Greetings"},
-{nl:"Maak je geen zorgen",en:"Don't worry (informal)",ex:"Maak je geen zorgen, dat geeft niet.",c:"Greetings"},
-{nl:"Ik heet...",en:"My name is...",ex:"Ik heet Maria. En jij?",c:"Greetings"},
-{nl:"Aangenaam",en:"Nice to meet you",ex:"Aangenaam kennis te maken!",c:"Greetings"},
-{nl:"Welkom",en:"Welcome",ex:"Welkom in Nederland!",c:"Greetings"},
-{nl:"Gefeliciteerd!",en:"Congratulations!",ex:"Gefeliciteerd met je verjaardag!",c:"Greetings"},
-{nl:"Goed gedaan!",en:"Well done!",ex:"Goed gedaan! Je hebt het gehaald.",c:"Greetings"},
-{nl:"Veel succes!",en:"Good luck!",ex:"Veel succes met je examen!",c:"Greetings"},
+{nl:"Hallo",en:"Hello",ex:"Hallo! Hoe heet jij?",c:"Greetings",l:"A1"},
+{nl:"Goedemorgen",en:"Good morning",ex:"Goedemorgen! Slaap je goed?",c:"Greetings",l:"A1"},
+{nl:"Goedemiddag",en:"Good afternoon",ex:"Goedemiddag, kan ik helpen?",c:"Greetings",l:"A1"},
+{nl:"Goedenavond",en:"Good evening",ex:"Goedenavond! Welkom.",c:"Greetings",l:"A1"},
+{nl:"Goedenacht",en:"Good night",ex:"Goedenacht! Slaap lekker.",c:"Greetings",l:"A1"},
+{nl:"Tot ziens",en:"Goodbye",ex:"Tot ziens! Tot morgen.",c:"Greetings",l:"A1"},
+{nl:"Tot straks",en:"See you soon",ex:"Tot straks! Om vijf uur.",c:"Greetings",l:"A1"},
+{nl:"Hoe gaat het?",en:"How are you?",ex:"Hoe gaat het met jou?",c:"Greetings",l:"A1"},
+{nl:"Goed, dank je",en:"Fine, thank you",ex:"Goed, dank je. En met jou?",c:"Greetings",l:"A1"},
+{nl:"Alsjeblieft / Alstublieft",en:"Please / Here you go (inf/formal)",ex:"Alsjeblieft — twee koffie.",c:"Greetings",l:"A1"},
+{nl:"Dank je wel / Dank u wel",en:"Thank you (informal / formal)",ex:"Dank je wel voor de hulp!",c:"Greetings",l:"A1"},
+{nl:"Geen probleem",en:"No problem",ex:"Geen probleem! Dat doe ik graag.",c:"Greetings",l:"A1"},
+{nl:"Sorry / Pardon",en:"Sorry / Excuse me",ex:"Sorry, ik begrijp het niet.",c:"Greetings",l:"A1"},
+{nl:"Ja / Nee",en:"Yes / No",ex:"Ja, dat klopt. Nee, dat weet ik niet.",c:"Greetings",l:"A1"},
+{nl:"Ik heet...",en:"My name is...",ex:"Ik heet Maria. Hoe heet jij?",c:"Greetings",l:"A1"},
+{nl:"Ik kom uit...",en:"I come from...",ex:"Ik kom uit Brazilië.",c:"Greetings",l:"A1"},
+{nl:"Ik woon in...",en:"I live in...",ex:"Ik woon in Amsterdam.",c:"Greetings",l:"A1"},
+{nl:"Aangenaam",en:"Nice to meet you",ex:"Aangenaam! Ik heet Thomas.",c:"Greetings",l:"A1"},
+{nl:"Spreek je Engels?",en:"Do you speak English?",ex:"Spreek je Engels? Ik spreek een beetje Nederlands.",c:"Greetings",l:"A1"},
+{nl:"Herhaal dat, alsjeblieft",en:"Please repeat that",ex:"Kunt u dat herhalen?",c:"Greetings",l:"A1"},
 ],
 numbers:[
-{nl:"nul",en:"zero",ex:"Nul graden — het vriest!",c:"Numbers"},
-{nl:"één",en:"one",ex:"Ik heb één broer.",c:"Numbers"},
-{nl:"twee",en:"two",ex:"Twee kopjes koffie.",c:"Numbers"},
-{nl:"drie",en:"three",ex:"Drie dagen per week.",c:"Numbers"},
-{nl:"vier",en:"four",ex:"Vier seizoenen.",c:"Numbers"},
-{nl:"vijf",en:"five",ex:"Vijf minuten lopen.",c:"Numbers"},
-{nl:"zes",en:"six",ex:"Zes euro, alsjeblieft.",c:"Numbers"},
-{nl:"zeven",en:"seven",ex:"Zeven dagen in een week.",c:"Numbers"},
-{nl:"acht",en:"eight",ex:"De trein om acht uur.",c:"Numbers"},
-{nl:"negen",en:"nine",ex:"Negen maanden duurt een zwangerschap.",c:"Numbers"},
-{nl:"tien",en:"ten",ex:"Tien minuten rijden.",c:"Numbers"},
-{nl:"elf",en:"eleven",ex:"Elf spelers in een voetbalteam.",c:"Numbers"},
-{nl:"twaalf",en:"twelve",ex:"Twaalf maanden in een jaar.",c:"Numbers"},
-{nl:"twintig",en:"twenty",ex:"Twintig euro voor een kaartje.",c:"Numbers"},
-{nl:"dertig",en:"thirty",ex:"Dertig graden — warm!",c:"Numbers"},
-{nl:"veertig",en:"forty",ex:"Hij is veertig jaar oud.",c:"Numbers"},
-{nl:"vijftig",en:"fifty",ex:"Vijftig procent korting!",c:"Numbers"},
-{nl:"honderd",en:"one hundred",ex:"Honderd kilometer per uur.",c:"Numbers"},
-{nl:"duizend",en:"one thousand",ex:"Duizend mensen op het plein.",c:"Numbers"},
-{nl:"half [X]",en:"half past [X-1] ⚠️",ex:"Half drie = 2:30. Half acht = 7:30.",c:"Numbers"},
-{nl:"kwart over",en:"quarter past",ex:"Kwart over drie = 3:15.",c:"Numbers"},
-{nl:"kwart voor",en:"quarter to",ex:"Kwart voor vier = 3:45.",c:"Numbers"},
-{nl:"'s ochtends / 's middags",en:"in the morning / afternoon",ex:"Het is drie uur 's middags.",c:"Numbers"},
-{nl:"eerste / tweede / derde",en:"first / second / third",ex:"De eerste dag van de week is maandag.",c:"Numbers"},
-{nl:"tweeëndertig",en:"thirty-two",ex:"Tweeëndertig graden!",c:"Numbers"},
-{nl:"een half",en:"one half",ex:"Een halve taart voor mij.",c:"Numbers"},
+{nl:"nul / één / twee / drie",en:"zero / one / two / three",ex:"Ik heb drie broers.",c:"Numbers",l:"A1"},
+{nl:"vier / vijf / zes / zeven",en:"four / five / six / seven",ex:"Zeven dagen in een week.",c:"Numbers",l:"A1"},
+{nl:"acht / negen / tien",en:"eight / nine / ten",ex:"De trein om acht uur.",c:"Numbers",l:"A1"},
+{nl:"elf / twaalf / dertien",en:"eleven / twelve / thirteen",ex:"Twaalf maanden in een jaar.",c:"Numbers",l:"A1"},
+{nl:"twintig / dertig / veertig",en:"twenty / thirty / forty",ex:"Hij is dertig jaar oud.",c:"Numbers",l:"A1"},
+{nl:"vijftig / honderd / duizend",en:"fifty / hundred / thousand",ex:"Honderd kilometer.",c:"Numbers",l:"A1"},
+{nl:"half [X]",en:"half past [X−1] ⚠️",ex:"Half drie = 2:30. Half acht = 7:30.",c:"Numbers",l:"A1"},
+{nl:"kwart over / kwart voor",en:"quarter past / quarter to",ex:"Kwart over drie = 3:15. Kwart voor vier = 3:45.",c:"Numbers",l:"A1"},
+{nl:"Hoe laat is het?",en:"What time is it?",ex:"Het is half vier. (= 3:30!)",c:"Numbers",l:"A1"},
+{nl:"maandag / dinsdag / woensdag",en:"Monday / Tuesday / Wednesday",ex:"Op maandag werk ik.",c:"Numbers",l:"A1"},
+{nl:"donderdag / vrijdag / zaterdag / zondag",en:"Thursday / Friday / Saturday / Sunday",ex:"Vrijdag is het bijna weekend!",c:"Numbers",l:"A1"},
+{nl:"vandaag / morgen / gisteren",en:"today / tomorrow / yesterday",ex:"Vandaag is het maandag.",c:"Numbers",l:"A1"},
+{nl:"eerste / tweede / derde",en:"first / second / third",ex:"De eerste straat rechts.",c:"Numbers",l:"A1"},
+{nl:"januari t/m december",en:"January to December",ex:"Mijn verjaardag is in mei.",c:"Numbers",l:"A1"},
 ],
 family:[
-{nl:"de vader",en:"father",ex:"Mijn vader werkt in Amsterdam.",c:"Family",a:"de"},
-{nl:"de moeder",en:"mother",ex:"Mijn moeder kookt elke dag.",c:"Family",a:"de"},
-{nl:"de broer",en:"brother",ex:"Ik heb één broer.",c:"Family",a:"de"},
-{nl:"de zus",en:"sister",ex:"Mijn zus studeert in Utrecht.",c:"Family",a:"de"},
-{nl:"het kind",en:"child",ex:"Het kind speelt in de tuin.",c:"Family",a:"het"},
-{nl:"de opa",en:"grandfather",ex:"Mijn opa is tachtig jaar oud.",c:"Family",a:"de"},
-{nl:"de oma",en:"grandmother",ex:"Oma bakt de lekkerste taart.",c:"Family",a:"de"},
-{nl:"de oom",en:"uncle",ex:"Mijn oom woont in Rotterdam.",c:"Family",a:"de"},
-{nl:"de tante",en:"aunt",ex:"Tante Marie belt elke zondag.",c:"Family",a:"de"},
-{nl:"de neef",en:"nephew / male cousin",ex:"Mijn neef is tien jaar oud.",c:"Family",a:"de"},
-{nl:"de nicht",en:"niece / female cousin",ex:"Mijn nicht gaat naar school.",c:"Family",a:"de"},
-{nl:"de man",en:"husband / man",ex:"Mijn man werkt als leraar.",c:"Family",a:"de"},
-{nl:"de vrouw",en:"wife / woman",ex:"Zijn vrouw is dokter.",c:"Family",a:"de"},
-{nl:"de vriend",en:"boyfriend / male friend",ex:"Mijn vriend heet Thomas.",c:"Family",a:"de"},
-{nl:"de vriendin",en:"girlfriend / female friend",ex:"Mijn vriendin studeert.",c:"Family",a:"de"},
-{nl:"het gezin",en:"nuclear family / household",ex:"Ons gezin bestaat uit vier personen.",c:"Family",a:"het"},
-{nl:"de tweeling",en:"twins",ex:"Ze zijn een tweeling.",c:"Family",a:"de"},
-{nl:"de stiefvader",en:"stepfather",ex:"Mijn stiefvader is aardig.",c:"Family",a:"de"},
-{nl:"de stiefmoeder",en:"stepmother",ex:"Zijn stiefmoeder heet Anna.",c:"Family",a:"de"},
-{nl:"de schoonvader",en:"father-in-law",ex:"Mijn schoonvader woont in Leiden.",c:"Family",a:"de"},
-{nl:"de schoonmoeder",en:"mother-in-law",ex:"Mijn schoonmoeder kookt heerlijk.",c:"Family",a:"de"},
-{nl:"getrouwd / vrijgezel",en:"married / single",ex:"Bent u getrouwd of vrijgezel?",c:"Family"},
-],
-food:[
-{nl:"het brood",en:"bread",ex:"Ik eet elke ochtend brood.",c:"Food",a:"het"},
-{nl:"de kaas",en:"cheese",ex:"Nederlandse kaas is beroemd.",c:"Food",a:"de"},
-{nl:"het ei",en:"egg",ex:"Twee eieren voor het ontbijt.",c:"Food",a:"het"},
-{nl:"de melk",en:"milk",ex:"Een glas melk, alsjeblieft.",c:"Food",a:"de"},
-{nl:"de boter",en:"butter",ex:"Brood met boter en kaas.",c:"Food",a:"de"},
-{nl:"de yoghurt",en:"yogurt",ex:"Griekse yoghurt met honing.",c:"Food",a:"de"},
-{nl:"de koffie",en:"coffee",ex:"Nederlanders drinken veel koffie.",c:"Food",a:"de"},
-{nl:"de thee",en:"tea",ex:"Een kopje thee met suiker.",c:"Food",a:"de"},
-{nl:"het bier",en:"beer",ex:"Een biertje na het werk.",c:"Food",a:"het"},
-{nl:"de wijn",en:"wine",ex:"Rode of witte wijn?",c:"Food",a:"de"},
-{nl:"het water",en:"water",ex:"Mag ik een glas water?",c:"Food",a:"het"},
-{nl:"het sap",en:"juice",ex:"Een glas sinaasappelsap.",c:"Food",a:"het"},
-{nl:"de soep",en:"soup",ex:"Tomatensoep is lekker!",c:"Food",a:"de"},
-{nl:"het vlees",en:"meat",ex:"Ik eet geen vlees.",c:"Food",a:"het"},
-{nl:"de vis",en:"fish",ex:"Haring is typisch Nederlands.",c:"Food",a:"de"},
-{nl:"de groente",en:"vegetables",ex:"Eet elke dag groente!",c:"Food",a:"de"},
-{nl:"het fruit",en:"fruit",ex:"Vers fruit is gezond.",c:"Food",a:"het"},
-{nl:"de aardappel",en:"potato",ex:"Stamppot is met aardappels.",c:"Food",a:"de"},
-{nl:"de rijst",en:"rice",ex:"Rijst met groente.",c:"Food",a:"de"},
-{nl:"de pasta",en:"pasta",ex:"Pasta met tomatensaus.",c:"Food",a:"de"},
-{nl:"lekker",en:"tasty / nice",ex:"Dit is heel lekker!",c:"Food"},
-{nl:"het ontbijt / de lunch / het avondeten",en:"breakfast / lunch / dinner",ex:"Het avondeten is om zes uur.",c:"Food"},
-{nl:"de rekening",en:"the bill",ex:"Mag ik de rekening?",c:"Food",a:"de"},
-{nl:"de ober / de serveerster",en:"waiter / waitress",ex:"De ober brengt de rekening.",c:"Food",a:"de"},
-{nl:"de reservering",en:"reservation",ex:"Ik heb een reservering voor twee personen.",c:"Food",a:"de"},
-{nl:"de fooi",en:"tip (gratuity)",ex:"We geven altijd een fooi.",c:"Food",a:"de"},
-{nl:"vegetarisch / biologisch",en:"vegetarian / organic",ex:"Heeft u een vegetarisch menu?",c:"Food"},
-{nl:"allergisch voor",en:"allergic to",ex:"Ik ben allergisch voor noten.",c:"Food"},
-],
-verbs:[
-{nl:"zijn — ik ben / jij bent / hij is",en:"to be",ex:"Ik ben student. Jij bent leraar. Hij is oud.",c:"Verbs"},
-{nl:"hebben — ik heb / jij hebt / hij heeft",en:"to have",ex:"Ik heb een auto. Hij heeft geld.",c:"Verbs"},
-{nl:"worden — ik word / jij wordt / hij wordt",en:"to become",ex:"Ik word moe. Het wordt donker.",c:"Verbs"},
-{nl:"gaan — ik ga / jij gaat / hij gaat",en:"to go",ex:"Ik ga naar huis. Wij gaan fietsen.",c:"Verbs"},
-{nl:"komen — ik kom / jij komt / hij komt",en:"to come",ex:"Kom je vanavond? Ik kom om acht uur.",c:"Verbs"},
-{nl:"doen — ik doe / jij doet / hij doet",en:"to do",ex:"Wat doe jij? Ik doe boodschappen.",c:"Verbs"},
-{nl:"zeggen — ik zeg / jij zegt / hij zegt",en:"to say",ex:"Wat zeg je? Ik zeg niets.",c:"Verbs"},
-{nl:"maken — ik maak / jij maakt / hij maakt",en:"to make",ex:"Ik maak een fout. Maak je geen zorgen.",c:"Verbs"},
-{nl:"willen — ik wil / jij wilt / hij wil",en:"to want",ex:"Ik wil koffie. Wat wil jij?",c:"Verbs"},
-{nl:"kunnen — ik kan / jij kunt / hij kan",en:"can / to be able to",ex:"Kan jij Nederlands spreken?",c:"Verbs"},
-{nl:"mogen — ik mag / jij mag / hij mag",en:"may / to be allowed to",ex:"Mag ik binnenkomen? Ja, je mag.",c:"Verbs"},
-{nl:"moeten — ik moet / jij moet / hij moet",en:"must / to have to",ex:"Ik moet werken. Je moet studeren.",c:"Verbs"},
-{nl:"zullen — ik zal / jij zult / hij zal",en:"shall / will (future)",ex:"Ik zal morgen bellen.",c:"Verbs"},
-{nl:"vragen — ik vraag / jij vraagt / hij vraagt",en:"to ask",ex:"Ik vraag om hulp.",c:"Verbs"},
-{nl:"helpen — ik help / jij helpt / hij helpt",en:"to help",ex:"Kan je mij helpen?",c:"Verbs"},
-{nl:"lijken — ik lijk / jij lijkt / hij lijkt",en:"to seem / to look like",ex:"Het lijkt moeilijk, maar het is makkelijk.",c:"Verbs"},
-{nl:"drinken — ik drink / jij drinkt / hij drinkt",en:"to drink",ex:"Ik drink elke dag koffie.",c:"Verbs"},
-{nl:"eten — ik eet / jij eet / hij eet",en:"to eat",ex:"Ik eet graag kaas.",c:"Verbs"},
-{nl:"zien — ik zie / jij ziet / hij ziet",en:"to see",ex:"Zie jij dat? Ik zie niets.",c:"Verbs"},
-{nl:"vinden — ik vind / jij vindt / hij vindt",en:"to find / to think",ex:"Ik vind het leuk. Ik vind mijn sleutels niet.",c:"Verbs"},
-{nl:"weten — ik weet / jij weet / hij weet",en:"to know (facts)",ex:"Weet jij het antwoord?",c:"Verbs"},
-{nl:"kennen — ik ken / jij kent / hij kent",en:"to know (people/places)",ex:"Ken jij Amsterdam?",c:"Verbs"},
-{nl:"werken — ik werk / jij werkt / hij werkt",en:"to work",ex:"Ik werk in Amsterdam.",c:"Verbs"},
-{nl:"wonen — ik woon / jij woont / hij woont",en:"to live",ex:"Waar woon jij?",c:"Verbs"},
-{nl:"spreken — ik spreek / jij spreekt / hij spreekt",en:"to speak",ex:"Spreek je Nederlands?",c:"Verbs"},
-],
-body:[
-{nl:"het hoofd",en:"head",ex:"Ik heb hoofdpijn.",c:"Body",a:"het"},
-{nl:"het voorhoofd",en:"forehead",ex:"Hij fronst zijn voorhoofd.",c:"Body",a:"het"},
-{nl:"de ogen (het oog)",en:"eyes (eye)",ex:"Hij heeft blauwe ogen.",c:"Body",a:"de/het"},
-{nl:"de wenkbrauw",en:"eyebrow",ex:"Ze trekt haar wenkbrauwen op.",c:"Body",a:"de"},
-{nl:"de neus",en:"nose",ex:"Mijn neus loopt.",c:"Body",a:"de"},
-{nl:"de mond",en:"mouth",ex:"Open je mond bij de tandarts.",c:"Body",a:"de"},
-{nl:"de lippen",en:"lips",ex:"Droge lippen in de winter.",c:"Body",a:"de"},
-{nl:"de tanden (de tand)",en:"teeth (tooth)",ex:"Poets je tanden twee keer per dag.",c:"Body",a:"de"},
-{nl:"de tong",en:"tongue",ex:"De tong helpt bij spreken.",c:"Body",a:"de"},
-{nl:"de kin",en:"chin",ex:"Hij heeft een baard op zijn kin.",c:"Body",a:"de"},
-{nl:"de oren (het oor)",en:"ears (ear)",ex:"Ik heb oorpijn.",c:"Body",a:"de/het"},
-{nl:"de hand",en:"hand",ex:"Geef mij je hand!",c:"Body",a:"de"},
-{nl:"de arm",en:"arm",ex:"Mijn arm doet pijn.",c:"Body",a:"de"},
-{nl:"het been",en:"leg",ex:"Hij heeft zijn been gebroken.",c:"Body",a:"het"},
-{nl:"de knie",en:"knee",ex:"Mijn knie doet pijn van het fietsen.",c:"Body",a:"de"},
-{nl:"de voet",en:"foot",ex:"Ik heb blaren op mijn voeten.",c:"Body",a:"de"},
-{nl:"de rug",en:"back",ex:"Ik heb rugpijn.",c:"Body",a:"de"},
-{nl:"de maag",en:"stomach",ex:"Ik heb maagpijn.",c:"Body",a:"de"},
-{nl:"de buik",en:"belly / abdomen",ex:"Mijn buik doet pijn.",c:"Body",a:"de"},
-{nl:"de schedel",en:"skull",ex:"De schedel beschermt de hersenen.",c:"Body",a:"de"},
-{nl:"het bot",en:"bone",ex:"Hij heeft een bot gebroken.",c:"Body",a:"het"},
-{nl:"de spier",en:"muscle",ex:"Na sport doen mijn spieren pijn.",c:"Body",a:"de"},
-{nl:"ziek / gezond",en:"sick / healthy",ex:"Ik ben ziek. Ik ga naar de dokter.",c:"Body"},
-{nl:"koorts / hoesten",en:"fever / to cough",ex:"Ik heb koorts: 38 graden.",c:"Body"},
-],
-city:[
-{nl:"de straat",en:"street",ex:"Ik woon in de Hoofdstraat.",c:"City",a:"de"},
-{nl:"het plein",en:"square / plaza",ex:"Het Museumplein is prachtig.",c:"City",a:"het"},
-{nl:"de winkel",en:"shop / store",ex:"De winkel is om negen uur open.",c:"City",a:"de"},
-{nl:"het station",en:"train station",ex:"Het Centraal Station in Amsterdam.",c:"City",a:"het"},
-{nl:"de trein",en:"train",ex:"Ik ga met de trein naar Rotterdam.",c:"City",a:"de"},
-{nl:"de bus",en:"bus",ex:"Welke bus gaat naar het centrum?",c:"City",a:"de"},
-{nl:"de fiets",en:"bicycle",ex:"In Nederland fietst iedereen!",c:"City",a:"de"},
-{nl:"de auto",en:"car",ex:"Ik rijd met de auto naar mijn werk.",c:"City",a:"de"},
-{nl:"rechts / links",en:"right / left",ex:"Ga rechts bij het stoplicht.",c:"City"},
-{nl:"rechtdoor",en:"straight ahead",ex:"Ga rechtdoor, dan links.",c:"City"},
-{nl:"de supermarkt",en:"supermarket",ex:"Ik doe boodschappen in de supermarkt.",c:"City",a:"de"},
-{nl:"de apotheek",en:"pharmacy",ex:"De apotheek is naast de bakker.",c:"City",a:"de"},
-{nl:"het ziekenhuis",en:"hospital",ex:"Het ziekenhuis is 24 uur open.",c:"City",a:"het"},
-{nl:"de school / de universiteit",en:"school / university",ex:"De kinderen gaan naar school.",c:"City",a:"de"},
-{nl:"ver / dichtbij",en:"far / nearby",ex:"Is het station ver? Nee, dichtbij.",c:"City"},
-{nl:"het centrum",en:"city center",ex:"Het centrum is gezellig.",c:"City",a:"het"},
-{nl:"de markt",en:"market",ex:"Zaterdag is er markt.",c:"City",a:"de"},
-{nl:"de brug",en:"bridge",ex:"Amsterdam heeft veel bruggen.",c:"City",a:"de"},
-{nl:"de gracht",en:"canal",ex:"De grachten zijn mooi.",c:"City",a:"de"},
-{nl:"gezellig",en:"cozy / fun / sociable (uniquely Dutch!)",ex:"Wat een gezellige avond!",c:"City"},
-{nl:"de bakker",en:"baker / bakery",ex:"Elke ochtend brood van de bakker.",c:"City",a:"de"},
-{nl:"het postkantoor",en:"post office",ex:"Ik stuur een pakket via het postkantoor.",c:"City",a:"het"},
-],
-clothes:[
-{nl:"het overhemd / het hemd",en:"shirt",ex:"Hij draagt een wit overhemd.",c:"Clothes",a:"het"},
-{nl:"het T-shirt",en:"t-shirt",ex:"Een katoenen T-shirt.",c:"Clothes",a:"het"},
-{nl:"de trui",en:"sweater / jumper",ex:"Een warme trui in de winter.",c:"Clothes",a:"de"},
-{nl:"de jas / het jack",en:"coat / jacket",ex:"Trek je jas aan, het is koud.",c:"Clothes",a:"de/het"},
-{nl:"de broek",en:"trousers / pants",ex:"Een spijkerbroek of een nette broek?",c:"Clothes",a:"de"},
-{nl:"de spijkerbroek",en:"jeans",ex:"Hij draagt altijd een spijkerbroek.",c:"Clothes",a:"de"},
-{nl:"de jurk",en:"dress",ex:"Ze draagt een rode jurk.",c:"Clothes",a:"de"},
-{nl:"de rok",en:"skirt",ex:"Een lange rok is elegant.",c:"Clothes",a:"de"},
-{nl:"de schoenen (de schoen)",en:"shoes (shoe)",ex:"Nieuwe schoenen zijn soms stijf.",c:"Clothes",a:"de"},
-{nl:"de laarzen (de laars)",en:"boots",ex:"Rubberlaarzen voor de regen.",c:"Clothes",a:"de"},
-{nl:"de sokken (de sok)",en:"socks",ex:"Warme wollen sokken.",c:"Clothes",a:"de"},
-{nl:"de hoed",en:"hat",ex:"Een hoed beschermt tegen de zon.",c:"Clothes",a:"de"},
-{nl:"de muts",en:"beanie / winter hat",ex:"In de winter draag ik een muts.",c:"Clothes",a:"de"},
-{nl:"de sjaal",en:"scarf",ex:"Een wollen sjaal om de hals.",c:"Clothes",a:"de"},
-{nl:"de handschoenen",en:"gloves",ex:"Vergeet je handschoenen niet!",c:"Clothes",a:"de"},
-{nl:"de bril",en:"glasses",ex:"Ik draag een bril om beter te zien.",c:"Clothes",a:"de"},
-{nl:"de zonnebril",en:"sunglasses",ex:"Zonnebril op bij mooi weer.",c:"Clothes",a:"de"},
-{nl:"het horloge",en:"watch",ex:"Mijn horloge is kapot.",c:"Clothes",a:"het"},
-{nl:"de ring / de ketting",en:"ring / necklace",ex:"Ze draagt een gouden ring.",c:"Clothes",a:"de"},
-{nl:"dragen / aantrekken",en:"to wear / to put on",ex:"Ik trek mijn jas aan.",c:"Clothes"},
-],
-nature:[
-{nl:"het weer",en:"the weather",ex:"Hoe is het weer vandaag?",c:"Nature",a:"het"},
-{nl:"de zon schijnt",en:"the sun is shining",ex:"De zon schijnt — lekker!",c:"Nature"},
-{nl:"het regent",en:"it's raining",ex:"Het regent hard vandaag.",c:"Nature"},
-{nl:"het sneeuwt",en:"it's snowing",ex:"Het sneeuwt in de winter.",c:"Nature"},
-{nl:"het waait",en:"it's windy",ex:"Het waait hard aan zee.",c:"Nature"},
-{nl:"het is bewolkt",en:"it's cloudy",ex:"Het is bewolkt, maar droog.",c:"Nature"},
-{nl:"het is mistig",en:"it's foggy",ex:"Het is mistig op de weg.",c:"Nature"},
-{nl:"de lente / de zomer",en:"spring / summer",ex:"In de lente bloeien de tulpen.",c:"Nature",a:"de"},
-{nl:"de herfst / de winter",en:"autumn / winter",ex:"In de herfst vallen de bladeren.",c:"Nature",a:"de"},
-{nl:"de temperatuur",en:"temperature",ex:"De temperatuur is tien graden.",c:"Nature",a:"de"},
-{nl:"het bos",en:"forest",ex:"We wandelen in het bos.",c:"Nature",a:"het"},
-{nl:"de berg",en:"mountain",ex:"In Nederland zijn geen bergen.",c:"Nature",a:"de"},
-{nl:"de rivier",en:"river",ex:"De Rijn is een grote rivier.",c:"Nature",a:"de"},
-{nl:"het meer",en:"lake",ex:"We zwemmen in het meer.",c:"Nature",a:"het"},
-{nl:"de zee / de oceaan",en:"sea / ocean",ex:"Nederland grenst aan de Noordzee.",c:"Nature",a:"de"},
-{nl:"het strand",en:"beach",ex:"In de zomer gaan we naar het strand.",c:"Nature",a:"het"},
-{nl:"de tulp",en:"tulip",ex:"Tulpen zijn het symbool van Nederland.",c:"Nature",a:"de"},
-{nl:"het gras",en:"grass",ex:"Het gras is groen.",c:"Nature",a:"het"},
-{nl:"de boom",en:"tree",ex:"Er staan veel bomen in het park.",c:"Nature",a:"de"},
-{nl:"de bloem",en:"flower",ex:"Ik koop bloemen voor mijn moeder.",c:"Nature",a:"de"},
-{nl:"de regen / de storm",en:"rain / storm",ex:"Na de regen komt de zon.",c:"Nature",a:"de"},
-{nl:"de bries",en:"breeze",ex:"Een frisse bries van de zee.",c:"Nature",a:"de"},
-],
-work:[
-{nl:"de arts / de dokter",en:"doctor",ex:"Ik heb een afspraak bij de dokter.",c:"Work",a:"de"},
-{nl:"de verpleegkundige",en:"nurse",ex:"De verpleegkundige geeft medicijnen.",c:"Work",a:"de"},
-{nl:"de leraar / de docent",en:"teacher",ex:"Mijn leraar spreekt snel.",c:"Work",a:"de"},
-{nl:"de advocaat",en:"lawyer",ex:"De advocaat verdedigt zijn cliënt.",c:"Work",a:"de"},
-{nl:"de ingenieur",en:"engineer",ex:"Hij werkt als ingenieur bij Philips.",c:"Work",a:"de"},
-{nl:"de architect",en:"architect",ex:"De architect ontwerpt het gebouw.",c:"Work",a:"de"},
-{nl:"de programmeur",en:"programmer",ex:"Ze werkt als programmeur.",c:"Work",a:"de"},
-{nl:"de bakker",en:"baker",ex:"De bakker verkoopt vers brood.",c:"Work",a:"de"},
-{nl:"de ober / de serveerster",en:"waiter / waitress",ex:"De ober brengt de kaart.",c:"Work",a:"de"},
-{nl:"de kapper",en:"hairdresser",ex:"Ik ga naar de kapper.",c:"Work",a:"de"},
-{nl:"de politieagent",en:"police officer",ex:"De politieagent regelt het verkeer.",c:"Work",a:"de"},
-{nl:"de brandweer",en:"fire brigade / firefighters",ex:"De brandweer blust het vuur.",c:"Work",a:"de"},
-{nl:"de wetenschapper",en:"scientist",ex:"De wetenschapper doet onderzoek.",c:"Work",a:"de"},
-{nl:"de elektricien",en:"electrician",ex:"De elektricien repareert de bedrading.",c:"Work",a:"de"},
-{nl:"het kantoor",en:"office",ex:"Ik werk op kantoor van 9 tot 5.",c:"Work",a:"het"},
-{nl:"de vergadering",en:"meeting",ex:"Ik heb een vergadering om tien uur.",c:"Work",a:"de"},
-{nl:"het salaris / het loon",en:"salary / wage",ex:"Mijn salaris is goed.",c:"Work",a:"het"},
-{nl:"werkloos / met pensioen",en:"unemployed / retired",ex:"Hij is met pensioen.",c:"Work"},
-{nl:"solliciteren",en:"to apply for a job",ex:"Ik solliciteer naar een nieuwe baan.",c:"Work"},
-{nl:"de baas / de chef",en:"boss / manager",ex:"Mijn baas is streng maar eerlijk.",c:"Work",a:"de"},
-],
-house:[
-{nl:"het bed",en:"bed",ex:"Ik ga om tien uur naar bed.",c:"House",a:"het"},
-{nl:"het kussen",en:"pillow",ex:"Een zacht kussen voor een goede nacht.",c:"House",a:"het"},
-{nl:"de deken / het dekbed",en:"blanket / duvet",ex:"Een warm dekbed in de winter.",c:"House",a:"de/het"},
-{nl:"de kledingkast",en:"wardrobe / closet",ex:"Mijn kledingkast is vol.",c:"House",a:"de"},
-{nl:"de bank",en:"sofa / couch",ex:"We zitten op de bank.",c:"House",a:"de"},
-{nl:"de televisie",en:"television",ex:"We kijken televisie na het eten.",c:"House",a:"de"},
-{nl:"de lamp",en:"lamp",ex:"De lamp in de woonkamer is kapot.",c:"House",a:"de"},
-{nl:"het tapijt",en:"rug / carpet",ex:"Een rood tapijt op de vloer.",c:"House",a:"het"},
-{nl:"de boekenkast",en:"bookshelf",ex:"Een boekenkast vol romans.",c:"House",a:"de"},
-{nl:"het toilet",en:"toilet",ex:"Waar is het toilet?",c:"House",a:"het"},
-{nl:"de douche / het bad",en:"shower / bathtub",ex:"Ik neem elke ochtend een douche.",c:"House",a:"de/het"},
-{nl:"de wastafel",en:"sink",ex:"Handen wassen bij de wastafel.",c:"House",a:"de"},
-{nl:"de deur",en:"door",ex:"De deur is op slot.",c:"House",a:"de"},
-{nl:"het raam",en:"window",ex:"Open het raam, het is warm.",c:"House",a:"het"},
-{nl:"de vloer",en:"floor",ex:"De vloer is van hout.",c:"House",a:"de"},
-{nl:"het bord / het glas",en:"plate / glass",ex:"Zet het bord op tafel.",c:"House",a:"het"},
-{nl:"het mes / de vork / de lepel",en:"knife / fork / spoon",ex:"Leg het bestek neer.",c:"House",a:"het/de"},
-{nl:"de stofzuiger",en:"vacuum cleaner",ex:"Ik stofzuig de woonkamer.",c:"House",a:"de"},
-{nl:"de wekker",en:"alarm clock",ex:"Mijn wekker gaat om zeven uur.",c:"House",a:"de"},
-{nl:"het stopcontact",en:"power outlet",ex:"Steek de stekker in het stopcontact.",c:"House",a:"het"},
-{nl:"de sleutel",en:"key",ex:"Ik ben mijn sleutel kwijt!",c:"House",a:"de"},
-{nl:"de trap",en:"stairs / ladder",ex:"De trap naar boven.",c:"House",a:"de"},
+{nl:"de vader / de moeder",en:"father / mother",ex:"Mijn vader werkt in Utrecht.",c:"Family",l:"A1",a:"de"},
+{nl:"de broer / de zus",en:"brother / sister",ex:"Ik heb één broer en twee zussen.",c:"Family",l:"A1",a:"de"},
+{nl:"het kind",en:"child",ex:"Ze hebben twee kinderen.",c:"Family",l:"A1",a:"het"},
+{nl:"de opa / de oma",en:"grandfather / grandmother",ex:"Mijn opa is zeventig jaar oud.",c:"Family",l:"A1",a:"de"},
+{nl:"de oom / de tante",en:"uncle / aunt",ex:"Mijn oom woont in Rotterdam.",c:"Family",l:"A1",a:"de"},
+{nl:"de man / de vrouw",en:"husband / wife",ex:"Mijn man werkt als leraar.",c:"Family",l:"A1",a:"de"},
+{nl:"de vriend / de vriendin",en:"boyfriend / girlfriend",ex:"Mijn vriendin studeert.",c:"Family",l:"A1",a:"de"},
+{nl:"het gezin",en:"nuclear family / household",ex:"Ons gezin bestaat uit vier personen.",c:"Family",l:"A1",a:"het"},
+{nl:"de neef / de nicht",en:"nephew/cousin (m) / niece/cousin (f)",ex:"Mijn neef is tien jaar oud.",c:"Family",l:"A1",a:"de"},
+{nl:"Hoe oud ben je?",en:"How old are you?",ex:"Ik ben drieëndertig jaar oud.",c:"Family",l:"A1"},
+{nl:"getrouwd / vrijgezel",en:"married / single",ex:"Bent u getrouwd?",c:"Family",l:"A1"},
 ],
 colors:[
-{nl:"rood",en:"red",ex:"Een rode roos.",c:"Colors"},
-{nl:"blauw",en:"blue",ex:"Een blauwe lucht.",c:"Colors"},
-{nl:"geel",en:"yellow",ex:"Nederlandse tulpen zijn geel.",c:"Colors"},
-{nl:"groen",en:"green",ex:"Groen gras in de lente.",c:"Colors"},
-{nl:"oranje",en:"orange",ex:"Oranje is de nationale kleur van Nederland!",c:"Colors"},
-{nl:"roze",en:"pink",ex:"Roze flamingo's.",c:"Colors"},
-{nl:"paars",en:"purple",ex:"Een paarse lavendel.",c:"Colors"},
-{nl:"bruin",en:"brown",ex:"Bruine chocolade.",c:"Colors"},
-{nl:"wit",en:"white",ex:"Witte sneeuw.",c:"Colors"},
-{nl:"zwart",en:"black",ex:"Een zwarte kat.",c:"Colors"},
-{nl:"grijs",en:"grey",ex:"Grijze wolken.",c:"Colors"},
-{nl:"beige",en:"beige",ex:"Een beige jas.",c:"Colors"},
-{nl:"turkoois",en:"turquoise",ex:"Het turquoise water.",c:"Colors"},
-{nl:"de cirkel",en:"circle",ex:"Een ronde cirkel.",c:"Colors"},
-{nl:"het vierkant / de rechthoek",en:"square / rectangle",ex:"Een vierkante doos.",c:"Colors"},
-{nl:"de driehoek",en:"triangle",ex:"Een gele driehoek.",c:"Colors"},
-{nl:"gestreept / geruit",en:"striped / checkered",ex:"Een gestreept overhemd.",c:"Colors"},
-{nl:"groot / klein",en:"big / small",ex:"Een grote hond en een kleine kat.",c:"Colors"},
+{nl:"rood / blauw / geel / groen",en:"red / blue / yellow / green",ex:"Een rode roos. Een blauwe lucht.",c:"Colours",l:"A1"},
+{nl:"oranje / roze / paars / bruin",en:"orange / pink / purple / brown",ex:"Oranje is de nationale kleur van Nederland.",c:"Colours",l:"A1"},
+{nl:"wit / zwart / grijs / beige",en:"white / black / grey / beige",ex:"Een zwarte kat. Witte sneeuw.",c:"Colours",l:"A1"},
+{nl:"groot / klein",en:"big / small",ex:"Een grote hond en een kleine kat.",c:"Colours",l:"A1"},
+{nl:"lang / kort",en:"long/tall / short",ex:"Een lange straat. Kort haar.",c:"Colours",l:"A1"},
+{nl:"oud / nieuw",en:"old / new",ex:"Een oud huis. Een nieuwe auto.",c:"Colours",l:"A1"},
+{nl:"duur / goedkoop",en:"expensive / cheap",ex:"Dit is te duur. Dat is goedkoop.",c:"Colours",l:"A1"},
+{nl:"lekker / lelijk",en:"tasty/nice / ugly",ex:"Dit eten is lekker. Wat lelijk!",c:"Colours",l:"A1"},
+{nl:"warm / koud",en:"warm / cold",ex:"Het is koud buiten. De koffie is warm.",c:"Colours",l:"A1"},
+],
+// ── A2: Daily Life (~1000–2000 words) ─────────────────────────────────────
+food:[
+{nl:"het brood / de kaas / het ei",en:"bread / cheese / egg",ex:"Brood met kaas is typisch Nederlands.",c:"Food",l:"A2",a:"het/de/het"},
+{nl:"de melk / de boter / de yoghurt",en:"milk / butter / yogurt",ex:"Yoghurt met fruit voor het ontbijt.",c:"Food",l:"A2",a:"de"},
+{nl:"de koffie / de thee / het water",en:"coffee / tea / water",ex:"Een kopje koffie, alsjeblieft.",c:"Food",l:"A2"},
+{nl:"het bier / de wijn / het sap",en:"beer / wine / juice",ex:"Rode wijn of witte wijn?",c:"Food",l:"A2"},
+{nl:"het vlees / de vis / de groente",en:"meat / fish / vegetables",ex:"Ik eet geen vlees — ik ben vegetariër.",c:"Food",l:"A2"},
+{nl:"het fruit / de aardappel / de rijst",en:"fruit / potato / rice",ex:"Stamppot is aardappels met groente.",c:"Food",l:"A2"},
+{nl:"het ontbijt / de lunch / het avondeten",en:"breakfast / lunch / dinner",ex:"Het avondeten is om zes uur.",c:"Food",l:"A2"},
+{nl:"de rekening / de ober / de fooi",en:"bill / waiter / tip",ex:"Mag ik de rekening? We geven altijd fooi.",c:"Food",l:"A2"},
+{nl:"bestellen / betalen",en:"to order / to pay",ex:"Ik wil graag bestellen. Hoe wil je betalen?",c:"Food",l:"A2"},
+{nl:"allergisch voor / vegetarisch",en:"allergic to / vegetarian",ex:"Ik ben allergisch voor noten.",c:"Food",l:"A2"},
+{nl:"lekker / vies / zout / zoet / zuur",en:"tasty / disgusting / salty / sweet / sour",ex:"Te zout! Maar wel lekker.",c:"Food",l:"A2"},
+{nl:"de supermarkt / de markt / de bakker",en:"supermarket / market / bakery",ex:"Ik doe boodschappen bij de supermarkt.",c:"Food",l:"A2"},
+],
+city:[
+{nl:"de straat / het plein / de brug",en:"street / square / bridge",ex:"Welke straat is dat? Over de brug.",c:"City",l:"A2",a:"de/het/de"},
+{nl:"het station / de bus / de trein",en:"station / bus / train",ex:"Ik ga met de trein naar Rotterdam.",c:"City",l:"A2",a:"het/de/de"},
+{nl:"de fiets / de auto / de tram",en:"bicycle / car / tram",ex:"In Amsterdam fietst iedereen.",c:"City",l:"A2",a:"de"},
+{nl:"rechts / links / rechtdoor",en:"right / left / straight ahead",ex:"Ga rechts bij de stoplichten.",c:"City",l:"A2"},
+{nl:"ver / dichtbij / naast / tegenover",en:"far / nearby / next to / opposite",ex:"Is het ver? Nee, dichtbij — naast de bakker.",c:"City",l:"A2"},
+{nl:"de supermarkt / de apotheek / het postkantoor",en:"supermarket / pharmacy / post office",ex:"De apotheek is op de hoek.",c:"City",l:"A2"},
+{nl:"het ziekenhuis / de school / het centrum",en:"hospital / school / city centre",ex:"Het ziekenhuis is open 24 uur.",c:"City",l:"A2"},
+{nl:"de gracht / de haven",en:"canal / harbour",ex:"Amsterdam heeft prachtige grachten.",c:"City",l:"A2",a:"de"},
+{nl:"gezellig",en:"cozy / sociable / fun (uniquely Dutch!)",ex:"Wat een gezellige avond!",c:"City",l:"A2"},
+{nl:"excuseer / kunt u mij helpen?",en:"excuse me / can you help me?",ex:"Kunt u mij de weg wijzen?",c:"City",l:"A2"},
+],
+body:[
+{nl:"het hoofd / het voorhoofd / het haar",en:"head / forehead / hair",ex:"Ik heb hoofdpijn.",c:"Body",l:"A2",a:"het"},
+{nl:"de ogen (het oog) / de neus / de mond",en:"eyes / nose / mouth",ex:"Mijn neus loopt.",c:"Body",l:"A2"},
+{nl:"de oren / de tanden / de tong",en:"ears / teeth / tongue",ex:"Ik heb oorpijn. Poets je tanden!",c:"Body",l:"A2"},
+{nl:"de hand / de arm / de schouder",en:"hand / arm / shoulder",ex:"Mijn arm doet pijn.",c:"Body",l:"A2",a:"de"},
+{nl:"het been / de knie / de voet",en:"leg / knee / foot",ex:"Ik heb mijn knie geblesseerd.",c:"Body",l:"A2"},
+{nl:"de rug / de maag / de buik",en:"back / stomach / belly",ex:"Ik heb buikpijn.",c:"Body",l:"A2",a:"de"},
+{nl:"pijn doen / ziek zijn / gezond zijn",en:"to hurt / to be sick / to be healthy",ex:"Mijn rug doet pijn. Ik ben ziek.",c:"Body",l:"A2"},
+{nl:"de dokter / de tandarts / de apotheek",en:"doctor / dentist / pharmacy",ex:"Ik heb een afspraak bij de dokter.",c:"Body",l:"A2",a:"de"},
+{nl:"koorts / hoesten / verkoudheid",en:"fever / cough / cold",ex:"Ik heb koorts en ik hoest veel.",c:"Body",l:"A2"},
+{nl:"het medicijn / recept / pillen",en:"medicine / prescription / pills",ex:"Neem dit medicijn drie keer per dag.",c:"Body",l:"A2",a:"het"},
+],
+house:[
+{nl:"de woonkamer / de keuken / de slaapkamer",en:"living room / kitchen / bedroom",ex:"De keuken is aan het einde van de gang.",c:"House",l:"A2",a:"de"},
+{nl:"de badkamer / het toilet / de gang",en:"bathroom / toilet / hallway",ex:"Waar is het toilet, alsjeblieft?",c:"House",l:"A2"},
+{nl:"het bed / de bank / de tafel / de stoel",en:"bed / sofa / table / chair",ex:"Ik zit op de bank televisie te kijken.",c:"House",l:"A2",a:"het/de"},
+{nl:"de deur / het raam / de vloer",en:"door / window / floor",ex:"Open het raam, het is warm.",c:"House",l:"A2",a:"de/het/de"},
+{nl:"de lamp / de televisie / de computer",en:"lamp / TV / computer",ex:"De lamp in de kamer is kapot.",c:"House",l:"A2",a:"de"},
+{nl:"de douche / het bad / de wastafel",en:"shower / bathtub / sink",ex:"Ik neem elke ochtend een douche.",c:"House",l:"A2",a:"de/het/de"},
+{nl:"schoon / vies / opruimen / stofzuigen",en:"clean / dirty / to tidy up / to vacuum",ex:"De kamer is vies. Ik ga opruimen.",c:"House",l:"A2"},
+{nl:"de huur / de hypotheek / de buren",en:"rent / mortgage / neighbours",ex:"De huur is duur in Amsterdam.",c:"House",l:"A2",a:"de"},
+],
+// ── B1: Independent User (~2000–5000 words) ────────────────────────────────
+verbs:[
+{nl:"zijn — ik ben / jij bent / hij is / wij zijn",en:"to be — full conjugation",ex:"Ik ben moe. Zij zijn studenten.",c:"Verbs",l:"B1"},
+{nl:"hebben — ik heb / jij hebt / hij heeft / wij hebben",en:"to have — full conjugation",ex:"Ik heb gewerkt. Hij heeft gegeten.",c:"Verbs",l:"B1"},
+{nl:"worden — ik word / jij wordt / hij wordt",en:"to become — present + perfect",ex:"Het wordt donker. Ik ben moe geworden.",c:"Verbs",l:"B1"},
+{nl:"kunnen — ik kan / jij kunt / hij kan / wij kunnen",en:"can — present + conditional",ex:"Ik kan zwemmen. Zou jij kunnen helpen?",c:"Verbs",l:"B1"},
+{nl:"moeten — ik moet / wij moeten (past: moest)",en:"must — present + simple past",ex:"Ik moest gisteren werken.",c:"Verbs",l:"B1"},
+{nl:"mogen — ik mag / wij mogen",en:"may / allowed to",ex:"Mag ik hier parkeren?",c:"Verbs",l:"B1"},
+{nl:"willen — ik wil / jij wilt / hij wil",en:"to want",ex:"Ik wil graag een koffie.",c:"Verbs",l:"B1"},
+{nl:"zullen — ik zal / wij zullen (conditional: zou/zouden)",en:"shall/will → would",ex:"Ik zal bellen. Ik zou graag helpen.",c:"Verbs",l:"B1"},
+{nl:"gaan — ik ga / hij gaat (perfect: ben gegaan)",en:"to go (zijn verb!)",ex:"Ik ben naar Amsterdam gegaan.",c:"Verbs",l:"B1"},
+{nl:"komen — ik kom / hij komt (perfect: ben gekomen)",en:"to come (zijn verb!)",ex:"Zij is laat gekomen.",c:"Verbs",l:"B1"},
+{nl:"vinden — ik vind / hij vindt (past: vond)",en:"to find / to think/feel about sth",ex:"Ik vind het leuk. Ik vond het moeilijk.",c:"Verbs",l:"B1"},
+{nl:"denken — ik denk / hij denkt (past: dacht)",en:"to think",ex:"Ik denk dat hij gelijk heeft.",c:"Verbs",l:"B1"},
+{nl:"weten — ik weet / hij weet",en:"to know (facts)",ex:"Ik weet niet of hij komt.",c:"Verbs",l:"B1"},
+{nl:"begrijpen — ik begrijp (past: begreep)",en:"to understand (strong verb!)",ex:"Ik begrijp het niet. Kunt u dat uitleggen?",c:"Verbs",l:"B1"},
+{nl:"lijken — ik lijk (past: leek)",en:"to seem / to look like",ex:"Het lijkt moeilijk, maar het valt mee.",c:"Verbs",l:"B1"},
+{nl:"besluiten — ik besluit (past: besloot)",en:"to decide",ex:"Ik heb besloten om te stoppen.",c:"Verbs",l:"B1"},
+{nl:"verwachten / verwacht",en:"to expect",ex:"Ik verwacht dat het gaat regenen.",c:"Verbs",l:"B1"},
+{nl:"verklaren / uitleggen",en:"to explain",ex:"Kunt u dat verklaren?",c:"Verbs",l:"B1"},
+],
+work:[
+{nl:"de baan / het werk / de carrière",en:"job / work / career",ex:"Ik zoek een nieuwe baan.",c:"Work",l:"B1",a:"de/het/de"},
+{nl:"solliciteren naar / het sollicitatiegesprek",en:"to apply for / job interview",ex:"Ik heb gesolliciteerd naar die baan.",c:"Work",l:"B1"},
+{nl:"de werkgever / de werknemer / de collega",en:"employer / employee / colleague",ex:"Mijn collega's zijn aardig.",c:"Work",l:"B1",a:"de"},
+{nl:"het salaris / de arbeidsovereenkomst",en:"salary / employment contract",ex:"We bespreken het salaris in het gesprek.",c:"Work",l:"B1",a:"het/de"},
+{nl:"de vergadering / de deadline / het project",en:"meeting / deadline / project",ex:"Ik heb een vergadering om tien uur.",c:"Work",l:"B1"},
+{nl:"het onderwijs / de universiteit / het diploma",en:"education / university / degree",ex:"Ik heb een diploma van de universiteit.",c:"Work",l:"B1",a:"het/de/het"},
+{nl:"de stages / de opleiding / het certificaat",en:"internship / training / certificate",ex:"Ik doe een opleiding voor verpleegkundige.",c:"Work",l:"B1",a:"de"},
+{nl:"werkloos / met verlof / met pensioen",en:"unemployed / on leave / retired",ex:"Hij is met pensioen na veertig jaar werken.",c:"Work",l:"B1"},
+{nl:"de vakbond / het minimumloon",en:"trade union / minimum wage",ex:"Het minimumloon is gestegen.",c:"Work",l:"B1"},
+{nl:"thuiswerken / flexibele werktijden",en:"working from home / flexible hours",ex:"Ik werk drie dagen thuis.",c:"Work",l:"B1"},
+],
+abstract:[
+{nl:"vinden / denken / geloven / menen",en:"to find/think / to think / to believe / to mean/think",ex:"Ik vind dat hij gelijk heeft. Ik geloof het niet.",c:"Opinions",l:"B1"},
+{nl:"het lijkt me dat / naar mijn mening",en:"it seems to me that / in my opinion",ex:"Naar mijn mening is dat niet eerlijk.",c:"Opinions",l:"B1"},
+{nl:"hoewel / alhoewel / ondanks",en:"although / even though / despite",ex:"Hoewel het regent, ga ik fietsen.",c:"Opinions",l:"B1"},
+{nl:"echter / toch / desondanks",en:"however / yet/still / nonetheless",ex:"Het is duur. Toch koop ik het.",c:"Opinions",l:"B1"},
+{nl:"daarom / dus / omdat / want",en:"therefore / so / because (conj.) / because (coord.)",ex:"Ik ben moe, want ik heb slecht geslapen.",c:"Opinions",l:"B1"},
+{nl:"bovendien / bovenop / niet alleen... maar ook",en:"moreover / on top of that / not only... but also",ex:"Bovendien is het goedkoper.",c:"Opinions",l:"B1"},
+{nl:"de mening / het standpunt / het argument",en:"opinion / standpoint / argument",ex:"Wat is jouw standpunt hierover?",c:"Opinions",l:"B1",a:"de/het/het"},
+{nl:"het voordeel / het nadeel",en:"advantage / disadvantage",ex:"Het grote voordeel is de prijs.",c:"Opinions",l:"B1",a:"het"},
+{nl:"de kans / de mogelijkheid / het risico",en:"chance / possibility / risk",ex:"Er is een kleine kans dat het lukt.",c:"Opinions",l:"B1",a:"de/de/het"},
+{nl:"verbeteren / verslechteren / veranderen",en:"to improve / to worsen / to change",ex:"De situatie is verbeterd.",c:"Opinions",l:"B1"},
+{nl:"de overheid / de politiek / de wet",en:"government / politics / law",ex:"De overheid heeft een nieuwe wet ingevoerd.",c:"Opinions",l:"B1",a:"de"},
+{nl:"duurzaamheid / het milieu / de klimaatverandering",en:"sustainability / environment / climate change",ex:"Duurzaamheid is belangrijk voor de toekomst.",c:"Opinions",l:"B1"},
+],
+nature:[
+{nl:"het weer / het klimaat / de temperatuur",en:"weather / climate / temperature",ex:"Het klimaat verandert snel.",c:"Nature",l:"B1",a:"het/het/de"},
+{nl:"de lente / de zomer / de herfst / de winter",en:"spring / summer / autumn / winter",ex:"In de herfst vallen de bladeren.",c:"Nature",l:"B1",a:"de"},
+{nl:"het onweer / de storm / de overstroming",en:"thunderstorm / storm / flood",ex:"Door het onweer was er een overstroming.",c:"Nature",l:"B1",a:"het/de/de"},
+{nl:"de energie / zonne-energie / windenergie",en:"energy / solar energy / wind energy",ex:"Nederland investeert in windenergie.",c:"Nature",l:"B1",a:"de"},
+{nl:"het milieu / de uitstoot / het afval",en:"environment / emissions / waste",ex:"We moeten minder afval produceren.",c:"Nature",l:"B1"},
+{nl:"beschermen / vervuilen / recyclen",en:"to protect / to pollute / to recycle",ex:"We moeten het milieu beschermen.",c:"Nature",l:"B1"},
+{nl:"de bevolking / de gemeente / de provincie",en:"population / municipality / province",ex:"De gemeente heeft nieuwe plannen.",c:"Nature",l:"B1",a:"de"},
+{nl:"de economie / de inflatie / de werkloosheid",en:"economy / inflation / unemployment",ex:"De inflatie is gestegen dit jaar.",c:"Nature",l:"B1",a:"de"},
 ],
 };
 
 var ALL=[];
 Object.keys(V).forEach(function(k){V[k].forEach(function(w){ALL.push(w);});});
 
-// ── QUIZ QUESTIONS (expanded) ──────────────────────────────────────────────
+// ── QUIZ QUESTIONS — CEFR-TAGGED ───────────────────────────────────────────
 var QZ=[
-// Greetings & phrases
-{q:"What does 'Goedemorgen' mean?",o:["Good evening","Good morning","Good afternoon","Good night"],a:1,e:"<strong>Goedemorgen</strong> = Good morning. Use until around noon. <em>Goedemiddag</em> = Good afternoon. <em>Goedenavond</em> = Good evening."},
-{q:"What is the difference between 'Dank je wel' and 'Dank u wel'?",o:["No difference","Dank je wel = informal, Dank u wel = formal","Dank je wel = formal, Dank u wel = informal","Dank u wel is more emphatic"],a:1,e:"<strong>Dank je wel</strong> = informal (to friends, family). <strong>Dank u wel</strong> = formal (to strangers, elderly, in shops). This jij/u distinction applies throughout Dutch."},
-{q:"'Het spijt me' means:",o:["I don't understand","Excuse me (to pass)","I'm sorry (apology)","No problem"],a:2,e:"<strong>Het spijt me</strong> = I'm sorry (apology). <em>Pardon / Mag ik er langs?</em> = excuse me to pass. <em>Sorry</em> = informal sorry."},
-// Articles
-{q:"Which article goes with 'kind' (child)?",o:["De","Het","Een","Geen"],a:1,e:"<strong>Het kind</strong> — neuter noun. All diminutives (-je) and most neuter nouns use <em>het</em>."},
-{q:"Dutch nouns ending in -ing, -heid, -schap, -tie always take which article?",o:["Het","De","Either","Een"],a:1,e:"Words ending in <strong>-ing, -heid, -schap, -tie</strong> always use <strong>de</strong>: de vrijheid, de opleiding, de democratie."},
-{q:"Diminutives (-je, -tje, -pje) always use which article?",o:["De","Het","Either","None"],a:1,e:"All <strong>diminutives</strong> always take <strong>het</strong>: het huisje, het kopje, het meisje — regardless of the base word's article."},
-{q:"What article do ALL plural nouns take?",o:["Het","De","Een","Either"],a:1,e:"All <strong>plural nouns</strong> always use <strong>de</strong>: het boek → de boeken, het kind → de kinderen."},
-// Present tense
-{q:"How do you conjugate 'werken' for 'ik'?",o:["Ik werkt","Ik werken","Ik werk","Ik werkten"],a:2,e:"For <strong>ik</strong>, use only the verb stem: <em>ik werk</em>. Stem = infinitive minus -en."},
-{q:"Why does 'jij werkt' have a -t but 'Werk jij?' does not?",o:["It's irregular","Only main clauses get -t","When jij follows the verb (inversion), the -t drops","Random rule"],a:2,e:"The <strong>jij inversion rule</strong>: jij/je takes stem+t normally, but when jij/je comes AFTER the verb (in questions or inverted sentences), the -t disappears. <em>Jij werkt.</em> → <em>Werk jij?</em>"},
-{q:"Which conjugation of 'zijn' is correct for 'wij'?",o:["Wij bent","Wij is","Wij zijn","Wij ben"],a:2,e:"<strong>Zijn</strong> (to be) is irregular: ik ben, jij bent, hij is, <strong>wij zijn</strong>, jullie zijn, zij zijn."},
-{q:"Correct form: 'hij ___ (maken)'",o:["Maakt","Mak","Maken","Maakten"],a:0,e:"Third person singular = stem + t: <em>hij <strong>maakt</strong></em>. Stem of maken = maak."},
-// Past tense
-{q:"In the simple past, weak verbs use which ending after a 't kofschip' stem?",o:["-de / -den","-te / -ten","-en","-t"],a:1,e:"If the verb stem ends in t, k, f, s, ch, p (the letters in <strong>'t kofschip</strong>), add <strong>-te / -ten</strong>. Otherwise add <strong>-de / -den</strong>. Example: werken → stem 'werk' (k = kofschip) → <em>werkte</em>."},
-{q:"What is the simple past of 'begrijpen' (strong verb)?",o:["Begrijpte","Begrijpde","Begreep","Begreepte"],a:2,e:"<strong>Begrijpen</strong> is a strong verb with a vowel change in the past: <em>begreep</em> (singular) / <em>begrepen</em> (plural). Strong verbs must be memorised."},
-{q:"'Ik heb gewerkt' is an example of:",o:["Simple past (imperfectum)","Present perfect (voltooide tijd)","Future tense","Conditional tense"],a:1,e:"<strong>Ik heb gewerkt</strong> = present perfect. Formula: hebben/zijn + past participle. The simple past of werken is <em>ik werkte</em>."},
-{q:"Which auxiliary verb does 'gaan' (to go) use in the perfect tense?",o:["Hebben","Zijn","Either","Worden"],a:1,e:"<strong>Gaan</strong> uses <strong>zijn</strong>: <em>Ik ben gegaan</em>. Movement verbs and change-of-state verbs generally take zijn."},
-// Future & conditional
-{q:"How do you form the future tense in Dutch?",o:["Verb stem + -zal","Zullen / zal + infinitive","Gaan + infinitive only","Will + infinitive"],a:1,e:"Future tense: <strong>zal/zullen + infinitive</strong>. <em>Ik zal morgen bellen.</em> Dutch also uses <em>gaan + infinitive</em> for near future: <em>Ik ga morgen bellen.</em>"},
-{q:"'Ik zou graag koffie willen' — which tense is this?",o:["Future","Present perfect","Conditional (would)","Simple past"],a:2,e:"<strong>Zou/zouden + infinitive</strong> is the <strong>conditional</strong> (would). <em>Ik zou graag...</em> = I would like... — very useful for polite requests!"},
-// Word order
-{q:"Which sentence has correct Dutch word order?",o:["Ik altijd koffie drink","Ik drink altijd koffie","Drink ik altijd koffie","Altijd drink ik koffie"],a:1,e:"V2 rule: verb stays in <strong>second position</strong>. <em>Ik drink altijd koffie.</em> If an adverb starts: <em>Altijd drink ik koffie.</em> (verb still 2nd, subject moves to 3rd)"},
-{q:"In a subordinate clause after 'omdat', where does the verb go?",o:["Second position","First position","To the end","Directly after 'omdat'"],a:2,e:"After <em>omdat, dat, als, wanneer</em> etc., the verb moves to the <strong>end</strong>: <em>Ik leer Nederlands omdat ik in Nederland <strong>woon</strong>.</em>"},
-// Vocabulary
-{q:"What does 'gezellig' mean?",o:["Beautiful","Cozy / fun / warm / sociable","Expensive","Quiet"],a:1,e:"<strong>Gezellig</strong> is a uniquely Dutch concept: cozy, sociable, fun, warm — all at once. Very important in Dutch culture! <em>Wat een gezellige avond!</em>"},
-{q:"'Gisteren' means:",o:["Today","Tomorrow","Yesterday","Now"],a:2,e:"<strong>Gisteren</strong> = yesterday. <strong>Vandaag</strong> = today. <strong>Morgen</strong> = tomorrow. <strong>Straks</strong> = later/soon (today)."},
-{q:"'Half drie' in Dutch means:",o:["3:30","2:30","3:15","2:45"],a:1,e:"<strong>Half drie</strong> = 2:30 — 'half' means halfway TO three, not half past three! This confuses almost every English speaker."},
-{q:"'De fiets' means:",o:["The car","The bus","The bicycle","The train"],a:2,e:"<strong>De fiets</strong> = the bicycle. The Netherlands has more bicycles than people — it's the most Dutch thing there is!"},
-// False friends
-{q:"The Dutch word 'slim' means:",o:["Thin / slim","Smart / clever","Bad","Slow"],a:1,e:"<strong>Slim</strong> in Dutch = smart, clever. NOT 'slim' (thin) as in English. This is a classic Dutch false friend!"},
-{q:"The Dutch word 'eventueel' means:",o:["Eventually (over time)","Possibly / if necessary","Equally","Also"],a:1,e:"<strong>Eventueel</strong> = possibly, if needed — NOT 'eventually' (= <em>uiteindelijk</em>). Another common false friend for English speakers."},
-{q:"The Dutch word 'deceptie' means:",o:["Deception / lying","Disappointment","A mistake","Doubt"],a:1,e:"<strong>Deceptie</strong> = disappointment, NOT deception (= <em>bedrog / misleiding</em>). A tricky false friend!"},
-// Separable verbs
-{q:"'Ik sta om 7 uur op' — what is the infinitive of this verb?",o:["Staan","Opstan","Opstaan","Staan op"],a:2,e:"<strong>Opstaan</strong> = to get up. In present tense, the prefix 'op' separates and moves to the end: <em>Ik sta op.</em> In subordinate clauses it stays together: <em>...dat ik vroeg opstaat.</em>"},
-{q:"'Kom je morgen terug?' — this is an example of:",o:["A reflexive verb","An irregular verb","A separable verb (terugkomen)","An auxiliary verb"],a:2,e:"<strong>Terugkomen</strong> (to return/come back) is a separable verb. In questions/main clauses: <em>Ik kom terug.</em> In subordinate clauses: <em>...dat je terugkomt.</em>"},
-// Modals
-{q:"Which modal verb expresses permission (may / allowed to)?",o:["Kunnen","Willen","Mogen","Moeten"],a:2,e:"<strong>Mogen</strong> = may, to be allowed to. <em>Mag ik binnenkomen?</em> = May I come in? Don't confuse with <em>moeten</em> (must) or <em>kunnen</em> (can)."},
-{q:"Correct translation: 'I would like a coffee, please'",o:["Ik wil koffie","Ik moet koffie hebben","Ik zou graag koffie willen, alsjeblieft","Ik kan koffie hebben"],a:2,e:"<strong>Ik zou graag... willen</strong> is the polite conditional form for 'I would like'. Very useful in shops, restaurants and formal situations."},
-// Pronouns
-{q:"What is the difference between 'jij' and 'je'?",o:["No difference — they're identical","Jij is stressed/emphatic, je is unstressed","Jij is formal, je is informal","Jij is plural, je is singular"],a:1,e:"<strong>Jij</strong> is the stressed/emphatic form. <strong>Je</strong> is the unstressed form. <em>Jíj werkt, maar ik niet!</em> (emphasis on you). In normal speech, <em>je</em> is more common."},
-{q:"When do you use 'u' instead of 'jij/je'?",o:["With children","With close friends","In formal situations, with strangers or elderly people","Only in writing"],a:2,e:"<strong>U</strong> is the formal 'you' — use with strangers, elderly people, in formal/professional settings. When in doubt, <em>u</em> is always polite. <em>Hoe heet u?</em>"},
+// ── A1 ──────────────────────────────────────────────────────────────────────
+{q:"What does 'Goedemorgen' mean?",o:["Good evening","Good morning","Good afternoon","Good night"],a:1,l:"A1",e:"<strong>Goedemorgen</strong> = Good morning (until ~noon). <em>Goedemiddag</em> = afternoon. <em>Goedenavond</em> = evening."},
+{q:"Correct sentence: 'My name is Maria.'",o:["Ik naam Maria","Ik ben Maria heet","Ik heet Maria","Maria ik heet"],a:2,l:"A1",e:"<strong>Ik heet Maria</strong> = My name is Maria. Ik heet = my name is / I am called. <em>Ik ben Maria</em> is also common but less formal."},
+{q:"'Half drie' in Dutch means:",o:["3:30","2:30","3:15","2:45"],a:1,l:"A1",e:"<strong>Half drie = 2:30</strong> — 'half' means halfway TO three. This surprises every English speaker. Half acht = 7:30. Half twaalf = 11:30."},
+{q:"What article does the word 'kind' (child) take?",o:["De","Het","Een","No article"],a:1,l:"A1",e:"<strong>Het kind</strong>. Neuter nouns and all diminutives use <em>het</em>. Common-gender nouns use <em>de</em>."},
+{q:"Which verb form is correct for 'ik'?",o:["Ik werkt","Ik werken","Ik werk","Ik werkten"],a:2,l:"A1",e:"For <strong>ik</strong>, use the bare verb stem: <em>ik werk</em>. Remove -en from the infinitive. Never add -t to ik."},
+{q:"How do you say 'I live in Amsterdam'?",o:["Ik ben in Amsterdam","Ik woon in Amsterdam","Ik ga in Amsterdam","Ik kom Amsterdam"],a:1,l:"A1",e:"<strong>Wonen</strong> = to live (somewhere). <em>Ik woon in Amsterdam.</em> Use <em>zijn</em> (ben) for states, not location of residence."},
+{q:"'Alsjeblieft' means:",o:["Thank you","Sorry","Please / Here you go (informal)","Goodbye"],a:2,l:"A1",e:"<strong>Alsjeblieft</strong> = please (making a request) OR here you go (handing something). Formal version: <em>Alstublieft</em>. Thank you = <em>Dank je wel</em>."},
+{q:"Correct Dutch for 'How are you?' (informal)?",o:["Hoe heet jij?","Hoe gaat het?","Waar woon jij?","Hoe oud ben jij?"],a:1,l:"A1",e:"<strong>Hoe gaat het?</strong> = How are you? (lit. How does it go?). Typical answer: <em>Goed, dank je.</em> Formal: <em>Hoe gaat het met u?</em>"},
+{q:"'Gisteren' means:",o:["Today","Tomorrow","Yesterday","Now"],a:2,l:"A1",e:"<strong>Gisteren</strong> = yesterday. <strong>Vandaag</strong> = today. <strong>Morgen</strong> = tomorrow. <strong>Straks</strong> = later/soon (today)."},
+{q:"Which sentence is correct?",o:["Ik am student","Ik ben een student","Ik heb student","Ik zijn student"],a:1,l:"A1",e:"<strong>Ik ben een student.</strong> — zijn (to be): ik ben, jij bent, hij is, wij zijn. Completely irregular — must be memorised!"},
+// ── A2 ──────────────────────────────────────────────────────────────────────
+{q:"Which conjunction introduces a REASON and sends the verb to the end?",o:["Maar","Want","Omdat","Dus"],a:2,l:"A2",e:"<strong>Omdat</strong> (because) is a subordinating conjunction — the verb goes to the END: <em>Ik leer Nederlands <strong>omdat</strong> ik in Nederland <strong>woon</strong>.</em> <em>Want</em> also means because but keeps normal word order."},
+{q:"What is the past tense of 'werken' (weak verb)?",o:["Werkte","Werkde","Werkten","Gewerkt"],a:0,l:"A2",e:"Stem of werken = <em>werk</em>. Ends in K = 't kofschip' → add <strong>-te</strong>: <em>ik werkte, jij werkte, hij werkte, wij werkten.</em>"},
+{q:"'Ik heb gegeten' is an example of:",o:["Simple past (OVT)","Present perfect (VTT)","Future tense","Conditional"],a:1,l:"A2",e:"<strong>Hebben + past participle</strong> = present perfect (voltooid tegenwoordige tijd). This is the most common past tense in spoken Dutch. Simple past of eten = <em>at</em>."},
+{q:"'Opstaan' in the sentence 'Ik sta om 7 uur op' — what kind of verb is this?",o:["Reflexive verb","Irregular strong verb","Separable verb","Modal verb"],a:2,l:"A2",e:"<strong>Opstaan</strong> is a separable verb. The prefix <em>op</em> splits off and goes to the end in main clauses: <em>Ik sta op.</em> In subordinate clauses it stays together: <em>...dat hij vroeg opstaat.</em>"},
+{q:"'Ik ga morgen naar Rotterdam' — what happens if you start with 'Morgen'?",o:["Morgen ik ga naar Rotterdam","Morgen ga ik naar Rotterdam","Morgen ik naar Rotterdam ga","Morgen naar Rotterdam ga ik"],a:1,l:"A2",e:"V2 rule: verb stays in <strong>second position</strong>. Starting with an adverb triggers inversion: <em>Morgen <strong>ga</strong> ik...</em> The subject moves after the verb."},
+{q:"Which verb uses 'zijn' (not 'hebben') in the perfect tense?",o:["Werken","Eten","Gaan","Kopen"],a:2,l:"A2",e:"<strong>Gaan</strong> (to go) takes <strong>zijn</strong>: <em>Ik ben gegaan.</em> Movement verbs and change-of-state verbs use zijn. Most other verbs use hebben."},
+{q:"'Maar' vs 'Hoewel' — which one requires the verb at the end?",o:["Maar","Hoewel","Both","Neither"],a:1,l:"A2",e:"<strong>Hoewel</strong> (although) is a subordinating conjunction → verb goes to the end: <em>Hoewel het regent, ga ik fietsen.</em> <strong>Maar</strong> (but) is coordinating → normal word order."},
+{q:"What is 'de rekening' in a restaurant?",o:["The menu","The reservation","The bill","The tip"],a:2,l:"A2",e:"<strong>De rekening</strong> = the bill. <em>Mag ik de rekening?</em> is what you say to the waiter. The tip = <em>de fooi</em>. The menu = <em>de menukaart / het menu</em>."},
+{q:"Which preposition do you use to say 'I go TO work'?",o:["In het werk","Op het werk","Naar het werk","Bij het werk"],a:2,l:"A2",e:"<strong>Naar</strong> indicates movement toward a destination: <em>Ik ga naar het werk / naar huis / naar Amsterdam.</em> Use <strong>op</strong> for surfaces, <strong>in</strong> for inside, <strong>bij</strong> for 'at someone's place'."},
+// ── B1 ──────────────────────────────────────────────────────────────────────
+{q:"Correct sentence with subordinate clause: 'I know that he speaks Dutch well.'",o:["Ik weet dat hij spreekt goed Nederlands","Ik weet dat hij goed Nederlands spreekt","Ik weet dat goed Nederlands hij spreekt","Weet ik dat hij goed Nederlands spreekt"],a:1,l:"B1",e:"In subordinate clauses (after <em>dat, omdat, als, wanneer</em>...), the verb goes to the <strong>end</strong>: <em>Ik weet dat hij goed Nederlands <strong>spreekt</strong>.</em> All verbs pile up at the end in the correct order."},
+{q:"What does 'Hoewel ik moe was, bleef ik werken' mean?",o:["Because I was tired, I stopped working","Although I was tired, I kept working","If I was tired, I would work","Since I was tired, I started working"],a:1,l:"B1",e:"<strong>Hoewel</strong> = although/even though. <strong>Bleef werken</strong> = kept working (blijven + infinitive). The comma after the subclause is standard Dutch punctuation."},
+{q:"Which sentence correctly uses the conditional?",o:["Ik zal graag helpen","Ik zou graag helpen","Ik wil graag geholpen","Ik kan graag helpen"],a:1,l:"B1",e:"<strong>Zou + infinitive</strong> = conditional (would). <em>Ik zou graag helpen</em> = I would like to help. Very polite. <em>Zal</em> = future (will/shall). Don't confuse them."},
+{q:"'Die' vs 'dat' as relative pronouns — which is correct: 'het huis ___ groot is'?",o:["die","dat","wat","wie"],a:1,l:"B1",e:"Relative pronouns: <strong>die</strong> for <em>de</em>-words (+ plurals), <strong>dat</strong> for <em>het</em>-words. <em>Het huis</em> = het-word → <em>het huis <strong>dat</strong> groot is.</em> <em>De man <strong>die</strong> loopt.</em>"},
+{q:"'Naar mijn mening is dat niet goed' — what does this phrase express?",o:["A fact","A personal opinion","A command","A question"],a:1,l:"B1",e:"<strong>Naar mijn mening</strong> = in my opinion. Other B1 opinion phrases: <em>Ik vind dat..., Ik ben van mening dat..., Het lijkt me dat..., Wat mij betreft...</em>"},
+{q:"What is the simple past (OVT) of the strong verb 'rijden'?",o:["Rijdde","Gereden","Reed","Gereedde"],a:2,l:"B1",e:"<strong>Rijden → reed</strong> (singular past). Strong verbs change their vowel. <em>Ik reed, jij reed, hij reed, wij reden.</em> Past participle: <em>gereden</em>. These must be memorised."},
+{q:"'Slim' in Dutch means:",o:["Slim (thin)","Smart / clever","Slow","Brave"],a:1,l:"B1",e:"<strong>Slim</strong> = smart, clever. This is a classic false friend. 'Thin' in Dutch = <em>slank / dun</em>. Other false friends: <em>eventueel</em> (possibly, not eventually), <em>deceptie</em> (disappointment, not deception)."},
+{q:"Correct use of 'zullen' for future tense: 'They will arrive tomorrow.'",o:["Zij gaan morgen aankomen","Zij zullen morgen aankomen","Zij zijn morgen aankomen","Zij kunnen morgen aankomen"],a:1,l:"B1",e:"Future tense: <strong>zullen + infinitive</strong>. <em>Zij zullen morgen aankomen.</em> Note: in spoken Dutch, the present tense with a time marker (<em>Zij komen morgen aan</em>) is also very common."},
+{q:"In B1, which sentence correctly chains two verbs in a subordinate clause?",o:["...omdat ik wil gaan slapen","...omdat ik slapen wil gaan","...omdat ik gaan slapen wil","...omdat ik slapen gaan wil"],a:0,l:"B1",e:"With modals + separable verbs, the order at the end of a subordinate clause is: modal (<em>wil</em>) + infinitive (<em>gaan slapen</em>): <em>...omdat ik wil gaan slapen.</em> This cluster ordering is one of the hardest B1 grammar points."},
+{q:"'Desondanks' most closely means:",o:["Therefore","However","Nevertheless / despite that","Because of that"],a:2,l:"B1",e:"<strong>Desondanks</strong> = nevertheless, despite that. Related B1 connectors: <em>toch</em> (still/yet), <em>echter</em> (however), <em>bovendien</em> (moreover), <em>daarentegen</em> (on the other hand)."},
 ];
 
-
-var _rl={a:"Rafael Lafraia",g:"lafraiarafael",v:"2.0",y:2026};
-// ── STATE ─────────────────────────────────────────────────────────────────
-var S={xp:0,fcDeck:[],fcIdx:0,fcKnown:0,fcRepeat:0,fcFlipped:false,fcCat:'all',qzDeck:[],qzIdx:0,qzScore:0};
+// ── STATE ──────────────────────────────────────────────────────────────────
+var S={xp:0,fcDeck:[],fcIdx:0,fcKnown:0,fcRepeat:0,fcFlipped:false,fcCat:'all',fcLvl:'all',qzDeck:[],qzIdx:0,qzScore:0,qzLvl:'all'};
 
 function addXP(n){S.xp=Math.min(100,S.xp+n);document.getElementById('xp-fill').style.width=S.xp+'%';document.getElementById('xp-val').textContent=S.xp+' / 100';}
 
@@ -640,17 +563,34 @@ function show(id){
 }
 
 // ── FLASHCARDS ─────────────────────────────────────────────────────────────
-function startFC(cat){
-  S.fcCat=cat;
-  var deck=cat==='all'?ALL.slice():(V[cat]||[]).slice();
-  deck=shuf(deck);
+function startFC(cat,lvl){
+  S.fcCat=cat;S.fcLvl=lvl||'all';
+  var pool=cat==='all'?ALL.slice():(V[cat]||[]).slice();
+  if(S.fcLvl!=='all') pool=pool.filter(function(w){return w.l===S.fcLvl;});
+  var deck=shuf(pool);
   S.fcDeck=deck;S.fcIdx=0;S.fcKnown=0;S.fcRepeat=0;S.fcFlipped=false;
-  var title=cat==='all'?'All Flashcards — '+ALL.length+' cards':(deck[0]?deck[0].c+' ('+deck.length+' cards)':'Flashcards');
-  document.getElementById('fc-title').textContent=title;
-  document.getElementById('fc-sub').textContent='Tap card to flip — rate each card to track progress';
+
+  var lvlName=S.fcLvl==='all'?'All levels':S.fcLvl;
+  var catName=cat==='all'?'All vocabulary':((deck[0]&&deck[0].c)||cat);
+  document.getElementById('fc-title').textContent=catName+' — '+lvlName;
+  document.getElementById('fc-sub').textContent=deck.length+' cards · tap to flip · rate each card';
   document.getElementById('fc-done').style.display='none';
   document.getElementById('fc-main').style.display='block';
   document.getElementById('fc-btns').style.display='none';
+
+  // Build level filter
+  var filt=document.getElementById('fc-filter');
+  filt.innerHTML='';
+  var lvls=['all','A1','A2','B1'];
+  var labels={'all':'All levels','A1':'A1 — Beginner','A2':'A2 — Elementary','B1':'B1 — Intermediate'};
+  lvls.forEach(function(lv){
+    var b=document.createElement('button');
+    b.className='lf-btn'+(S.fcLvl===lv?' on-'+(lv==='all'?'all':lv.toLowerCase()):'');
+    b.textContent=labels[lv];
+    b.onclick=function(){startFC(S.fcCat,lv);};
+    filt.appendChild(b);
+  });
+
   buildDots();loadFC();show('flashcards');
 }
 
@@ -658,18 +598,25 @@ function buildDots(){
   var d=document.getElementById('fc-dots');d.innerHTML='';
   var max=Math.min(S.fcDeck.length,60);
   for(var i=0;i<max;i++){var dot=document.createElement('div');dot.className='fc-dot';dot.id='d'+i;d.appendChild(dot);}
-  if(S.fcDeck.length>60){var sp=document.createElement('span');sp.style.cssText='font-size:11px;color:var(--muted);margin-left:4px';sp.textContent='+'+( S.fcDeck.length-60)+' more';d.appendChild(sp);}
+  if(S.fcDeck.length>60){var sp=document.createElement('span');sp.style.cssText='font-size:11px;color:var(--muted);margin-left:6px';sp.textContent='+'+(S.fcDeck.length-60)+' more';d.appendChild(sp);}
 }
 
 function loadFC(){
   var q=S.fcDeck[S.fcIdx];if(!q){fcDone();return;}
   S.fcFlipped=false;
-  document.getElementById('fc-card').classList.remove('flipped');
+  var card=document.getElementById('fc-card');
+  card.classList.remove('flipped');
+  var front=document.getElementById('fc-front');
+  front.className='fc-front lvl-'+q.l.toLowerCase();
+  var tag=document.getElementById('fc-lvl-tag');
+  tag.textContent=q.l;
+  var pipClass={'A1':'pip-a1','A2':'pip-a2','B1':'pip-b1'};
+  tag.className='fc-lvl-tag lvl-pip '+pipClass[q.l];
   document.getElementById('fc-nl').textContent=q.nl;
   document.getElementById('fc-art').textContent=q.a?'('+q.a+')':'';
   document.getElementById('fc-en').textContent=q.en;
   document.getElementById('fc-ex').textContent=q.ex||'';
-  document.getElementById('fc-cat2').textContent=q.c||'';
+  document.getElementById('fc-cat2').textContent=q.c+' · '+q.l;
   document.getElementById('fc-btns').style.display='none';
   document.getElementById('fc-total').textContent=S.fcDeck.length;
   document.getElementById('fc-known').textContent=S.fcKnown;
@@ -704,11 +651,17 @@ function fcDone(){
   document.getElementById('fc-res-score').className='res-score '+(pct>=70?'pass':pct>=40?'ok':'fail');
   document.getElementById('fc-res-sub').textContent=pct+'% known · '+S.fcRepeat+' cards to review';
 }
-function restartFC(){startFC(S.fcCat);}
+function restartFC(){startFC(S.fcCat,S.fcLvl);}
 
-// ── QUIZ ────────────────────────────────────────────────────────────────────
-function startQZ(cat){
-  S.qzCat=cat;S.qzDeck=shuf(QZ.slice()).slice(0,20);S.qzIdx=0;S.qzScore=0;
+// ── QUIZ ───────────────────────────────────────────────────────────────────
+function startQZ(lvl){
+  S.qzLvl=lvl||'all';
+  var pool=S.qzLvl==='all'?QZ.slice():QZ.filter(function(q){return q.l===S.qzLvl;});
+  S.qzDeck=shuf(pool).slice(0,Math.min(20,pool.length));
+  S.qzIdx=0;S.qzScore=0;
+  var titles={'all':'Mixed Quiz — A1 + A2 + B1','A1':'A1 Quiz — Beginner','A2':'A2 Quiz — Elementary','B1':'B1 Challenge — Intermediate'};
+  document.getElementById('quiz-page-title').textContent=titles[S.qzLvl]||'Quiz';
+  document.getElementById('quiz-page-sub').textContent=S.qzDeck.length+' questions';
   document.getElementById('qz-result').style.display='none';
   document.getElementById('qz-area').style.display='block';
   renderQZ();show('quiz');
@@ -717,10 +670,12 @@ function startQZ(cat){
 function renderQZ(){
   if(S.qzIdx>=S.qzDeck.length){qzDone();return;}
   var q=S.qzDeck[S.qzIdx];
+  var pip={'A1':'pip-a1','A2':'pip-a2','B1':'pip-b1'};
   document.getElementById('qz-num').textContent='Q '+(S.qzIdx+1)+' / '+S.qzDeck.length;
   document.getElementById('qz-live').textContent='✓ '+S.qzScore;
+  document.getElementById('qz-lvl-tag').innerHTML='<span class="lvl-pip '+pip[q.l]+'">'+q.l+'</span>';
   document.getElementById('qz-fill').style.width=Math.round(S.qzIdx/S.qzDeck.length*100)+'%';
-  document.getElementById('qz-q').innerHTML=q.q;
+  document.getElementById('qz-q').textContent=q.q;
   var opts=document.getElementById('qz-opts');opts.innerHTML='';
   var L=['A','B','C','D'];
   q.o.forEach(function(o,i){
@@ -761,20 +716,21 @@ function qzDone(){
   document.getElementById('qz-res-score').textContent=S.qzScore+' / '+t;
   document.getElementById('qz-res-score').className='res-score '+(pct>=70?'pass':pct>=50?'ok':'fail');
   document.getElementById('qz-emoji').textContent=pct>=80?'🏆':pct>=60?'👍':'📚';
-  document.getElementById('qz-res-label').textContent=pct>=70?'Goed gedaan! Well done!':pct>=50?'Not bad — keep practising!':'Blijf oefenen — keep going!';
-  document.getElementById('qz-res-sub').textContent=pct+'% correct';
+  var msgs={'all':'Dutch A1–B1','A1':'A1 Beginner level','A2':'A2 Elementary level','B1':'B1 Intermediate level'};
+  document.getElementById('qz-res-label').textContent=pct>=70?'Goed gedaan! Well done!':pct>=50?'Halfway there — keep practising!':'More study needed — you can do it!';
+  document.getElementById('qz-res-sub').textContent=pct+'% correct on '+msgs[S.qzLvl];
   var tip=document.getElementById('qz-res-tip');
-  if(pct<70){tip.style.display='block';tip.textContent='💡 Tip: review the lessons for topics you missed, then come back and try the quiz again!';}
+  if(pct<70){tip.style.display='block';tip.textContent='💡 Use the level filter to drill the specific level you struggled with. Review lessons for any grammar topics you missed.';}
   else tip.style.display='none';
 }
-function restartQZ(){startQZ(S.qzCat);}
+function restartQZ(){startQZ(S.qzLvl);}
 
 // ── LESSONS ────────────────────────────────────────────────────────────────
 var LESSONS={
-intro:{html:`<div class="lesson-box"><h2>Introductions — Jezelf voorstellen</h2><div class="lv">A1 Beginner</div>
-<p>Learning to introduce yourself is the very first step. Here are the essential phrases used by Dutch speakers every day:</p>
-<div class="eg"><div class="du">Hallo! Ik heet Maria. Ik kom uit Brazilië. Ik woon in Amsterdam. Ik spreek een beetje Nederlands.</div><div class="en">Hi! My name is Maria. I come from Brazil. I live in Amsterdam. I speak a little Dutch.</div></div>
-<h3>Key phrases</h3>
+intro:{html:`<div class="lesson-box"><h2>Introductions <span class="lvl-pip pip-a1">A1</span></h2><div class="lv">A1 Beginner — ~500–1,000 words · survival Dutch</div>
+<p>At A1 you introduce yourself, answer basic questions about name, age, origin and occupation. This is the foundation of every Dutch conversation.</p>
+<div class="eg"><div class="du">Hallo! Ik heet Maria. Ik kom uit Brazilië. Ik woon in Amsterdam. Ik werk als verpleegkundige. Ik spreek een beetje Nederlands.</div><div class="en">Hi! My name is Maria. I come from Brazil. I live in Amsterdam. I work as a nurse. I speak a little Dutch.</div></div>
+<h3>Key A1 phrases</h3>
 <table class="vtable"><tr><th>Nederlands</th><th>English</th></tr>
 <tr><td class="du">Ik heet...</td><td>My name is...</td></tr>
 <tr><td class="du">Ik kom uit...</td><td>I come from...</td></tr>
@@ -783,286 +739,314 @@ intro:{html:`<div class="lesson-box"><h2>Introductions — Jezelf voorstellen</h
 <tr><td class="du">Ik werk als...</td><td>I work as...</td></tr>
 <tr><td class="du">Hoe heet jij?</td><td>What is your name?</td></tr>
 <tr><td class="du">Waar kom jij vandaan?</td><td>Where are you from?</td></tr>
-<tr><td class="du">Wat doe jij?</td><td>What do you do?</td></tr>
+<tr><td class="du">Spreek je Engels?</td><td>Do you speak English?</td></tr>
+<tr><td class="du">Kunt u dat herhalen?</td><td>Can you repeat that?</td></tr>
 </table>
 <div class="rule"><strong>💡 Jij vs U — formal and informal</strong>
-Jij/je = informal (friends, family, young people, colleagues).
-U = formal (strangers, elderly, official situations, shops/services).
-When in doubt, u is always polite. <em>Hoe heet u?</em></div>
-<button class="lesson-cta" onclick="startFC('greetings')">Practice Greetings →</button></div>`},
+<em>Jij/je</em> = informal (friends, family, peers, young people).
+<em>U</em> = formal (strangers, elderly, shop staff, officials).
+When in doubt, u is always polite. Dutch people will not be offended if you use u — but they may switch to jij to make you feel more comfortable.</div>
+<button class="lesson-cta" onclick="startFC('greetings','A1')">Practice A1 cards →</button><button class="lesson-cta" onclick="startQZ('A1')">A1 Quiz →</button></div>`},
 
-pronouns:{html:`<div class="lesson-box"><h2>Dutch Pronouns — Voornaamwoorden</h2><div class="lv">A1 Beginner</div>
-<p>Dutch pronouns work similarly to English but have some important distinctions:</p>
+pronouns:{html:`<div class="lesson-box"><h2>Pronouns <span class="lvl-pip pip-a1">A1</span></h2><div class="lv">A1 Beginner — essential from day one</div>
 <table class="vtable"><tr><th>Singular</th><th>English</th><th>Plural</th><th>English</th></tr>
 <tr><td class="du">ik</td><td>I</td><td class="du">wij / we</td><td>we</td></tr>
-<tr><td class="du">jij / je</td><td>you (informal)</td><td class="du">jullie</td><td>you (plural)</td></tr>
-<tr><td class="du">u</td><td>you (formal)</td><td class="du">—</td><td>(use u singular)</td></tr>
+<tr><td class="du">jij / je</td><td>you (informal)</td><td class="du">jullie</td><td>you all</td></tr>
+<tr><td class="du">u</td><td>you (formal)</td><td class="du">—</td><td>use u singular</td></tr>
 <tr><td class="du">hij</td><td>he</td><td class="du">zij / ze</td><td>they</td></tr>
 <tr><td class="du">zij / ze</td><td>she</td><td></td><td></td></tr>
 <tr><td class="du">het</td><td>it (neuter)</td><td></td><td></td></tr>
 </table>
-<div class="rule"><strong>📌 Key notes</strong>
-• <strong>Jij</strong> = stressed form of 'you'. <strong>Je</strong> = unstressed. In normal speech, je is more common.
-• <strong>Wij</strong> = stressed. <strong>We</strong> = unstressed.
-• <strong>Zij</strong> = she OR they. Context decides. <strong>Ze</strong> = unstressed form.
-• <strong>U</strong> = always singular and formal. No separate plural form — use u for groups too.
-• <strong>Het</strong> = rarely used as subject unless referring to neuter nouns or general statements (Het regent. / Het is koud.)</div>
-<div class="eg"><div class="du">Jíj hebt het gedaan, niet ik! (emphasis on jij)</div><div class="en">YOU did it, not me!</div></div>
-<button class="lesson-cta" onclick="startQZ('all')">Test yourself →</button></div>`},
+<div class="rule"><strong>Key distinctions</strong>
+• <strong>Jij</strong> = stressed 'you'. <strong>Je</strong> = unstressed. In normal speech, <em>je</em> is more common.
+• <strong>Wij</strong> = stressed 'we'. <strong>We</strong> = unstressed.
+• <strong>Zij</strong> = she OR they. Context decides. <strong>Ze</strong> = unstressed version of both.
+• <strong>U</strong> = always singular formal. No plural — use u for groups too.
+• <strong>Het</strong> rarely used as subject alone, except in: <em>Het regent. Het is koud. Het is drie uur.</em></div>
+<div class="eg"><div class="du">Jíj hebt het gedaan, niet ik! (emphasis = stressed jij)</div><div class="en">YOU did it, not me!</div></div>
+<button class="lesson-cta" onclick="startQZ('A1')">A1 Quiz →</button></div>`},
 
-'de-het':{html:`<div class="lesson-box"><h2>De & Het — Dutch Articles</h2><div class="lv">A1–A2 Grammar — One of the hardest Dutch rules!</div>
-<p>Dutch has two definite articles: <strong>de</strong> and <strong>het</strong>. About 2/3 of nouns use de, 1/3 use het. The indefinite article is always <strong>een</strong> (a/an).</p>
-<div class="hl"><strong>The golden rule:</strong> There is no perfect system. Learn every noun WITH its article from day one.</div>
-<h3>Always de:</h3>
-<table class="vtable"><tr><th>Rule</th><th>Examples</th></tr>
-<tr><td>All plural nouns</td><td class="du">de autos, de kinderen, de huizen</td></tr>
-<tr><td>People (male and female)</td><td class="du">de man, de vrouw, de leraar, de dokter</td></tr>
-<tr><td>Ending in -ing, -heid, -schap, -tie</td><td class="du">de vrijheid, de opleiding, de democratie</td></tr>
-<tr><td>Ending in -er, -aar (professions)</td><td class="du">de bakker, de schrijver, de soldaat</td></tr>
-<tr><td>Rivers, mountains, countries (most)</td><td class="du">de Rijn, de Alpen, de Jordaan</td></tr>
+present:{html:`<div class="lesson-box"><h2>Present Tense <span class="lvl-pip pip-a1">A1</span></h2><div class="lv">A1 Beginner — first grammar rule</div>
+<p>Used for: current actions, habits, general truths, near future. The stem = infinitive minus -en.</p>
+<div class="hl"><strong>Finding the stem:</strong> werken → <strong>werk</strong> · wonen → <strong>woon</strong> · leven → <strong>leef</strong> (v→f) · reizen → <strong>reis</strong> (z→s)</div>
+<table class="vtable"><tr><th>Subject</th><th>Ending</th><th>werken</th><th>zijn</th><th>hebben</th></tr>
+<tr><td>ik</td><td>stem only</td><td class="du">werk</td><td class="du">ben</td><td class="du">heb</td></tr>
+<tr><td>jij / je</td><td>stem + t *</td><td class="du">werkt</td><td class="du">bent</td><td class="du">hebt</td></tr>
+<tr><td>hij / zij / het</td><td>stem + t</td><td class="du">werkt</td><td class="du">is</td><td class="du">heeft</td></tr>
+<tr><td>wij / we</td><td>infinitive</td><td class="du">werken</td><td class="du">zijn</td><td class="du">hebben</td></tr>
+<tr><td>jullie</td><td>infinitive</td><td class="du">werken</td><td class="du">zijn</td><td class="du">hebben</td></tr>
+<tr><td>zij / ze</td><td>infinitive</td><td class="du">werken</td><td class="du">zijn</td><td class="du">hebben</td></tr>
 </table>
-<h3>Always het:</h3>
-<table class="vtable"><tr><th>Rule</th><th>Examples</th></tr>
-<tr><td>All diminutives (-je, -tje, -pje)</td><td class="du">het huisje, het kopje, het meisje</td></tr>
-<tr><td>Infinitives used as nouns</td><td class="du">het eten, het werken, het schrijven</td></tr>
-<tr><td>Languages and sports</td><td class="du">het Nederlands, het voetbal, het tennis</td></tr>
-<tr><td>Compass points and metals</td><td class="du">het noorden, het goud, het zilver</td></tr>
-<tr><td>Words ending in -ment, -sel, -um</td><td class="du">het moment, het raadsel, het museum</td></tr>
+<div class="rule"><strong>⚠️ The inversion rule for jij/je (A1 trap!)</strong>
+When jij/je comes AFTER the verb (in questions or inverted sentences), the -t disappears:
+<em>Jij werkt.</em> → <em>Werk jij?</em> (NOT: Werkt jij?)
+<em>Morgen werk je thuis.</em> (NOT: werkt je)</div>
+<button class="lesson-cta" onclick="startFC('verbs','B1')">Verb flashcards →</button><button class="lesson-cta" onclick="startQZ('A1')">A1 Quiz →</button></div>`},
+
+'de-het':{html:`<div class="lesson-box"><h2>De &amp; Het — Articles <span class="lvl-pip pip-a1">A1</span></h2><div class="lv">A1 — Learn every noun with its article from day one</div>
+<p>Dutch has two definite articles: <strong>de</strong> (common gender, ~⅔ of nouns) and <strong>het</strong> (neuter, ~⅓). The indefinite article is always <strong>een</strong>.</p>
+<div class="hl"><strong>There is no perfect rule</strong> — but there are useful patterns. Always learn a new noun WITH its article: not just <em>huis</em>, but <em>het huis</em>.</div>
+<h3>Patterns that always use de:</h3>
+<table class="vtable"><tr><th>Pattern</th><th>Examples</th></tr>
+<tr><td>All plural nouns</td><td class="du">de autos, de kinderen, de huizen</td></tr>
+<tr><td>People (male and female)</td><td class="du">de man, de vrouw, de dokter, de leraar</td></tr>
+<tr><td>-ing, -heid, -schap, -tie, -ij endings</td><td class="du">de vrijheid, de opleiding, de democratie</td></tr>
+</table>
+<h3>Patterns that always use het:</h3>
+<table class="vtable"><tr><th>Pattern</th><th>Examples</th></tr>
+<tr><td>All diminutives (-je, -tje, -pje)</td><td class="du">het huisje, het kopje, het meisje, het hondje</td></tr>
+<tr><td>Infinitives used as nouns</td><td class="du">het eten, het werken, het slapen</td></tr>
+<tr><td>Languages, sports, compass points</td><td class="du">het Nederlands, het voetbal, het noorden</td></tr>
+<tr><td>-ment, -sel, -um endings</td><td class="du">het moment, het raadsel, het museum</td></tr>
 </table>
 <div class="rule"><strong>🔑 Practice tip</strong>
-When learning a new noun, say it aloud three times with the article: <em>de auto, de auto, de auto</em>. Never learn a noun without its article. Use the article-practice exercises in this app to test yourself!</div>
-<div class="eg"><div class="du">de auto — het huis — de man — het kind — de vrouw — het boek — de vrijheid — het meisje</div><div class="en">the car — the house — the man — the child — the woman — the book — the freedom — the girl</div></div>
-<button class="lesson-cta" onclick="startQZ('all')">Test with Quiz →</button></div>`},
+Say each new noun three times with its article: <em>het huis, het huis, het huis</em>. Use flashcards with articles displayed. A very common mistake: forgetting that <strong>all plurals use de</strong>, even if the singular was het: <em>het boek → de boeken.</em></div>
+<button class="lesson-cta" onclick="startQZ('A1')">A1 Quiz →</button></div>`},
 
-present:{html:`<div class="lesson-box"><h2>Present Tense — Onvoltooid Tegenwoordige Tijd</h2><div class="lv">A1–A2 Grammar</div>
-<p>The present tense (OTT) is used for: current actions, habits, general truths, and near future plans.</p>
-<div class="hl"><strong>Step 1 — Find the stem:</strong> Infinitive minus -en → werken → <strong>werk</strong> | wonen → <strong>woon</strong> | leven → <strong>leef</strong> (v→f) | reizen → <strong>reis</strong> (z→s)</div>
-<table class="vtable"><tr><th>Subject</th><th>Ending</th><th>werken</th><th>wonen</th><th>zijn</th><th>hebben</th></tr>
-<tr><td>ik</td><td>stem only</td><td class="du">werk</td><td class="du">woon</td><td class="du">ben</td><td class="du">heb</td></tr>
-<tr><td>jij / je</td><td>stem + t *</td><td class="du">werkt</td><td class="du">woont</td><td class="du">bent</td><td class="du">hebt</td></tr>
-<tr><td>hij / zij / het</td><td>stem + t</td><td class="du">werkt</td><td class="du">woont</td><td class="du">is</td><td class="du">heeft</td></tr>
-<tr><td>wij / we</td><td>infinitive</td><td class="du">werken</td><td class="du">wonen</td><td class="du">zijn</td><td class="du">hebben</td></tr>
-<tr><td>jullie</td><td>infinitive</td><td class="du">werken</td><td class="du">wonen</td><td class="du">zijn</td><td class="du">hebben</td></tr>
-<tr><td>zij / ze</td><td>infinitive</td><td class="du">werken</td><td class="du">wonen</td><td class="du">zijn</td><td class="du">hebben</td></tr>
+numbers:{html:`<div class="lesson-box"><h2>Numbers &amp; Time <span class="lvl-pip pip-a1">A1</span></h2><div class="lv">A1 Beginner</div>
+<table class="vtable"><tr><th>Number</th><th>Dutch</th><th>Number</th><th>Dutch</th></tr>
+<tr><td>0</td><td class="du">nul</td><td>13</td><td class="du">dertien</td></tr>
+<tr><td>1</td><td class="du">één</td><td>14</td><td class="du">veertien</td></tr>
+<tr><td>2</td><td class="du">twee</td><td>20</td><td class="du">twintig</td></tr>
+<tr><td>3</td><td class="du">drie</td><td>21</td><td class="du">eenentwintig</td></tr>
+<tr><td>4</td><td class="du">vier</td><td>30</td><td class="du">dertig</td></tr>
+<tr><td>5</td><td class="du">vijf</td><td>40</td><td class="du">veertig</td></tr>
+<tr><td>6</td><td class="du">zes</td><td>50</td><td class="du">vijftig</td></tr>
+<tr><td>7</td><td class="du">zeven</td><td>100</td><td class="du">honderd</td></tr>
+<tr><td>8</td><td class="du">acht</td><td>1.000</td><td class="du">duizend</td></tr>
 </table>
-<div class="rule"><strong>⚠️ The jij/je inversion rule</strong>
-When jij/je comes AFTER the verb (in questions or inverted sentences), the -t disappears:
-<em>Jij werkt.</em> (statement) → <em>Werk jij?</em> (question — NOT: Werkt jij?)
-<em>Morgen werkt jij.</em> → <em>Morgen werk jij.</em> (jij after verb in inversion)</div>
-<h3>Other key irregular verbs</h3>
-<table class="vtable"><tr><th></th><th>worden (become)</th><th>gaan (go)</th><th>doen (do)</th><th>zullen (shall)</th></tr>
-<tr><td>ik</td><td class="du">word</td><td class="du">ga</td><td class="du">doe</td><td class="du">zal</td></tr>
-<tr><td>jij</td><td class="du">wordt</td><td class="du">gaat</td><td class="du">doet</td><td class="du">zult</td></tr>
-<tr><td>hij</td><td class="du">wordt</td><td class="du">gaat</td><td class="du">doet</td><td class="du">zal</td></tr>
-<tr><td>wij/zij</td><td class="du">worden</td><td class="du">gaan</td><td class="du">doen</td><td class="du">zullen</td></tr>
+<h3>Telling time — the half-before system</h3>
+<div class="hl"><strong>⚠️ 'Half' means halfway TO the next hour — not half past!</strong></div>
+<table class="vtable"><tr><th>Time</th><th>Dutch</th><th>Remember</th></tr>
+<tr><td>3:00</td><td class="du">drie uur</td><td>simple</td></tr>
+<tr><td>3:15</td><td class="du">kwart over drie</td><td>quarter past three</td></tr>
+<tr><td>3:25</td><td class="du">vijf voor half vier</td><td>five to halfway-to-four</td></tr>
+<tr><td>3:30</td><td class="du">half vier ⚠️</td><td>HALF FOUR = 3:30!</td></tr>
+<tr><td>3:35</td><td class="du">vijf over half vier</td><td>five past halfway-to-four</td></tr>
+<tr><td>3:45</td><td class="du">kwart voor vier</td><td>quarter to four</td></tr>
 </table>
-<button class="lesson-cta" onclick="startFC('verbs')">Practice verb flashcards →</button></div>`},
+<div class="rule"><strong>Rule: half [X] = [X]-0:30</strong>
+Half drie = 2:30 · Half acht = 7:30 · Half twaalf = 11:30
+This is the single most common mistake English speakers make when learning Dutch!</div>
+<button class="lesson-cta" onclick="startFC('numbers','A1')">Practice numbers →</button></div>`},
 
-past:{html:`<div class="lesson-box"><h2>Simple Past — Onvoltooid Verleden Tijd (OVT)</h2><div class="lv">A2 Grammar</div>
-<p>The simple past is used for actions completed at a specific time in the past, often in written/formal Dutch.</p>
-<h3>Weak verbs (regular)</h3>
-<div class="hl"><strong>'t kofschip rule:</strong> If the verb stem ends in t, k, f, s, ch, p → add -te/-ten. Otherwise → add -de/-den.</div>
-<table class="vtable"><tr><th>Verb</th><th>Stem</th><th>Ends in kofschip?</th><th>Past</th></tr>
-<tr><td class="du">werken</td><td class="du">werk (k)</td><td>✓ yes</td><td class="du">werkte / werkten</td></tr>
-<tr><td class="du">fietsen</td><td class="du">fiets (s)</td><td>✓ yes</td><td class="du">fietste / fietsten</td></tr>
-<tr><td class="du">bellen</td><td class="du">bel (l)</td><td>✗ no</td><td class="du">belde / belden</td></tr>
-<tr><td class="du">luisteren</td><td class="du">luister (r)</td><td>✗ no</td><td class="du">luisterde / luisterden</td></tr>
+diminutives:{html:`<div class="lesson-box"><h2>Diminutives (-je) <span class="lvl-pip pip-a1">A1</span></h2><div class="lv">A1 — very Dutch, very common</div>
+<p>Diminutives make words smaller, cuter, or more informal. All diminutives <strong>always</strong> use <strong>het</strong> — no exceptions.</p>
+<table class="vtable"><tr><th>Ends in</th><th>Suffix</th><th>Example</th></tr>
+<tr><td>Most consonants</td><td>-je</td><td class="du">hond → hondje · huis → huisje</td></tr>
+<tr><td>-l, -n, -r (short vowel)</td><td>-netje / -tje</td><td class="du">man → mannetje · zon → zonnetje</td></tr>
+<tr><td>-ng, -nk</td><td>-etje</td><td class="du">ring → ringetje · bank → bankje</td></tr>
+<tr><td>Long vowel + t, k, p</td><td>-je (doubled t)</td><td class="du">raam → raampje · boom → boompje</td></tr>
 </table>
-<h3>Strong verbs (irregular — must memorise)</h3>
-<table class="vtable"><tr><th>Infinitive</th><th>Past singular</th><th>Past plural</th></tr>
-<tr><td class="du">begrijpen</td><td class="du">begreep</td><td class="du">begrepen</td></tr>
-<tr><td class="du">kijken</td><td class="du">keek</td><td class="du">keken</td></tr>
-<tr><td class="du">krijgen</td><td class="du">kreeg</td><td class="du">kregen</td></tr>
-<tr><td class="du">nemen</td><td class="du">nam</td><td class="du">namen</td></tr>
-<tr><td class="du">spreken</td><td class="du">sprak</td><td class="du">spraken</td></tr>
-<tr><td class="du">vinden</td><td class="du">vond</td><td class="du">vonden</td></tr>
-<tr><td class="du">worden</td><td class="du">werd</td><td class="du">werden</td></tr>
-<tr><td class="du">rijden</td><td class="du">reed</td><td class="du">reden</td></tr>
-</table>
-<button class="lesson-cta" onclick="startQZ('all')">Test yourself →</button></div>`},
+<div class="rule"><strong>🇳🇱 Culture: Dutch people use diminutives for everything</strong>
+Even for things that aren't small! <em>Een kopje koffie</em> (a cup of coffee), <em>een biertje</em> (a beer), <em>momentje!</em> (just a moment!), <em>een beetje</em> (a little bit), <em>een eindje lopen</em> (a short walk). They signal warmth, informality, and belonging.</div>
+<div class="eg"><div class="du">Wil je een kopje thee? Ja, een beetje suiker. Momentje!</div><div class="en">Would you like a cup of tea? Yes, a little sugar. Just a moment!</div></div>
+<button class="lesson-cta" onclick="startQZ('A1')">A1 Quiz →</button></div>`},
 
-perfect:{html:`<div class="lesson-box"><h2>Present Perfect — Voltooid Tegenwoordige Tijd (VTT)</h2><div class="lv">A2–B1 Grammar</div>
-<p>The present perfect is the most common past tense in spoken Dutch. Formula: <strong>hebben or zijn + past participle (voltooid deelwoord)</strong>.</p>
+past:{html:`<div class="lesson-box"><h2>Simple Past (OVT) <span class="lvl-pip pip-a2">A2</span></h2><div class="lv">A2 Elementary — used for written/formal Dutch</div>
+<h3>Weak verbs (regular) — 't kofschip rule</h3>
+<div class="hl"><strong>'t kofschip:</strong> If the stem ends in t, k, f, s, ch, p → add <strong>-te/-ten</strong>. Otherwise → add <strong>-de/-den</strong>.</div>
+<table class="vtable"><tr><th>Verb</th><th>Stem</th><th>Kofschip?</th><th>Past</th><th>Plural</th></tr>
+<tr><td class="du">werken</td><td class="du">werk (k)</td><td>✓</td><td class="du">werkte</td><td class="du">werkten</td></tr>
+<tr><td class="du">fietsen</td><td class="du">fiets (s)</td><td>✓</td><td class="du">fietste</td><td class="du">fietsten</td></tr>
+<tr><td class="du">bellen</td><td class="du">bel (l)</td><td>✗</td><td class="du">belde</td><td class="du">belden</td></tr>
+<tr><td class="du">leven</td><td class="du">leef (f→v!)</td><td>✓</td><td class="du">leefde ✗ → leefde</td><td class="du">leefden</td></tr>
+</table>
+<h3>Strong verbs — must memorise the vowel change</h3>
+<table class="vtable"><tr><th>Infinitive</th><th>Past sing.</th><th>Past plur.</th><th>Participle</th></tr>
+<tr><td class="du">rijden</td><td class="du">reed</td><td class="du">reden</td><td class="du">gereden</td></tr>
+<tr><td class="du">schrijven</td><td class="du">schreef</td><td class="du">schreven</td><td class="du">geschreven</td></tr>
+<tr><td class="du">kijken</td><td class="du">keek</td><td class="du">keken</td><td class="du">gekeken</td></tr>
+<tr><td class="du">nemen</td><td class="du">nam</td><td class="du">namen</td><td class="du">genomen</td></tr>
+<tr><td class="du">vinden</td><td class="du">vond</td><td class="du">vonden</td><td class="du">gevonden</td></tr>
+<tr><td class="du">worden</td><td class="du">werd</td><td class="du">werden</td><td class="du">geworden</td></tr>
+</table>
+<div class="rule"><strong>Simple past vs perfect — when to use which?</strong>
+In spoken Dutch, the <strong>present perfect (VTT)</strong> is preferred: <em>Ik heb gewerkt.</em>
+The simple past (OVT) is mainly used in: written texts, news articles, storytelling, and with the verbs <em>zijn, hebben, willen, kunnen, moeten, mogen, zullen</em>:
+<em>Ik was moe. Hij had geen tijd. Ze wilden niet komen.</em></div>
+<button class="lesson-cta" onclick="startQZ('A2')">A2 Quiz →</button></div>`},
+
+perfect:{html:`<div class="lesson-box"><h2>Present Perfect (VTT) <span class="lvl-pip pip-a2">A2</span></h2><div class="lv">A2 Elementary — the main past tense in spoken Dutch</div>
+<p>Formula: <strong>hebben or zijn + past participle (voltooid deelwoord)</strong> — always at the end.</p>
 <div class="hl"><strong>Forming the past participle:</strong> ge- + stem + t (kofschip) or ge- + stem + d</div>
 <table class="vtable"><tr><th>Type</th><th>Rule</th><th>Example</th></tr>
-<tr><td>Weak (-t)</td><td>ge + stem + t</td><td class="du">werken → gewerkt</td></tr>
-<tr><td>Weak (-d)</td><td>ge + stem + d</td><td class="du">bellen → gebeld</td></tr>
-<tr><td>Strong</td><td>ge + stem* + en</td><td class="du">begrijpen → begrepen</td></tr>
-<tr><td>Separable</td><td>prefix + ge + stem + t/d</td><td class="du">opbellen → opgebeld</td></tr>
-<tr><td>Verbs ending in -eren, -ieren</td><td>no ge- prefix</td><td class="du">studeren → gestudeerd ✓ / arriveren → gearriveerd</td></tr>
+<tr><td>Weak + kofschip</td><td>ge + stem + t</td><td class="du">werken → gewerkt · kopen → gekocht</td></tr>
+<tr><td>Weak, no kofschip</td><td>ge + stem + d</td><td class="du">bellen → gebeld · leven → geleefd</td></tr>
+<tr><td>Strong</td><td>ge + stem* + en</td><td class="du">rijden → gereden · schrijven → geschreven</td></tr>
+<tr><td>Separable</td><td>prefix + ge + stem + t/d</td><td class="du">opbellen → opgebeld · aankomen → aangekomen</td></tr>
+<tr><td>No ge- (unstressed prefix)</td><td>prefix + stem + t/d</td><td class="du">vergeten → vergeten · besluiten → besloten</td></tr>
 </table>
-<div class="rule"><strong>Hebben vs Zijn — when to use which?</strong>
+<div class="rule"><strong>Hebben vs Zijn — the rule</strong>
 Use <strong>zijn</strong> for:
-• Movement verbs: gaan, komen, rijden, lopen, vliegen, reizen
-• Change of state: worden, groeien, sterven, slagen
-• And: blijven, zijn, blijken, verschijnen
+• Movement: gaan, komen, rijden, lopen, vliegen, reizen, vertrekken
+• Change of state: worden, groeien, sterven, slagen, vallen
+• Also: blijven, zijn, blijken, verschijnen
 Use <strong>hebben</strong> for everything else (most verbs).</div>
-<table class="vtable"><tr><th>Hebben verbs</th><th>Zijn verbs</th></tr>
+<table class="vtable"><tr><th>Hebben</th><th>Zijn</th></tr>
 <tr><td class="du">Ik heb gewerkt.</td><td class="du">Ik ben gegaan.</td></tr>
 <tr><td class="du">Hij heeft gegeten.</td><td class="du">Zij is gekomen.</td></tr>
 <tr><td class="du">Wij hebben gespeeld.</td><td class="du">We zijn gebleven.</td></tr>
 </table>
-<button class="lesson-cta" onclick="startQZ('all')">Test yourself →</button></div>`},
+<button class="lesson-cta" onclick="startQZ('A2')">A2 Quiz →</button></div>`},
 
-tenses:{html:`<div class="lesson-box"><h2>All 6 Tenses — Overview</h2><div class="lv">A2–B1 Grammar — Complete reference</div>
-<p>Dutch has 6 main tenses. Here is the full pattern for a weak verb (werken) and key notes:</p>
-<table class="vtable"><tr><th>Tense</th><th>Pattern</th><th>Example (ik)</th><th>Usage</th></tr>
-<tr><td>Present (OTT)</td><td>stem (+ t for jij/hij)</td><td class="du">ik werk</td><td>now, habits, near future</td></tr>
-<tr><td>Simple past (OVT)</td><td>stem + te/de (weak) or vowel change (strong)</td><td class="du">ik werkte</td><td>specific past time, written Dutch</td></tr>
-<tr><td>Present perfect (VTT)</td><td>heb/ben + past participle</td><td class="du">ik heb gewerkt</td><td>completed past, spoken Dutch</td></tr>
-<tr><td>Past perfect (VOLT)</td><td>had/was + past participle</td><td class="du">ik had gewerkt</td><td>past before another past</td></tr>
-<tr><td>Future (OTT toekomst)</td><td>zal/zullen + infinitive</td><td class="du">ik zal werken</td><td>future actions / promises</td></tr>
-<tr><td>Conditional</td><td>zou/zouden + infinitive</td><td class="du">ik zou werken</td><td>would (hypothetical / polite)</td></tr>
+separable:{html:`<div class="lesson-box"><h2>Separable Verbs <span class="lvl-pip pip-a2">A2</span></h2><div class="lv">A2 Elementary — extremely common in Dutch</div>
+<p>Separable verbs have a prefix that splits off to the END of the clause. Common prefixes: <em>aan, af, bij, door, in, mee, na, om, op, over, terug, toe, uit, weg, voor</em></p>
+<table class="vtable"><tr><th>Tense</th><th>Structure</th><th>aankomen</th></tr>
+<tr><td>Present</td><td>[Sub] + [Verb] + ... + [Prefix]</td><td class="du">Ik kom om 8 uur aan.</td></tr>
+<tr><td>Simple past</td><td>[Sub] + [Verb] + ... + [Prefix]</td><td class="du">Ik kwam om 8 uur aan.</td></tr>
+<tr><td>Future</td><td>[Sub] + zal + ... + [full verb]</td><td class="du">Ik zal om 8 uur aankomen.</td></tr>
+<tr><td>Perfect</td><td>[Sub] + ben/heb + ... + [past p.]</td><td class="du">Ik ben aangekomen.</td></tr>
+<tr><td>Modal</td><td>[Sub] + modal + ... + [full verb]</td><td class="du">Ik moet om 8 uur aankomen.</td></tr>
+<tr><td>Sub. clause</td><td>[Conj.] + [Sub] + ... + [full verb]</td><td class="du">omdat ik om 8 aankom</td></tr>
+<tr><td>Imperative</td><td>[Prefix] + [stem]!</td><td class="du">Kom aan! / Kom terug!</td></tr>
 </table>
-<div class="rule"><strong>💡 Tip: spoken vs written Dutch</strong>
-In everyday speech, Dutch speakers use the present perfect (VTT) much more than the simple past (OVT).
-"Ik heb gegeten" (VTT) is more natural than "Ik at" (OVT) in conversation.
-Strong verbs are more common in the simple past in written/literary Dutch.</div>
-<div class="eg"><div class="du">Ik werk elke dag. (present) / Ik werkte gisteren. (simple past) / Ik heb gewerkt. (perfect) / Ik zal morgen werken. (future) / Ik zou graag werken. (conditional)</div><div class="en">I work every day / I worked yesterday / I have worked / I will work tomorrow / I would like to work.</div></div>
-<button class="lesson-cta" onclick="startQZ('all')">Test yourself →</button></div>`},
+<div class="rule"><strong>Key rule</strong>
+Main clause → prefix to the very END.
+Subordinate clause → stays TOGETHER at the end:
+<em>Ik weet dat hij vroeg <strong>opstaat</strong>.</em> (not: op staat)</div>
+<button class="lesson-cta" onclick="startQZ('A2')">A2 Quiz →</button></div>`},
 
-separable:{html:`<div class="lesson-box"><h2>Separable Verbs — Scheidbare Werkwoorden</h2><div class="lv">A2 Grammar</div>
-<p>Many Dutch verbs have a <strong>prefix that splits off</strong> and moves to the end of the sentence. Common prefixes: <em>aan, af, bij, binnen, door, in, mee, na, om, op, over, tegen, toe, uit, voor, weg, terug</em></p>
-<table class="vtable"><tr><th>Tense</th><th>Structure</th><th>aankomen</th><th>terugkomen</th></tr>
-<tr><td>Present</td><td>[Sub] + [Verb] + ... + [Prefix]</td><td class="du">Ik kom om 8 uur aan.</td><td class="du">Ik kom morgen terug.</td></tr>
-<tr><td>Simple past</td><td>[Sub] + [Verb] + ... + [Prefix]</td><td class="du">Ik kwam om 8 uur aan.</td><td class="du">Ik kwam gisteren terug.</td></tr>
-<tr><td>Future</td><td>[Sub] + zal + ... + [full verb]</td><td class="du">Ik zal aankomen om 8 uur.</td><td class="du">Ik zal morgen terugkomen.</td></tr>
-<tr><td>Perfect</td><td>[Sub] + heb/ben + ... + [past p.]</td><td class="du">Ik ben aangekomen.</td><td class="du">Ik ben teruggekomen.</td></tr>
-<tr><td>Modal verb</td><td>[Sub] + modal + ... + [full verb]</td><td class="du">Ik moet aankomen om 8.</td><td class="du">Ik wil terugkomen.</td></tr>
-<tr><td>Subordinate clause</td><td>[Conj.] + [Sub] + ... + [full verb]</td><td class="du">omdat ik aankom om 8</td><td class="du">toen ik terugkwam</td></tr>
-<tr><td>Imperative</td><td>[Prefix] + [stem]!</td><td class="du">Kom aan!</td><td class="du">Kom terug!</td></tr>
-</table>
-<div class="rule"><strong>🔑 The key rule</strong>
-Main clause: prefix goes to the very END.
-Subordinate clause (after dat, omdat, als, wanneer...): verb stays TOGETHER as one word at the end.
-<em>Ik weet dat hij morgen terugkomt. (NOT: terug komt)</em></div>
-<button class="lesson-cta" onclick="startQZ('all')">Test yourself →</button></div>`},
-
-'word-order':{html:`<div class="lesson-box"><h2>Word Order — The V2 Rule</h2><div class="lv">A2 Grammar</div>
-<p>Dutch has a strict rule: the <strong>finite verb is always in second position</strong> in a main clause (V2 rule).</p>
-<div class="hl"><strong>Main clause formula:</strong> [Position 1 — any element] + [Verb] + [Subject if needed] + [Rest of sentence]</div>
-<table class="vtable"><tr><th>Normal (subject first)</th><th>Inverted (other element first)</th></tr>
-<tr><td class="du">Ik ga morgen naar Rotterdam.</td><td class="du">Morgen ga ik naar Rotterdam.</td></tr>
-<tr><td class="du">Wij eten altijd om zes uur.</td><td class="du">Om zes uur eten wij altijd.</td></tr>
-<tr><td class="du">Hij heeft gisteren gewerkt.</td><td class="du">Gisteren heeft hij gewerkt.</td></tr>
-</table>
-<div class="rule"><strong>Subordinate clauses — verb goes to the END</strong>
-After conjunctions: omdat (because), dat (that), als (if/when), wanneer (when), hoewel (although), zodat (so that):
-<em>Ik leer Nederlands <strong>omdat</strong> ik in Nederland <strong>woon</strong>.</em>
-<em>Ik weet <strong>dat</strong> hij goed Nederlands <strong>spreekt</strong>.</em>
-With separable verbs in subordinate clause: prefix stays attached!
-<em>Ik weet dat hij vroeg <strong>opstaat</strong>.</em> (NOT: op staat)</div>
-<div class="rule"><strong>Multiple verbs at the end</strong>
-When you have modal + infinitive OR perfect tense in a subordinate clause:
-<em>...omdat ik niet kan slapen. (modal at end, then infinitive)</em>
-<em>...dat hij heeft gewerkt. (hebben/zijn before participle — OR reverse in practice)</em></div>
-<button class="lesson-cta" onclick="startQZ('all')">Test yourself →</button></div>`},
-
-numbers:{html:`<div class="lesson-box"><h2>Numbers & Telling Time</h2><div class="lv">A1 Beginner</div>
-<table class="vtable"><tr><th>Number</th><th>Dutch</th><th>Number</th><th>Dutch</th></tr>
-<tr><td>0</td><td class="du">nul</td><td>11</td><td class="du">elf</td></tr>
-<tr><td>1</td><td class="du">één</td><td>12</td><td class="du">twaalf</td></tr>
-<tr><td>2</td><td class="du">twee</td><td>13</td><td class="du">dertien</td></tr>
-<tr><td>3</td><td class="du">drie</td><td>20</td><td class="du">twintig</td></tr>
-<tr><td>4</td><td class="du">vier</td><td>32</td><td class="du">tweeëndertig</td></tr>
-<tr><td>5</td><td class="du">vijf</td><td>50</td><td class="du">vijftig</td></tr>
-<tr><td>6</td><td class="du">zes</td><td>100</td><td class="du">honderd</td></tr>
-<tr><td>7</td><td class="du">zeven</td><td>1.000</td><td class="du">duizend</td></tr>
-<tr><td>8</td><td class="du">acht</td><td>1e / 2e / 3e</td><td class="du">eerste / tweede / derde</td></tr>
-</table>
-<h3>Telling time — Hoe laat is het?</h3>
-<div class="hl"><strong>⚠️ The half-before system</strong> — 'Half' means halfway TO the next hour, not half past!</div>
-<table class="vtable"><tr><th>Time</th><th>Dutch</th><th>Literal</th></tr>
-<tr><td>3:00</td><td class="du">drie uur</td><td>three o'clock</td></tr>
-<tr><td>3:10</td><td class="du">tien over drie</td><td>ten past three</td></tr>
-<tr><td>3:15</td><td class="du">kwart over drie</td><td>quarter past three</td></tr>
-<tr><td>3:25</td><td class="du">vijf voor half vier</td><td>five to half four</td></tr>
-<tr><td>3:30</td><td class="du">half vier ⚠️</td><td>half (way to) four = 3:30!</td></tr>
-<tr><td>3:35</td><td class="du">vijf over half vier</td><td>five past half four</td></tr>
-<tr><td>3:45</td><td class="du">kwart voor vier</td><td>quarter to four</td></tr>
-<tr><td>3:50</td><td class="du">tien voor vier</td><td>ten to four</td></tr>
-</table>
-<div class="rule"><strong>⚠️ Half drie = 2:30 — not 3:30!</strong>
-Half vier = 3:30. Half acht = 7:30. Half twaalf = 11:30. This trips up every English speaker!</div>
-<button class="lesson-cta" onclick="startFC('numbers')">Practice numbers →</button></div>`},
-
-diminutives:{html:`<div class="lesson-box"><h2>Diminutives — Verkleinwoorden (-je)</h2><div class="lv">A2 Grammar</div>
-<p>Diminutives are extremely common in Dutch — they add smallness, cuteness or informality. All diminutives always use <strong>het</strong>.</p>
-<table class="vtable"><tr><th>Word ends in</th><th>Add</th><th>Example</th></tr>
-<tr><td>Most consonants</td><td>-je</td><td class="du">hond → hondje, stoel → stoeltje</td></tr>
-<tr><td>-l, -n, -r + short vowel</td><td>-netje / -tje</td><td class="du">man → mannetje, zon → zonnetje</td></tr>
-<tr><td>-ng, -nk</td><td>-etje</td><td class="du">ring → ringetje, bank → bankje</td></tr>
-<tr><td>Long vowel or diphthong + consonant</td><td>-tje</td><td class="du">raam → raampje, boom → boompje</td></tr>
-</table>
-<div class="rule"><strong>🇳🇱 Cultural note</strong>
-Dutch people use diminutives constantly in daily speech — even for things that are not small!
-<em>Een kopje koffie</em> (a cup of coffee), <em>een biertje</em> (a beer), <em>een momentje</em> (just a moment), <em>een beetje</em> (a little bit), <em>een eindje lopen</em> (a little walk).
-Diminutives make speech warmer and more casual. They are a hallmark of colloquial Dutch.</div>
-<div class="eg"><div class="du">Wil je een kopje thee? Een beetje suiker alsjeblieft. Momentje!</div><div class="en">Would you like a cup of tea? A little sugar please. Just a moment!</div></div>
-<button class="lesson-cta" onclick="startQZ('all')">Test yourself →</button></div>`},
-
-prepositions:{html:`<div class="lesson-box"><h2>Prepositions — Voorzetsels</h2><div class="lv">A2 Grammar</div>
-<h3>Basic prepositions</h3>
+prepositions:{html:`<div class="lesson-box"><h2>Prepositions <span class="lvl-pip pip-a2">A2</span></h2><div class="lv">A2 Elementary</div>
 <table class="vtable"><tr><th>Dutch</th><th>English</th><th>Example</th></tr>
 <tr><td class="du">in</td><td>in, inside</td><td class="du">Ik woon in Amsterdam.</td></tr>
 <tr><td class="du">op</td><td>on, at (surface)</td><td class="du">Het boek ligt op de tafel.</td></tr>
-<tr><td class="du">aan</td><td>at, on (attached)</td><td class="du">Ik zit aan de tafel. Hij woont aan de kust.</td></tr>
-<tr><td class="du">naar</td><td>to (movement)</td><td class="du">Ik ga naar huis.</td></tr>
-<tr><td class="du">van</td><td>from, of</td><td class="du">Ik kom van Amsterdam. Het boek van Maria.</td></tr>
+<tr><td class="du">aan</td><td>on (attached), at</td><td class="du">Ik zit aan de tafel.</td></tr>
+<tr><td class="du">naar</td><td>to (movement)</td><td class="du">Ik ga naar huis. / naar het werk.</td></tr>
+<tr><td class="du">van</td><td>of, from</td><td class="du">Het boek van Maria. Ik kom van Amsterdam.</td></tr>
 <tr><td class="du">met</td><td>with</td><td class="du">Ik ga met de trein.</td></tr>
-<tr><td class="du">voor</td><td>for, before (time)</td><td class="du">Dit is voor jou. Voor drie uur.</td></tr>
+<tr><td class="du">voor</td><td>for, in front of</td><td class="du">Dit is voor jou. / voor het huis.</td></tr>
 <tr><td class="du">na</td><td>after</td><td class="du">Na het eten ga ik wandelen.</td></tr>
-<tr><td class="du">bij</td><td>at, near, at the place of</td><td class="du">Ik ben bij de dokter.</td></tr>
+<tr><td class="du">bij</td><td>at, near, at the home of</td><td class="du">Ik ben bij de dokter. / bij mijn vriend.</td></tr>
 <tr><td class="du">zonder</td><td>without</td><td class="du">Koffie zonder suiker.</td></tr>
-<tr><td class="du">tussen</td><td>between, among</td><td class="du">Tussen twee en drie uur.</td></tr>
-<tr><td class="du">naast</td><td>next to</td><td class="du">De bank staat naast de deur.</td></tr>
-<tr><td class="du">achter</td><td>behind</td><td class="du">De kat zit achter de bank.</td></tr>
-<tr><td class="du">voor</td><td>in front of</td><td class="du">Ik sta voor het huis.</td></tr>
+<tr><td class="du">naast / achter / tussen</td><td>next to / behind / between</td><td class="du">Naast de bank. Achter de deur.</td></tr>
 <tr><td class="du">boven / onder</td><td>above / below</td><td class="du">De lamp hangt boven de tafel.</td></tr>
 </table>
-<h3>Useful prepositional phrases</h3>
-<table class="vtable"><tr><th>Dutch</th><th>English</th></tr>
-<tr><td class="du">vanwege</td><td>because of</td></tr>
-<tr><td class="du">ondanks</td><td>in spite of</td></tr>
-<tr><td class="du">in plaats van</td><td>instead of</td></tr>
-<tr><td class="du">dankzij</td><td>thanks to</td></tr>
-<tr><td class="du">rechts van / links van</td><td>to the right of / to the left of</td></tr>
-</table>
-<button class="lesson-cta" onclick="startQZ('all')">Test yourself →</button></div>`},
+<div class="rule"><strong>naar vs in vs op</strong>
+<em>Naar</em> = movement toward a destination: <em>Ik ga naar Amsterdam.</em>
+<em>In</em> = inside: <em>Ik woon in Amsterdam.</em>
+<em>Op</em> = on a surface or at a location/event: <em>Ik zit op de bank. Op kantoor. Op school.</em></div>
+<button class="lesson-cta" onclick="startQZ('A2')">A2 Quiz →</button></div>`},
 
-modals:{html:`<div class="lesson-box"><h2>Modal Verbs — Modale Werkwoorden</h2><div class="lv">A2–B1 Grammar</div>
-<p>Modal verbs express ability, permission, obligation or desire. In Dutch they are used with an infinitive at the end of the clause.</p>
-<table class="vtable"><tr><th>Infinitive</th><th>Meaning</th><th>ik</th><th>jij</th><th>hij</th><th>wij</th></tr>
-<tr><td class="du">kunnen</td><td>can, to be able to</td><td class="du">kan</td><td class="du">kunt</td><td class="du">kan</td><td class="du">kunnen</td></tr>
-<tr><td class="du">mogen</td><td>may, to be allowed to</td><td class="du">mag</td><td class="du">mag</td><td class="du">mag</td><td class="du">mogen</td></tr>
-<tr><td class="du">moeten</td><td>must, to have to</td><td class="du">moet</td><td class="du">moet</td><td class="du">moet</td><td class="du">moeten</td></tr>
+modals:{html:`<div class="lesson-box"><h2>Modal Verbs <span class="lvl-pip pip-a2">A2</span></h2><div class="lv">A2 Elementary — essential for polite Dutch</div>
+<table class="vtable"><tr><th>Verb</th><th>Meaning</th><th>ik</th><th>jij</th><th>hij</th><th>wij/zij</th></tr>
+<tr><td class="du">kunnen</td><td>can / able to</td><td class="du">kan</td><td class="du">kunt</td><td class="du">kan</td><td class="du">kunnen</td></tr>
+<tr><td class="du">mogen</td><td>may / allowed to</td><td class="du">mag</td><td class="du">mag</td><td class="du">mag</td><td class="du">mogen</td></tr>
+<tr><td class="du">moeten</td><td>must / have to</td><td class="du">moet</td><td class="du">moet</td><td class="du">moet</td><td class="du">moeten</td></tr>
 <tr><td class="du">willen</td><td>to want to</td><td class="du">wil</td><td class="du">wilt</td><td class="du">wil</td><td class="du">willen</td></tr>
-<tr><td class="du">zullen</td><td>shall, will (future)</td><td class="du">zal</td><td class="du">zult</td><td class="du">zal</td><td class="du">zullen</td></tr>
+<tr><td class="du">zullen</td><td>shall / will (future)</td><td class="du">zal</td><td class="du">zult</td><td class="du">zal</td><td class="du">zullen</td></tr>
 </table>
-<div class="rule"><strong>💡 Conditional: zou/zouden</strong>
-The conditional of <em>zullen</em> is <em>zou/zouden</em> = would. Very useful for polite requests:
-<em>Ik zou graag koffie willen.</em> = I would like coffee.
-<em>Zou je mij kunnen helpen?</em> = Could you help me?</div>
-<div class="eg"><div class="du">Ik kan Nederlands spreken. / Mag ik binnenkomen? / Ik moet werken. / Ik wil koffie. / Ik zou graag helpen.</div><div class="en">I can speak Dutch. / May I come in? / I have to work. / I want coffee. / I would like to help.</div></div>
-<button class="lesson-cta" onclick="startQZ('all')">Test yourself →</button></div>`},
+<div class="rule"><strong>Simple past of modals (OVT) — A2 must-know</strong>
+These verbs are often used in simple past in spoken Dutch too:
+<em>Ik moest werken.</em> (I had to work.)
+<em>Hij kon niet komen.</em> (He couldn't come.)
+<em>Ze wilden niet betalen.</em> (They didn't want to pay.)
+<em>Mocht ik binnenkomen?</em> (Was I allowed to come in?)</div>
+<div class="rule"><strong>Conditional: zou/zouden = would</strong>
+<em>Ik zou graag koffie willen.</em> = I would like coffee. (polite)
+<em>Zou je mij kunnen helpen?</em> = Could you help me? (polite request)</div>
+<button class="lesson-cta" onclick="startQZ('A2')">A2 Quiz →</button></div>`},
 
-'false-friends':{html:`<div class="lesson-box"><h2>False Friends — Valse Vrienden</h2><div class="lv">A2–B1 Vocabulary — </div>
-<p>These Dutch words look like English words but mean something completely different. Be careful!</p>
-<table class="vtable"><tr><th>Dutch word</th><th>Looks like...</th><th>Real Dutch meaning</th><th>Example</th></tr>
+conjunctions:{html:`<div class="lesson-box"><h2>Conjunctions <span class="lvl-pip pip-a2">A2</span></h2><div class="lv">A2 Elementary — connecting sentences</div>
+<p>Conjunctions connect clauses. In Dutch, <strong>subordinating conjunctions</strong> send the verb to the end. <strong>Coordinating conjunctions</strong> do not change word order.</p>
+<h3>Coordinating (normal word order):</h3>
+<table class="vtable"><tr><th>Dutch</th><th>English</th><th>Example</th></tr>
+<tr><td class="du">en</td><td>and</td><td class="du">Ik werk en ik studeer.</td></tr>
+<tr><td class="du">maar</td><td>but</td><td class="du">Ik wil, maar ik kan niet.</td></tr>
+<tr><td class="du">of</td><td>or</td><td class="du">Thee of koffie?</td></tr>
+<tr><td class="du">want</td><td>because (coord.)</td><td class="du">Ik ben moe, want ik heb slecht geslapen.</td></tr>
+<tr><td class="du">dus</td><td>so / therefore</td><td class="du">Het regent, dus ik neem de bus.</td></tr>
+</table>
+<h3>Subordinating (verb to the END):</h3>
+<table class="vtable"><tr><th>Dutch</th><th>English</th><th>Example</th></tr>
+<tr><td class="du">omdat</td><td>because</td><td class="du">...omdat ik moe <strong>ben</strong>.</td></tr>
+<tr><td class="du">dat</td><td>that</td><td class="du">Ik weet dat hij <strong>komt</strong>.</td></tr>
+<tr><td class="du">als</td><td>if / when</td><td class="du">...als het <strong>regent</strong>.</td></tr>
+<tr><td class="du">wanneer</td><td>when (time)</td><td class="du">...wanneer ik <strong>klaar ben</strong>.</td></tr>
+<tr><td class="du">hoewel</td><td>although</td><td class="du">...hoewel het duur <strong>is</strong>.</td></tr>
+<tr><td class="du">zodat</td><td>so that</td><td class="du">...zodat ik het <strong>kan begrijpen</strong>.</td></tr>
+</table>
+<div class="rule"><strong>Want vs Omdat — classic A2 mistake</strong>
+Both mean 'because', but:
+<em>Want</em> = coordinating → normal word order: <em>Ik ga niet, <strong>want</strong> ik ben moe.</em>
+<em>Omdat</em> = subordinating → verb to end: <em>Ik ga niet <strong>omdat</strong> ik moe <strong>ben</strong>.</em>
+Both are correct and interchangeable in meaning, but the word order differs!</div>
+<button class="lesson-cta" onclick="startQZ('A2')">A2 Quiz →</button></div>`},
+
+'word-order':{html:`<div class="lesson-box"><h2>Word Order — The V2 Rule <span class="lvl-pip pip-b1">B1</span></h2><div class="lv">B1 Intermediate — the backbone of Dutch grammar</div>
+<p>The finite verb is always in <strong>second position</strong> in a main clause. This is the V2 rule.</p>
+<table class="vtable"><tr><th>Normal order</th><th>Inverted (V2)</th></tr>
+<tr><td class="du">Ik ga morgen naar Rotterdam.</td><td class="du">Morgen ga ik naar Rotterdam.</td></tr>
+<tr><td class="du">Hij heeft gisteren gewerkt.</td><td class="du">Gisteren heeft hij gewerkt.</td></tr>
+<tr><td class="du">Wij eten altijd om zes uur.</td><td class="du">Om zes uur eten wij altijd.</td></tr>
+</table>
+<div class="rule"><strong>Subordinate clauses — verb to the END</strong>
+After: omdat, dat, als, wanneer, hoewel, zodat, tenzij, terwijl...
+<em>Ik leer Nederlands <strong>omdat</strong> ik in Nederland <strong>woon</strong>.</em>
+<em>Ik weet <strong>dat</strong> hij goed Nederlands <strong>spreekt</strong>.</em></div>
+<div class="rule rule-b1"><strong>B1 challenge: multiple verbs at the end</strong>
+In subordinate clauses with modal + infinitive, or perfect tense, all verbs cluster at the end:
+<em>...omdat ik niet <strong>kan slapen</strong>.</em> (modal → infinitive)
+<em>...dat hij gisteren niet <strong>heeft gewerkt</strong>.</em> (hebben → participle)
+<em>...als hij morgen <strong>wil komen</strong>.</em> (willen → infinitive)
+The order of this verb cluster is one of the hardest B1 points!</div>
+<button class="lesson-cta" onclick="startQZ('B1')">B1 Quiz →</button></div>`},
+
+tenses:{html:`<div class="lesson-box"><h2>All 6 Tenses — Complete Overview <span class="lvl-pip pip-b1">B1</span></h2><div class="lv">B1 Intermediate — master all forms</div>
+<table class="vtable"><tr><th>Tense</th><th>Pattern (werken)</th><th>ik-form</th><th>When to use</th></tr>
+<tr><td>Present (OTT)</td><td>stem (+ t)</td><td class="du">ik werk</td><td>now, habits, near future</td></tr>
+<tr><td>Simple past (OVT)</td><td>stem + te/de</td><td class="du">ik werkte</td><td>written Dutch, modals, narrative</td></tr>
+<tr><td>Present perfect (VTT)</td><td>heb/ben + participle</td><td class="du">ik heb gewerkt</td><td>spoken past tense — most common!</td></tr>
+<tr><td>Past perfect (VOLT)</td><td>had/was + participle</td><td class="du">ik had gewerkt</td><td>past before past</td></tr>
+<tr><td>Future (OTT toekomst)</td><td>zal + infinitive</td><td class="du">ik zal werken</td><td>future plans, promises</td></tr>
+<tr><td>Conditional</td><td>zou + infinitive</td><td class="du">ik zou werken</td><td>would (hypothetical / polite)</td></tr>
+</table>
+<div class="rule rule-b1"><strong>B1 tip: spoken vs written Dutch</strong>
+In everyday spoken Dutch, use <strong>present perfect</strong> for almost all past events:
+<em>Ik heb gegeten. Zij is gekomen. We hebben gespeeld.</em>
+Simple past is used mainly for: modals (moest, kon, wilde), zijn/hebben, and formal/written text.</div>
+<div class="eg"><div class="du">Ik werk elke dag. / Ik werkte gisteren. / Ik heb gewerkt. / Ik had al gewerkt. / Ik zal morgen werken. / Ik zou graag werken.</div><div class="en">Present / Simple past / Perfect / Past perfect / Future / Conditional</div></div>
+<button class="lesson-cta" onclick="startQZ('B1')">B1 Quiz →</button></div>`},
+
+relative:{html:`<div class="lesson-box"><h2>Relative Clauses <span class="lvl-pip pip-b1">B1</span></h2><div class="lv">B1 Intermediate — linking sentences like a native</div>
+<p>Relative clauses describe or identify a noun. They are introduced by <strong>die</strong>, <strong>dat</strong>, or <strong>waar(+prep)</strong>.</p>
+<div class="hl"><strong>Die or dat?</strong>
+<em>Die</em> → for <em>de</em>-words (and all plurals)
+<em>Dat</em> → for <em>het</em>-words</div>
+<table class="vtable"><tr><th>Noun</th><th>Article</th><th>Relative pronoun</th><th>Example</th></tr>
+<tr><td>man</td><td>de</td><td class="du">die</td><td class="du">De man <strong>die</strong> loopt.</td></tr>
+<tr><td>vrouw</td><td>de</td><td class="du">die</td><td class="du">De vrouw <strong>die</strong> werkt.</td></tr>
+<tr><td>huis</td><td>het</td><td class="du">dat</td><td class="du">Het huis <strong>dat</strong> groot is.</td></tr>
+<tr><td>kind</td><td>het</td><td class="du">dat</td><td class="du">Het kind <strong>dat</strong> speelt.</td></tr>
+<tr><td>plural</td><td>de</td><td class="du">die</td><td class="du">De huizen <strong>die</strong> groot zijn.</td></tr>
+</table>
+<div class="rule rule-b1"><strong>Waar + preposition (B1 structure)</strong>
+When the relative pronoun follows a preposition, Dutch uses <em>waar + prep</em> instead of <em>die/dat</em>:
+<em>De stoel <strong>waarop</strong> ik zit.</em> (The chair on which I sit.)
+<em>Het land <strong>waaruit</strong> ik kom.</em> (The country from which I come.)
+<em>De persoon <strong>met wie</strong> ik werk.</em> (For people, use <em>met wie</em>, not <em>waarmee</em>.)</div>
+<div class="eg"><div class="du">Dat is de man die ik ken. / Het boek dat ik lees, is interessant. / De stad waarover ik vertelde.</div><div class="en">That is the man I know. / The book that I'm reading is interesting. / The city I was talking about.</div></div>
+<button class="lesson-cta" onclick="startQZ('B1')">B1 Quiz →</button></div>`},
+
+'false-friends':{html:`<div class="lesson-box"><h2>False Friends <span class="lvl-pip pip-b1">B1</span></h2><div class="lv">B1 Vocabulary — words that trick English speakers</div>
+<table class="vtable"><tr><th>Dutch word</th><th>Looks like...</th><th>Real meaning</th><th>Example</th></tr>
 <tr><td class="du">slim</td><td>slim (thin)</td><td><strong>smart, clever</strong></td><td class="du">Wat een slim kind!</td></tr>
 <tr><td class="du">actueel</td><td>actual</td><td><strong>current, up-to-date</strong></td><td class="du">Het actuele nieuws.</td></tr>
 <tr><td class="du">eventueel</td><td>eventually</td><td><strong>possibly, if necessary</strong></td><td class="du">Eventueel kan ik helpen.</td></tr>
 <tr><td class="du">deceptie</td><td>deception</td><td><strong>disappointment</strong></td><td class="du">Wat een grote deceptie!</td></tr>
-<tr><td class="du">braaf</td><td>brave</td><td><strong>well-behaved, good (child)</strong></td><td class="du">Wat een braaf kind.</td></tr>
+<tr><td class="du">braaf</td><td>brave</td><td><strong>well-behaved, good (child/pet)</strong></td><td class="du">Wat een braaf kind.</td></tr>
 <tr><td class="du">chef</td><td>chef (cook)</td><td><strong>boss, manager</strong></td><td class="du">Mijn chef is streng.</td></tr>
 <tr><td class="du">winkel</td><td>winkle (shellfish)</td><td><strong>shop, store</strong></td><td class="du">De winkel is open.</td></tr>
-<tr><td class="du">solliciteren</td><td>solicit</td><td><strong>to apply for a job</strong></td><td class="du">Ik solliciteer naar een baan.</td></tr>
-<tr><td class="du">college</td><td>college (school)</td><td><strong>lecture, university course</strong></td><td class="du">Ik ga naar het college.</td></tr>
+<tr><td class="du">solliciteren</td><td>solicit</td><td><strong>to apply for a job</strong></td><td class="du">Ik solliciteer naar een nieuwe baan.</td></tr>
+<tr><td class="du">college</td><td>college (school)</td><td><strong>university lecture / course</strong></td><td class="du">Ik ga naar het college.</td></tr>
 <tr><td class="du">vergiftigen</td><td>forgive</td><td><strong>to poison</strong></td><td class="du">Het water was vergiftigd.</td></tr>
 </table>
-<div class="rule"><strong>💡 Memory tip</strong>
-The most important ones to remember: <strong>slim = smart</strong> (not thin), <strong>eventueel = possibly</strong> (not eventually), <strong>deceptie = disappointment</strong> (not deception). These three come up constantly in conversation!</div>
-<button class="lesson-cta" onclick="startQZ('all')">Test with Quiz →</button></div>`},
+<div class="rule rule-b1"><strong>The top 3 most dangerous false friends</strong>
+1. <strong>slim</strong> = smart (thin = slank/dun)
+2. <strong>eventueel</strong> = possibly (eventually = uiteindelijk)
+3. <strong>deceptie</strong> = disappointment (deception = bedrog)
+These three come up constantly in conversation and in the NT2/inburgeringsexamen.</div>
+<button class="lesson-cta" onclick="startQZ('B1')">B1 Quiz →</button></div>`},
 };
 
 function showLesson(id){
@@ -1071,18 +1055,18 @@ function showLesson(id){
   show('lesson');
 }
 
-// ── UTILS ─────────────────────────────────────────────────────────────────
+// ── UTILS ──────────────────────────────────────────────────────────────────
 function shuf(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t;}return b;}
 
 // Init
 show('home');
 </script>
-</body>
+
 <!--
   Nederlands Leren
   Author: Rafael Lafraia
   Repository: github.com/lafraiarafael/dutch-learning
-  Version: 2.0 — 2026
+  Version: 2.1 — CEFR-aligned A1/A2/B1 — 2026
   rl.dev
 -->
 </html>
