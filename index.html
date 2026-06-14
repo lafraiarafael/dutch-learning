@@ -514,38 +514,168 @@ Object.keys(V).forEach(function(k){V[k].forEach(function(w){ALL.push(w);});});
 
 // ── QUIZ QUESTIONS — CEFR-TAGGED ───────────────────────────────────────────
 var QZ=[
-// ── A1 ──────────────────────────────────────────────────────────────────────
-{q:"What does 'Goedemorgen' mean?",o:["Good evening","Good morning","Good afternoon","Good night"],a:1,l:"A1",e:"<strong>Goedemorgen</strong> = Good morning (until ~noon). <em>Goedemiddag</em> = afternoon. <em>Goedenavond</em> = evening."},
-{q:"Correct sentence: 'My name is Maria.'",o:["Ik naam Maria","Ik ben Maria heet","Ik heet Maria","Maria ik heet"],a:2,l:"A1",e:"<strong>Ik heet Maria</strong> = My name is Maria. Ik heet = my name is / I am called. <em>Ik ben Maria</em> is also common but less formal."},
-{q:"'Half drie' in Dutch means:",o:["3:30","2:30","3:15","2:45"],a:1,l:"A1",e:"<strong>Half drie = 2:30</strong> — 'half' means halfway TO three. This surprises every English speaker. Half acht = 7:30. Half twaalf = 11:30."},
-{q:"What article does the word 'kind' (child) take?",o:["De","Het","Een","No article"],a:1,l:"A1",e:"<strong>Het kind</strong>. Neuter nouns and all diminutives use <em>het</em>. Common-gender nouns use <em>de</em>."},
-{q:"Which verb form is correct for 'ik'?",o:["Ik werkt","Ik werken","Ik werk","Ik werkten"],a:2,l:"A1",e:"For <strong>ik</strong>, use the bare verb stem: <em>ik werk</em>. Remove -en from the infinitive. Never add -t to ik."},
-{q:"How do you say 'I live in Amsterdam'?",o:["Ik ben in Amsterdam","Ik woon in Amsterdam","Ik ga in Amsterdam","Ik kom Amsterdam"],a:1,l:"A1",e:"<strong>Wonen</strong> = to live (somewhere). <em>Ik woon in Amsterdam.</em> Use <em>zijn</em> (ben) for states, not location of residence."},
-{q:"'Alsjeblieft' means:",o:["Thank you","Sorry","Please / Here you go (informal)","Goodbye"],a:2,l:"A1",e:"<strong>Alsjeblieft</strong> = please (making a request) OR here you go (handing something). Formal version: <em>Alstublieft</em>. Thank you = <em>Dank je wel</em>."},
-{q:"Correct Dutch for 'How are you?' (informal)?",o:["Hoe heet jij?","Hoe gaat het?","Waar woon jij?","Hoe oud ben jij?"],a:1,l:"A1",e:"<strong>Hoe gaat het?</strong> = How are you? (lit. How does it go?). Typical answer: <em>Goed, dank je.</em> Formal: <em>Hoe gaat het met u?</em>"},
-{q:"'Gisteren' means:",o:["Today","Tomorrow","Yesterday","Now"],a:2,l:"A1",e:"<strong>Gisteren</strong> = yesterday. <strong>Vandaag</strong> = today. <strong>Morgen</strong> = tomorrow. <strong>Straks</strong> = later/soon (today)."},
-{q:"Which sentence is correct?",o:["Ik am student","Ik ben een student","Ik heb student","Ik zijn student"],a:1,l:"A1",e:"<strong>Ik ben een student.</strong> — zijn (to be): ik ben, jij bent, hij is, wij zijn. Completely irregular — must be memorised!"},
-// ── A2 ──────────────────────────────────────────────────────────────────────
-{q:"Which conjunction introduces a REASON and sends the verb to the end?",o:["Maar","Want","Omdat","Dus"],a:2,l:"A2",e:"<strong>Omdat</strong> (because) is a subordinating conjunction — the verb goes to the END: <em>Ik leer Nederlands <strong>omdat</strong> ik in Nederland <strong>woon</strong>.</em> <em>Want</em> also means because but keeps normal word order."},
-{q:"What is the past tense of 'werken' (weak verb)?",o:["Werkte","Werkde","Werkten","Gewerkt"],a:0,l:"A2",e:"Stem of werken = <em>werk</em>. Ends in K = 't kofschip' → add <strong>-te</strong>: <em>ik werkte, jij werkte, hij werkte, wij werkten.</em>"},
-{q:"'Ik heb gegeten' is an example of:",o:["Simple past (OVT)","Present perfect (VTT)","Future tense","Conditional"],a:1,l:"A2",e:"<strong>Hebben + past participle</strong> = present perfect (voltooid tegenwoordige tijd). This is the most common past tense in spoken Dutch. Simple past of eten = <em>at</em>."},
-{q:"'Opstaan' in the sentence 'Ik sta om 7 uur op' — what kind of verb is this?",o:["Reflexive verb","Irregular strong verb","Separable verb","Modal verb"],a:2,l:"A2",e:"<strong>Opstaan</strong> is a separable verb. The prefix <em>op</em> splits off and goes to the end in main clauses: <em>Ik sta op.</em> In subordinate clauses it stays together: <em>...dat hij vroeg opstaat.</em>"},
-{q:"'Ik ga morgen naar Rotterdam' — what happens if you start with 'Morgen'?",o:["Morgen ik ga naar Rotterdam","Morgen ga ik naar Rotterdam","Morgen ik naar Rotterdam ga","Morgen naar Rotterdam ga ik"],a:1,l:"A2",e:"V2 rule: verb stays in <strong>second position</strong>. Starting with an adverb triggers inversion: <em>Morgen <strong>ga</strong> ik...</em> The subject moves after the verb."},
-{q:"Which verb uses 'zijn' (not 'hebben') in the perfect tense?",o:["Werken","Eten","Gaan","Kopen"],a:2,l:"A2",e:"<strong>Gaan</strong> (to go) takes <strong>zijn</strong>: <em>Ik ben gegaan.</em> Movement verbs and change-of-state verbs use zijn. Most other verbs use hebben."},
-{q:"'Maar' vs 'Hoewel' — which one requires the verb at the end?",o:["Maar","Hoewel","Both","Neither"],a:1,l:"A2",e:"<strong>Hoewel</strong> (although) is a subordinating conjunction → verb goes to the end: <em>Hoewel het regent, ga ik fietsen.</em> <strong>Maar</strong> (but) is coordinating → normal word order."},
-{q:"What is 'de rekening' in a restaurant?",o:["The menu","The reservation","The bill","The tip"],a:2,l:"A2",e:"<strong>De rekening</strong> = the bill. <em>Mag ik de rekening?</em> is what you say to the waiter. The tip = <em>de fooi</em>. The menu = <em>de menukaart / het menu</em>."},
-{q:"Which preposition do you use to say 'I go TO work'?",o:["In het werk","Op het werk","Naar het werk","Bij het werk"],a:2,l:"A2",e:"<strong>Naar</strong> indicates movement toward a destination: <em>Ik ga naar het werk / naar huis / naar Amsterdam.</em> Use <strong>op</strong> for surfaces, <strong>in</strong> for inside, <strong>bij</strong> for 'at someone's place'."},
-// ── B1 ──────────────────────────────────────────────────────────────────────
-{q:"Correct sentence with subordinate clause: 'I know that he speaks Dutch well.'",o:["Ik weet dat hij spreekt goed Nederlands","Ik weet dat hij goed Nederlands spreekt","Ik weet dat goed Nederlands hij spreekt","Weet ik dat hij goed Nederlands spreekt"],a:1,l:"B1",e:"In subordinate clauses (after <em>dat, omdat, als, wanneer</em>...), the verb goes to the <strong>end</strong>: <em>Ik weet dat hij goed Nederlands <strong>spreekt</strong>.</em> All verbs pile up at the end in the correct order."},
-{q:"What does 'Hoewel ik moe was, bleef ik werken' mean?",o:["Because I was tired, I stopped working","Although I was tired, I kept working","If I was tired, I would work","Since I was tired, I started working"],a:1,l:"B1",e:"<strong>Hoewel</strong> = although/even though. <strong>Bleef werken</strong> = kept working (blijven + infinitive). The comma after the subclause is standard Dutch punctuation."},
-{q:"Which sentence correctly uses the conditional?",o:["Ik zal graag helpen","Ik zou graag helpen","Ik wil graag geholpen","Ik kan graag helpen"],a:1,l:"B1",e:"<strong>Zou + infinitive</strong> = conditional (would). <em>Ik zou graag helpen</em> = I would like to help. Very polite. <em>Zal</em> = future (will/shall). Don't confuse them."},
-{q:"'Die' vs 'dat' as relative pronouns — which is correct: 'het huis ___ groot is'?",o:["die","dat","wat","wie"],a:1,l:"B1",e:"Relative pronouns: <strong>die</strong> for <em>de</em>-words (+ plurals), <strong>dat</strong> for <em>het</em>-words. <em>Het huis</em> = het-word → <em>het huis <strong>dat</strong> groot is.</em> <em>De man <strong>die</strong> loopt.</em>"},
-{q:"'Naar mijn mening is dat niet goed' — what does this phrase express?",o:["A fact","A personal opinion","A command","A question"],a:1,l:"B1",e:"<strong>Naar mijn mening</strong> = in my opinion. Other B1 opinion phrases: <em>Ik vind dat..., Ik ben van mening dat..., Het lijkt me dat..., Wat mij betreft...</em>"},
-{q:"What is the simple past (OVT) of the strong verb 'rijden'?",o:["Rijdde","Gereden","Reed","Gereedde"],a:2,l:"B1",e:"<strong>Rijden → reed</strong> (singular past). Strong verbs change their vowel. <em>Ik reed, jij reed, hij reed, wij reden.</em> Past participle: <em>gereden</em>. These must be memorised."},
-{q:"'Slim' in Dutch means:",o:["Slim (thin)","Smart / clever","Slow","Brave"],a:1,l:"B1",e:"<strong>Slim</strong> = smart, clever. This is a classic false friend. 'Thin' in Dutch = <em>slank / dun</em>. Other false friends: <em>eventueel</em> (possibly, not eventually), <em>deceptie</em> (disappointment, not deception)."},
-{q:"Correct use of 'zullen' for future tense: 'They will arrive tomorrow.'",o:["Zij gaan morgen aankomen","Zij zullen morgen aankomen","Zij zijn morgen aankomen","Zij kunnen morgen aankomen"],a:1,l:"B1",e:"Future tense: <strong>zullen + infinitive</strong>. <em>Zij zullen morgen aankomen.</em> Note: in spoken Dutch, the present tense with a time marker (<em>Zij komen morgen aan</em>) is also very common."},
-{q:"In B1, which sentence correctly chains two verbs in a subordinate clause?",o:["...omdat ik wil gaan slapen","...omdat ik slapen wil gaan","...omdat ik gaan slapen wil","...omdat ik slapen gaan wil"],a:0,l:"B1",e:"With modals + separable verbs, the order at the end of a subordinate clause is: modal (<em>wil</em>) + infinitive (<em>gaan slapen</em>): <em>...omdat ik wil gaan slapen.</em> This cluster ordering is one of the hardest B1 grammar points."},
-{q:"'Desondanks' most closely means:",o:["Therefore","However","Nevertheless / despite that","Because of that"],a:2,l:"B1",e:"<strong>Desondanks</strong> = nevertheless, despite that. Related B1 connectors: <em>toch</em> (still/yet), <em>echter</em> (however), <em>bovendien</em> (moreover), <em>daarentegen</em> (on the other hand)."},
+// ── A1 — Survival Dutch ──────────────────────────────────────────────────────
+{q:"Which sentence correctly introduces yourself in Dutch?",
+o:["Ik naam is Maria","Ik ben heet Maria","Ik heet Maria en ik kom uit Brazilië","Maria ik woon"],
+a:2,l:"A1",
+e:"<strong>Ik heet Maria en ik kom uit Brazilië.</strong> — Two A1 building blocks chained. <em>Ik heet</em> = my name is. <em>Ik kom uit</em> = I come from. Never say <em>Ik naam is</em> — that is not Dutch."},
+
+{q:"What does 'half vier' mean?",
+o:["4:30","3:30","4:15","3:15"],
+a:1,l:"A1",
+e:"<strong>Half vier = 3:30</strong>, not 4:30. 'Half' means halfway TO the hour that follows. Half drie = 2:30. Half acht = 7:30. This is the single most common mistake English speakers make in Dutch."},
+
+{q:"Which article is correct: '___ kind speelt buiten.'?",
+o:["De","Een","Het","Geen artikel"],
+a:2,l:"A1",
+e:"<strong>Het kind</strong> — 'kind' is a neuter noun and takes <em>het</em>. All diminutives (-je) and roughly ⅓ of nouns use <em>het</em>. The rest use <em>de</em>. Plurals always use <em>de</em>: de kinderen."},
+
+{q:"Fill in: 'Jij ___ in Amsterdam.' (wonen)",
+o:["woon","woont","wonen","woonde"],
+a:1,l:"A1",
+e:"Jij/je takes stem + t: <strong>jij woont</strong>. Exception: if jij comes AFTER the verb (inversion), the -t drops — <em>Woon jij in Amsterdam?</em> But in a normal statement, always add -t for jij."},
+
+{q:"You want to say 'I don't understand' in Dutch. Which is correct?",
+o:["Ik niet begrijp","Ik begrijp niet","Begrijp ik","Niet ik begrijp"],
+a:1,l:"A1",
+e:"<strong>Ik begrijp niet.</strong> Negation with <em>niet</em> comes AFTER the verb (and after a direct object if there is one): Subject → Verb → Object → niet. <em>Ik begrijp het niet.</em>"},
+
+{q:"'Alstublieft' differs from 'alsjeblieft' because:",
+o:["Alstublieft means thank you; alsjeblieft means please","Alstublieft is formal (u-form); alsjeblieft is informal (jij-form)","They are completely interchangeable","Alstublieft is only used in shops"],
+a:1,l:"A1",
+e:"<strong>Alstublieft</strong> uses the formal <em>u</em>-form. <strong>Alsjeblieft</strong> uses the informal <em>je</em>-form. Both mean 'please' or 'here you go'. Use <em>alstublieft</em> with strangers, elderly people, and in formal settings."},
+
+{q:"Choose the correct plural: 'één huis → drie ___'",
+o:["huisen","huissen","huizen","huiss"],
+a:2,l:"A1",
+e:"<strong>Huizen</strong> — when a word ends in -s or a single vowel + consonant, the final consonant is often doubled or modified: huis → huizen (z appears). Plural rules: -en is most common. The article is always <em>de</em> for plurals."},
+
+{q:"What does 'het spijt me' mean?",
+o:["Excuse me (to pass)","I'm sorry (apology / regret)","See you later","I don't know"],
+a:1,l:"A1",
+e:"<strong>Het spijt me</strong> = I'm sorry / I regret it (genuine apology). <em>Sorry</em> = casual sorry. <em>Pardon</em> = excuse me to pass. <em>Neem me niet kwalijk</em> = please don't be angry with me (more formal apology)."},
+
+{q:"'Goedenavond' is used:",
+o:["In the morning until noon","In the afternoon from noon to 6pm","In the evening from roughly 6pm onwards","Any time of day"],
+a:2,l:"A1",
+e:"<strong>Goedenavond</strong> = good evening (from ~18:00 onwards). <em>Goedemorgen</em> = morning. <em>Goedemiddag</em> = afternoon (~12:00–18:00). <em>Goedenacht</em> = goodnight (when going to sleep)."},
+
+{q:"Which sentence has correct A1 word order?",
+o:["Ik Amsterdam woon in","Woon ik in Amsterdam","Ik woon in Amsterdam","In Amsterdam ik woon"],
+a:2,l:"A1",
+e:"<strong>Ik woon in Amsterdam.</strong> Basic Dutch word order: Subject → Verb → Rest. The verb is always in second position. <em>In Amsterdam woon ik</em> is also grammatically correct (inversion — V2 rule) but more advanced."},
+
+// ── A2 — Daily Life ───────────────────────────────────────────────────────────
+{q:"'Ik heb gisteren mijn sleutels vergeten.' What tense is this?",
+o:["Simple past (OVT) — ik vergat","Present perfect (VTT) — heb + vergeten","Future — ik zal vergeten","Conditional — ik zou vergeten"],
+a:1,l:"A2",
+e:"<strong>Present perfect (VTT): heb + vergeten.</strong> Vergeten is an irregular verb (strong) — past participle = <em>vergeten</em> (no ge- prefix because it starts with an unstressed prefix <em>ver-</em>). This is the most common way to express the past in spoken Dutch."},
+
+{q:"Which sentence uses 'want' and 'omdat' CORRECTLY?",
+o:["Ik blijf thuis, omdat het regent buiten","Ik blijf thuis, want het regent buiten","Both are grammatically correct","Ik blijf thuis, omdat buiten het regent"],
+a:1,l:"A2",
+e:"Both A and B are correct! <strong>Want</strong> = coordinating → normal word order follows. <strong>Omdat</strong> = subordinating → verb goes to the END: <em>...omdat het <strong>regent</strong></em>. Option A has wrong word order after omdat. Option B is perfect."},
+
+{q:"'Opstaan' in 'Ik sta elke dag om 7 uur op.' — where does the prefix go in a subordinate clause?",
+o:["...dat ik elke dag om 7 uur sta op","...dat ik elke dag om 7 uur opstaat","...dat ik elke dag om 7 uur op sta","...dat ik om 7 uur opgestaan"],
+a:1,l:"A2",
+e:"In a subordinate clause, the separable verb stays TOGETHER at the end: <strong>...dat ik elke dag om 7 uur opstaat.</strong> The prefix cannot split off inside a subordinate clause. In a main clause it splits: <em>Ik sta op.</em>"},
+
+{q:"'Ik ben gisteren naar de markt ___.' — which participle is correct for 'gaan'?",
+o:["gegaan","gegang","gegaan (zijn verb!)","De zin is fout — gaan uses hebben"],
+a:0,l:"A2",
+e:"<strong>Gegaan</strong>, and the auxiliary is <em>zijn</em> (not hebben): <em>Ik ben gegaan.</em> Gaan is a movement verb → always takes zijn in the perfect tense. Other zijn-verbs: komen, rijden, lopen, vliegen, worden, blijven."},
+
+{q:"Choose the correct simple past: 'Hij ___ gisteren om 8 uur aan.' (aankomen)",
+o:["aankwam","kwamen aan","kwam aan","aankomen"],
+a:2,l:"A2",
+e:"Simple past of <em>komen</em> (strong verb) = <strong>kwam</strong>. As a separable verb, the prefix splits off in the past too: <strong>hij kwam om 8 uur aan.</strong> (NOT: aankwam — the prefix always goes to the end in main clauses, even in past tense.)"},
+
+{q:"'Ik ___ morgen naar het ziekenhuis.' — most natural choice?",
+o:["zal gaan","ga","ben gegaan","moet gegaan"],
+a:1,l:"A2",
+e:"<strong>Ik ga morgen naar het ziekenhuis.</strong> For planned near-future events, Dutch commonly uses the present tense with a time marker (<em>morgen</em>). <em>Ik zal gaan</em> is grammatically correct but sounds more formal/uncertain for a fixed plan."},
+
+{q:"Which preposition completes: 'Ik werk ___ kantoor.'?",
+o:["in het","op het","naar het","bij het"],
+a:1,l:"A2",
+e:"<strong>Op kantoor</strong> — fixed expression for 'at the office'. Similarly: <em>op school</em> (at school), <em>op de markt</em> (at the market), <em>op vakantie</em> (on holiday). Use <em>in</em> for enclosed spaces: <em>in het ziekenhuis, in de auto</em>."},
+
+{q:"'Hoewel het hard regende, ___ hij toch naar zijn werk.' — correct form?",
+o:["fietste hij","hij fietste","had hij gefietst","fietsen hij"],
+a:0,l:"A2",
+e:"After a subordinate clause that starts the sentence, the MAIN clause begins with the verb (inversion): <em>Hoewel het hard regende, <strong>fietste hij</strong> toch naar zijn werk.</em> Clause 1 counts as position 1 → verb is position 2 → subject comes after verb."},
+
+{q:"'Mag ik u iets vragen?' — What level of formality is this?",
+o:["Informal — it uses jij","Formal — it uses u","Neutral — mag is always formal","Incorrect Dutch"],
+a:1,l:"A2",
+e:"<strong>Formal.</strong> <em>U</em> is the formal second person. <em>Mag ik jou iets vragen?</em> = informal. The verb <em>mogen</em> (may / to be allowed to) is used to make polite requests — essential at A2 for doctor visits, shops, and official situations."},
+
+{q:"Which sentence about past habit is correct at A2?",
+o:["Vroeger fietste ik elke dag naar school","Vroeger heb ik elke dag naar school gefietst","Vroeger ga ik naar school elke dag","Vroeger ik fietste elke dag"],
+a:0,l:"A2",
+e:"<strong>Vroeger fietste ik elke dag naar school.</strong> For past habits and repeated actions in the past (especially with <em>vroeger</em> = in the past/formerly), the simple past (OVT) is more natural than the perfect. Both are grammatically acceptable, but the OVT is preferred here."},
+
+// ── B1 — Independent User ─────────────────────────────────────────────────────
+{q:"'Ik zou graag weten of hij morgen kan komen.' — Why is this B1 structure?",
+o:["It uses zou (conditional) + embedded question with of + modal can with verb-final order","It uses the past tense incorrectly","It is actually A2 — this is a basic sentence","Of always causes inversion"],
+a:0,l:"B1",
+e:"This sentence stacks three B1 features: <strong>1)</strong> <em>zou</em> (conditional). <strong>2)</strong> Embedded indirect question with <em>of</em> (whether). <strong>3)</strong> Verb-final order in the embedded clause: <em>...of hij morgen <strong>kan komen</strong></em> (modal + infinitive at end). Each alone is A2; together they characterise B1."},
+
+{q:"Choose the sentence with CORRECT relative clause:",
+o:["De vrouw die naast mij woont, is dokter","De vrouw dat naast mij woont, is dokter","De vrouw wie naast mij woont, is dokter","De vrouw welke naast mij woont, is dokter"],
+a:0,l:"B1",
+e:"<strong>Die</strong> is the relative pronoun for <em>de</em>-words (and all plurals): <em>de vrouw <strong>die</strong>...</em> Use <em>dat</em> only for <em>het</em>-words: <em>het huis dat groot is.</em> <em>Wie</em> = who (interrogative, not relative). <em>Welke</em> is used in formal writing but not in standard spoken Dutch."},
+
+{q:"'Ik vind het jammer dat hij niet meer werkt, hoewel ik zijn beslissing begrijp.' What makes this B1?",
+o:["Two subordinate clauses, opinion expression, and a concessive conjunction","It uses simple vocabulary only","The present tense throughout makes it B1","Jammer is a B1 word"],
+a:0,l:"B1",
+e:"B1 markers: <strong>1)</strong> <em>Ik vind het jammer dat...</em> — opinion formula + embedded clause. <strong>2)</strong> <em>hoewel</em> — concessive conjunction (although) which is distinctly B1. <strong>3)</strong> Two subordinate clauses in one sentence. <strong>4)</strong> Abstract vocabulary: <em>beslissing</em> (decision), <em>begrijp</em> (understand)."},
+
+{q:"Complete the verb cluster: 'Hij zei dat hij de vergadering niet had ___ bijwonen.'",
+o:["kunnen","kan","kon","konden"],
+a:0,l:"B1",
+e:"<em>Kunnen</em> (infinitive) after <em>had</em>: <strong>...niet had <em>kunnen</em> bijwonen</strong> — past perfect + modal infinitive. In subordinate clauses the cluster order is: [other verbs] + [infinitive]. In the past perfect + modal: <em>had kunnen bijwonen</em> = had been able to attend. This triple verb cluster is a hallmark of B1."},
+
+{q:"'Ondanks het slechte weer zijn we toch gegaan.' — What does 'ondanks' signal?",
+o:["Reason (because of)","Concession (despite / in spite of)","Result (so that)","Condition (if)"],
+a:1,l:"B1",
+e:"<strong>Ondanks</strong> = despite, in spite of. It is a preposition (not a conjunction), so it is followed by a noun phrase: <em>ondanks het slechte weer</em> — not a clause. Compare: <em>hoewel het slecht weer was</em> (hoewel = subordinating conjunction → verb to end)."},
+
+{q:"'De aanbevelingen die door de commissie zijn gedaan, worden nog bestudeerd.' What construction is 'zijn gedaan'?",
+o:["Active present perfect with zijn","Passive past tense (lijdende vorm met worden/zijn)","A relative clause error","Present tense of doen"],
+a:1,l:"B1",
+e:"<strong>Lijdende vorm (passive)</strong>: agent is not mentioned; the action was done TO the subject. Pattern: worden/zijn + voltooid deelwoord. <em>zijn gedaan</em> = were done (perfect passive). The full passive of <em>doen</em>: wordt gedaan (present) / werd gedaan (past) / is gedaan (perfect)."},
+
+{q:"Which sentence expresses a POLITE request using the conditional?",
+o:["Wil jij dit formulier invullen?","Kun je dit formulier invullen?","Zou je dit formulier in kunnen vullen?","Moet jij dit formulier invullen?"],
+a:2,l:"B1",
+e:"<strong>Zou je... kunnen...?</strong> = Could you...? (conditional + modal) is the most polite form. Note also: the separable verb <em>invullen</em> stays together at the end in the subordinate-style clause after <em>zou</em>: <em>in kunnen vullen</em> — the prefix stays with the infinitive."},
+
+{q:"'Wat betreft de planning, heb ik een paar opmerkingen.' — What does 'wat betreft' mean?",
+o:["Despite the planning","As far as the planning is concerned / regarding","Because of the planning","After the planning"],
+a:1,l:"B1",
+e:"<strong>Wat betreft</strong> = regarding, as far as ... is concerned. It is a fixed B1 expression used to introduce a topic formally: <em>Wat betreft uw sollicitatie...</em> Similar: <em>met betrekking tot, aangaande</em> (more formal), <em>over</em> (informal)."},
+
+{q:"'Tenzij hij belt, ga ik niet wachten.' — What does 'tenzij' mean?",
+o:["Although","Unless","Because","Until"],
+a:1,l:"B1",
+e:"<strong>Tenzij</strong> = unless (= if not). It is a subordinating conjunction → verb goes to the end: <em>tenzij hij <strong>belt</strong></em>. Compare: <em>als</em> (if), <em>hoewel</em> (although), <em>totdat</em> (until), <em>zodra</em> (as soon as). These conditional/temporal conjunctions are tested in the NT2 staatsexamen."},
+
+{q:"'Ik ben er niet van overtuigd dat dit de juiste aanpak is.' — What does 'aanpak' mean?",
+o:["Conclusion","Starting point","Approach / method","Decision"],
+a:2,l:"B1",
+e:"<strong>Aanpak</strong> = approach, way of tackling something (<em>aanpakken</em> = to tackle/handle). B1 abstract vocabulary essential for work and opinion contexts. <em>Ik ben er niet van overtuigd dat...</em> = I am not convinced that... — a key opinion formula."},
+
+{q:"'Om te' vs 'te' — which sentence is correct?",
+o:["Ik hoop te slagen voor het examen","Ik hoop om te slagen voor het examen","Ik wil om te werken","Ik ga studeren om slagen"],
+a:0,l:"B1",
+e:"<strong>Ik hoop te slagen.</strong> After verbs of hoping, wanting, planning: use bare <em>te</em>: <em>hopen te, willen te, proberen te</em>. Use <em>om... te</em> to express PURPOSE: <em>Ik studeer hard <strong>om te slagen</strong>.</em> (I study hard in order to pass). This distinction is tested at B1 and above."},
+
+{q:"Choose the correct passive sentence: 'The letter was sent yesterday.'",
+o:["De brief is gisteren gestuurd","De brief werd gisteren verstuurd","De brief is gisteren versturen","Gisteren werd de brief sturen"],
+a:1,l:"B1",
+e:"Both A and B are defensible, but <strong>B is more precise</strong>: <em>werd verstuurd</em> = past passive (was sent). Option A uses <em>is gestuurd</em> which is perfect passive (has been sent). In formal/written Dutch, the simple past passive (<em>werd</em>) is preferred for a specific moment in the past."},
 ];
 
 // ── STATE ──────────────────────────────────────────────────────────────────
